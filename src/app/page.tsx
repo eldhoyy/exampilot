@@ -29,11 +29,11 @@ export default function Home() {
         </a>
         <div className="eyebrow mb-3 px-3">Workspace</div>
         <nav className="flex flex-col gap-1">
-          {navItems.map(({ label, icon: Icon, active }) => <a key={label} href="#" className={`nav-link ${active ? "active" : ""}`}><Icon size={18} />{label}{label === "AI doubt solver" && <span className="ml-auto rounded-full bg-[#e8edff] px-2 py-0.5 text-[10px] text-[#315efb]">AI</span>}</a>)}
+          {navItems.map(({ label, icon: Icon, active }) => <a key={label} href={label === "Overview" ? "/" : label === "My study plan" ? "/study-plan" : label === "Subjects" ? "/subjects" : label === "Study materials" ? "/study-materials" : "/ai-tutor"} className={`nav-link ${active ? "active" : ""}`}><Icon size={18} />{label}{label === "AI doubt solver" && <span className="ml-auto rounded-full bg-[#e8edff] px-2 py-0.5 text-[10px] text-[#315efb]">AI</span>}</a>)}
         </nav>
         <div className="eyebrow mb-3 mt-9 px-3">Personal</div>
         <a href="/onboarding" className="nav-link"><Target size={18}/>Goals & progress</a>
-        <a href="#" className="nav-link"><Settings2 size={18}/>Settings</a>
+        <a href="/onboarding" className="nav-link"><Settings2 size={18}/>Academic profile</a>
         <div className="mt-auto rounded-2xl bg-[#f3f6ff] p-4">
           <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl bg-white text-[#315efb]"><Sparkles size={17}/></div>
           <p className="text-sm font-bold text-[#1c2c50]">Small steps add up.</p>
