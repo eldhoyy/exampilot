@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Activity, ArrowRight, BookOpen, CalendarDays, CheckCircle2, ChevronRight,
   Clock3, Compass, GraduationCap, LayoutDashboard, Library, MessageCircle,
@@ -31,7 +32,7 @@ export default function Home() {
           {navItems.map(({ label, icon: Icon, active }) => <a key={label} href="#" className={`nav-link ${active ? "active" : ""}`}><Icon size={18} />{label}{label === "AI doubt solver" && <span className="ml-auto rounded-full bg-[#e8edff] px-2 py-0.5 text-[10px] text-[#315efb]">AI</span>}</a>)}
         </nav>
         <div className="eyebrow mb-3 mt-9 px-3">Personal</div>
-        <a href="#" className="nav-link"><Target size={18}/>Goals & progress</a>
+        <a href="/onboarding" className="nav-link"><Target size={18}/>Goals & progress</a>
         <a href="#" className="nav-link"><Settings2 size={18}/>Settings</a>
         <div className="mt-auto rounded-2xl bg-[#f3f6ff] p-4">
           <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl bg-white text-[#315efb]"><Sparkles size={17}/></div>
@@ -44,7 +45,7 @@ export default function Home() {
         <header className="flex items-center justify-between border-b border-[#e8edf5] bg-white px-5 py-4 sm:px-8">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#315efb] text-white md:hidden"><GraduationCap size={19}/></div>
-            <div><p className="text-sm font-bold text-[#14213d]">Your workspace</p><p className="text-xs text-slate-400">Sunday, 8 November 2026</p></div>
+            <div><p className="text-sm font-bold text-[#14213d]">Your workspace</p><p className="text-xs text-slate-400">Your academic journey starts here</p></div>
           </div>
           <div className="flex items-center gap-3"><span className="hidden rounded-full border border-[#e8edf5] px-3 py-2 text-xs font-semibold text-slate-500 sm:inline-flex">KTU · B.Tech</span><div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e9efff] text-sm font-bold text-[#315efb]">E</div></div>
         </header>
@@ -52,7 +53,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-5 py-7 sm:px-8 sm:py-9">
           <section className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div><p className="mb-2 text-sm font-semibold text-[#315efb]">YOUR EXAM PREPARATION, IN ONE PLACE</p><h1 className="text-3xl font-extrabold tracking-tight text-[#14213d] sm:text-[38px]">Good evening<span className="text-[#315efb]">.</span></h1><p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">Build a study routine that fits your exams, your subjects and your pace.</p></div>
-            <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#315efb] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-[#244fe8]"><Plus size={17}/> Set up my study plan</button>
+            <a href="/onboarding" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#315efb] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-[#244fe8]"><Plus size={17}/> Set up my study plan</a>
           </section>
 
           <section className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -65,7 +66,7 @@ export default function Home() {
           <section className="mb-6 grid gap-5 xl:grid-cols-[1.55fr_1fr]">
             <div className="panel overflow-hidden">
               <div className="flex items-center justify-between border-b border-[#edf0f6] px-5 py-4 sm:px-6"><div><h2 className="font-bold text-[#14213d]">Today&apos;s focus</h2><p className="mt-1 text-xs text-slate-400">Your daily study schedule will appear here</p></div><span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold text-slate-500">Not started</span></div>
-              <div className="flex flex-col items-center px-6 py-10 text-center"><div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#eef3ff] text-[#315efb]"><CalendarDays size={25}/></div><h3 className="font-bold text-[#14213d]">Your day, thoughtfully planned.</h3><p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">Add your exam timetable and subjects. ExamPilot can then help organize focused study sessions and breaks.</p><button className="mt-5 inline-flex items-center gap-2 rounded-xl border border-[#dce5ff] px-4 py-2.5 text-sm font-bold text-[#315efb] hover:bg-[#f5f7ff]">Get started <ArrowRight size={16}/></button></div>
+              <div className="flex flex-col items-center px-6 py-10 text-center"><div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#eef3ff] text-[#315efb]"><CalendarDays size={25}/></div><h3 className="font-bold text-[#14213d]">Your day, thoughtfully planned.</h3><p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">Add your exam timetable and subjects. ExamPilot can then help organize focused study sessions and breaks.</p><a href="/onboarding" className="mt-5 inline-flex items-center gap-2 rounded-xl border border-[#dce5ff] px-4 py-2.5 text-sm font-bold text-[#315efb] hover:bg-[#f5f7ff]">Get started <ArrowRight size={16}/></a></div>
             </div>
             <div className="panel p-5 sm:p-6"><div className="mb-5 flex items-center justify-between"><div><h2 className="font-bold text-[#14213d]">Quick actions</h2><p className="mt-1 text-xs text-slate-400">Jump back into your workflow</p></div><MoreHorizontal size={19} className="text-slate-400"/></div><div className="flex flex-col gap-3"><QuickAction icon={<CalendarDays size={18}/>} title="Add exam timetable" description="Enter dates or upload a PDF" /><QuickAction icon={<BookOpen size={18}/>} title="Add your subjects" description="Choose branch, semester and scheme" /><QuickAction icon={<MessageCircle size={18}/>} title="Ask a study doubt" description="Get help understanding a topic" /></div><div className="mt-5 rounded-xl bg-[#f5f7ff] p-3 text-xs leading-5 text-slate-500"><Compass size={15} className="mr-1 inline text-[#315efb]"/> Your dashboard will become personalized after setup.</div></div>
           </section>
@@ -82,5 +83,5 @@ export default function Home() {
 }
 
 function QuickAction({ icon, title, description }: { icon: ReactNode; title: string; description: string }) {
-  return <button className="flex items-center gap-3 rounded-xl border border-[#edf0f6] p-3 text-left transition hover:border-[#cbd8ff] hover:bg-[#fafbff]"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315efb]">{icon}</span><span className="min-w-0 flex-1"><span className="block text-sm font-bold text-[#263653]">{title}</span><span className="mt-1 block text-xs text-slate-400">{description}</span></span><ChevronRight size={16} className="text-slate-300"/></button>;
+  return <a href="/onboarding" className="flex items-center gap-3 rounded-xl border border-[#edf0f6] p-3 text-left transition hover:border-[#cbd8ff] hover:bg-[#fafbff]"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315efb]">{icon}</span><span className="min-w-0 flex-1"><span className="block text-sm font-bold text-[#263653]">{title}</span><span className="mt-1 block text-xs text-slate-400">{description}</span></span><ChevronRight size={16} className="text-slate-300"/></a>;
 }
