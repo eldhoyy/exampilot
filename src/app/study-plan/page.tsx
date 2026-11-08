@@ -27,7 +27,7 @@ export default function StudyPlanPage() {
     try {
       const academicProfile = JSON.parse(localStorage.getItem("exampilot-profile-draft") || "null");
       if (academicProfile) setProfile(academicProfile);
-      const saved = JSON.parse(localStorage.getItem("exampilot-subjects") || "[]") as Array<{id:string;title:string;code?:string;difficulty:Difficulty;examDate:string}>;
+      const saved = JSON.parse(localStorage.getItem("exampilot-subjects") || "[]") as Array<{id:string;title:string;code?:string;difficulty:Difficulty;examDate:string;modules?:number;completedModules?:number}>;
       const converted = saved.filter(s => s.title && s.examDate).map(s => ({...s, modules:s.modules||5, completedModules:s.completedModules||0}));
       const manual = JSON.parse(localStorage.getItem("exampilot-planner-subjects") || "[]") as SavedSubject[];
       const timetable = JSON.parse(localStorage.getItem("exampilot-manual-timetable") || "[]") as Array<{id:string;title:string;code:string;date:string}>;
