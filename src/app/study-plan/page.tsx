@@ -8,8 +8,14 @@ import { buildStudyPlan, localDateISO, type Difficulty, type StudySubject } from
 
 type Profile = { name:string; university:string; programme:string; scheme:string; branch:string; semester:string };
 type ExamRow = { id:string; subject_code:string; subject_title:string; starts_at:string; exam_timetables?:{version_label:string|null; timetable_sources?:{source_title:string|null;source_url:string}|null} };
-type PlannerSubject = StudySubject & { code:string; verified:boolean; sourceTitle?:string; sourceUrl?:string };
+type PlannerSubject = StudySubject & { code:string; verified:boolean; startsAt:string; sourceTitle?:string; sourceUrl?:string };
 
+function remainingLabel(value:string) {
+  const ms=new Date(value).getTime()-Date.now();
+  if(ms<=0)return "Examination time has passed";
+  const days=Math.floor(ms/86400000),hours=Math.floor((ms%86400000)/3600000),minutes=Math.floor((ms%3600000)/60000);
+  return days>0?days+"d "+hours+"h "+minutes+"m remaining":hours>0?hours+"h "+minutes+"m remaining":minutes+"m remaining";
+}
 export default function StudyPlanPage() {
   const [profile,setProfile]=useState<Profile|null>(null);
   const [subjects,setSubjects]=useState<PlannerSubject[]>([]);
@@ -63,7 +69,7 @@ export default function StudyPlanPage() {
         const match=(catalogue||[]).find((s:{subject_code:string})=>s.subject_code===e.subject_code);
         const id=match?.id||e.id;
         return {
-          id,title:e.subject_title,code:e.subject_code,examDate:e.starts_at.slice(0,10),
+          id,title:e.subject_title,code:e.subject_code,examDate:e.starts_at.slice(0,10),startsAt:e.starts_at,
           difficulty:saved[id]||"medium",modules:Math.max(1,match?.subject_modules?.length||5),
           completedModules:0,verified:true,
           sourceTitle:e.exam_timetables?.timetable_sources?.source_title||"Official KTU timetable",
@@ -100,7 +106,7 @@ export default function StudyPlanPage() {
       {error&&<p role="status" className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{error} ExamPilot will not invent exam dates or substitute an unverified timetable.</p>}
       {!loading&&!error&&subjects.length===0&&<p className="mt-3 text-sm leading-6 text-slate-600">No upcoming verified examination dates were found for this exact profile. The timetable needs to be published and verified before a reliable date-based plan can be generated.</p>}
       {lastChecked&&<p className="mt-2 text-xs text-slate-400">Last checked {lastChecked} · Official records only</p>}
-      {upcoming.map(s=><div key={s.id} className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">Exam: {new Date(s.examDate+"T00:00:00").toLocaleDateString("en-IN",{dateStyle:"full"})} · {s.modules} study blocks</p></div><a href={s.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-emerald-700">{s.sourceTitle}</a></div>)}
+      {upcoming.map(s=><div key={s.id} className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">Exam: {new Date(s.startsAt).toLocaleString("en-IN",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})} · {s.modules} study blocks</p><p className="mt-1 text-xs font-semibold text-blue-700">{remainingLabel(s.startsAt)}</p></div><a href={s.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-emerald-700">{s.sourceTitle}</a></div>)}
     </section>
     {subjects.length>0&&<section className="panel mb-5 space-y-4 p-5"><div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Choose difficulty for each subject</h2></div><p className="text-sm text-slate-500">This is the only subject information ExamPilot needs from you. Exam dates and subject names come from the verified timetable.</p>
       {subjects.map(s=><div key={s.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-400">Exam {s.examDate}</p></div><select aria-label={"Difficulty for "+s.title} value={difficulty[s.id]||"medium"} onChange={e=>setSubjectDifficulty(s.id,e.target.value as Difficulty)} className="rounded-xl border border-slate-200 px-3 py-2.5 text-sm"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>)}
