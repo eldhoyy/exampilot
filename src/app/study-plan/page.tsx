@@ -21,9 +21,12 @@ export default function StudyPlanPage() {
   const [focusMinutes, setFocusMinutes] = useState(50);
   const [breakMinutes, setBreakMinutes] = useState(10);
   const [ready, setReady] = useState(false);
+  const [profile, setProfile] = useState<{name:string; university:string; programme:string; scheme:string; branch:string; semester:string} | null>(null);
 
   useEffect(() => {
     try {
+      const academicProfile = JSON.parse(localStorage.getItem("exampilot-profile-draft") || "null");
+      if (academicProfile) setProfile(academicProfile);
       const saved = JSON.parse(localStorage.getItem("exampilot-subjects") || "[]") as Array<{id:string;title:string;code?:string;difficulty:Difficulty;examDate:string}>;
       const converted = saved.filter(s => s.title && s.examDate).map(s => ({...s, modules:5, completedModules:0}));
       const manual = JSON.parse(localStorage.getItem("exampilot-planner-subjects") || "[]") as SavedSubject[];
@@ -37,7 +40,7 @@ export default function StudyPlanPage() {
     if (ready) localStorage.setItem("exampilot-planner-subjects", JSON.stringify(subjects));
   }, [subjects, ready]);
 
-  const plan = useMemo(() => buildStudyPlan(subjects, dailyHours * 60, new Date(todayISO()+"T00:00:00"), focusMinutes), [subjects, dailyHours]);
+  const plan = useMemo(() => buildStudyPlan(subjects, dailyHours * 60, new Date(todayISO()+"T00:00:00"), focusMinutes, breakMinutes), [subjects, dailyHours, focusMinutes, breakMinutes]);
   const grouped = useMemo(() => plan.reduce<Record<string, typeof plan>>((acc, session) => {
     (acc[session.date] ||= []).push(session);
     return acc;
@@ -55,6 +58,11 @@ export default function StudyPlanPage() {
     <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link>
     <div className="mb-7"><p className="eyebrow mb-2">PERSONAL STUDY PLANNER</p><h1 className="text-3xl font-extrabold tracking-tight">A plan that fits your pace.</h1><p className="mt-2 text-sm leading-6 text-slate-500">Add your real exam dates and subject difficulty. ExamPilot creates a daily study routine with planned rest breaks.</p></div>
 
+    {profile && <section className="panel mb-5 border-blue-100 bg-blue-50/50 p-5">
+      <div className="flex items-center gap-2"><Sparkles size={18} className="text-blue-600"/><h2 className="font-bold text-[#14213d]">Academic profile loaded</h2></div>
+      <p className="mt-2 text-sm text-slate-600">Welcome, {profile.name}. Your planner is set for {profile.university} · {profile.programme} · {profile.scheme === "2024" ? "2024 scheme" : profile.scheme === "2019" ? "2019 scheme" : profile.scheme} · {profile.branch} · {profile.semester}.</p>
+      <p className="mt-2 text-xs leading-5 text-slate-500">Next, add the subjects and exam dates exactly as shown in your latest official timetable. This beta does not yet retrieve KTU timetable notices automatically, so it will not guess or invent exam dates.</p>
+    </section>}
     <section className="panel mb-5 space-y-4 p-5">
       <div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Your exam subjects</h2></div>
       <div className="grid gap-3 sm:grid-cols-[1.5fr_1fr_1fr_auto]">
