@@ -10,6 +10,7 @@ import json, os, re, sys
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
+from playwright.sync_api import sync_playwright
 
 PORTAL = "https://ktu.edu.in/exam/Timetable"
 HOSTS = {"ktu.edu.in", "www.ktu.edu.in", "app.ktu.edu.in"}
@@ -30,9 +31,18 @@ class Links(HTMLParser):
             self.href=None; self.text=[]
 
 def get(url):
-    req=Request(url, headers={"User-Agent":"ExamPilot-KTU-timetable-discovery/1.0"})
-    with urlopen(req, timeout=25) as response:
-        return response.read().decode("utf-8", "replace")
+    # Render the official portal because its public page is a JavaScript app.
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_timeout(7000)
+        # Scroll to trigger lazy-loaded notice cards before collecting links.
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+        page.wait_for_timeout(1500)
+        html = page.content()
+        browser.close()
+        return html
 
 def official(url):
     p=urlparse(url)
