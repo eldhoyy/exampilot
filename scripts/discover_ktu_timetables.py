@@ -14,7 +14,7 @@ import os
 import re
 import sys
 from datetime import datetime
-from urllib.parse import urljoin, urlparse
+from urllib.parse import quote, urljoin, urlparse
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
@@ -251,13 +251,41 @@ def main():
         print(f"Candidate review status: {candidate['notice_title'][:100]} -> {candidate_status}")
         for key in ("_source_name", "_scheme_label", "_published_label"):
             candidate.pop(key, None)
-        payload = json.dumps(candidate).encode()
-        req = Request(
-            f"{SUPABASE_URL}/rest/v1/timetable_discovery_candidates?on_conflict=university_id,notice_url",
-            data=payload, headers=headers, method="POST",
+        lookup = (
+            "timetable_discovery_candidates?university_id=eq."
+            + quote(university_id, safe="")
+            + "&notice_url=eq." + quote(candidate["notice_url"], safe="")
+            + "&select=id,status"
         )
-        with urlopen(req, timeout=25) as response:
-            response.read()
+        existing_rows = rest(lookup)
+        if existing_rows:
+            existing = existing_rows[0]
+            if existing["status"] in {"verified", "rejected", "superseded"}:
+                print(f"Preserved terminal review decision ({existing['status']}): {candidate['notice_title'][:100]}")
+                continue
+            evidence = {
+                key: candidate[key]
+                for key in ("document_sha256", "document_content_type", "extracted_text", "extracted_metadata", "parsed_at")
+                if key in candidate
+            }
+            if evidence:
+                patch_body = json.dumps(evidence).encode()
+                req = Request(
+                    f"{SUPABASE_URL}/rest/v1/timetable_discovery_candidates?id=eq.{quote(existing['id'], safe='')}",
+                    data=patch_body, headers=headers, method="PATCH",
+                )
+                with urlopen(req, timeout=25) as response:
+                    response.read()
+                print(f"Updated PDF evidence; preserved review status={existing['status']}")
+        else:
+            payload = json.dumps(candidate).encode()
+            req = Request(
+                f"{SUPABASE_URL}/rest/v1/timetable_discovery_candidates",
+                data=payload, headers=headers, method="POST",
+            )
+            with urlopen(req, timeout=25) as response:
+                response.read()
+            print(f"Inserted new candidate with status={candidate.get('status', 'discovered')}")
         saved += 1
 
     print(f"Upserted {saved} timetable candidate(s) in Supabase; see per-candidate status above.")
