@@ -1,27 +1,127 @@
 "use client";
-import Link from "next/link";import {useEffect,useState} from "react";import {ArrowLeft,ShieldCheck,Plus,ExternalLink} from "lucide-react";import {createClient} from "@/lib/supabase/client";
-type Exam={id:string;subject_code:string;subject_title:string;starts_at:string;version_label?:string;timetable_sources?:{source_title:string;source_url:string}};
-type Manual={id:string;title:string;code:string;date:string;sourceUrl:string};
-export default function TimetablePage(){const [official,setOfficial]=useState<Exam[]>([]);const [manual,setManual]=useState<Manual[]>([]);const [profile,setProfile]=useState<{semester:string;scheme:string}|null>(null);const [title,setTitle]=useState("");const [code,setCode]=useState("");const [date,setDate]=useState("");const [sourceUrl,setSourceUrl]=useState("");const [error,setError]=useState("");const [loading,setLoading]=useState(true);
- useEffect(()=>{try{const p=JSON.parse(localStorage.getItem("exampilot-profile-draft")||"null");if(p){setProfile(p);loadOfficial(p.semester);}setManual(JSON.parse(localStorage.getItem("exampilot-manual-timetable")||"[]"));if(!p)setLoading(false);}catch{setError("Could not read saved profile.");setLoading(false);}},[]);
- async function loadOfficial(semester:string){
-  try{
-   const db=createClient();
-   const p=JSON.parse(localStorage.getItem("exampilot-profile-draft")||"null");
-   const {data:schemes,error:schemeError}=await db.from("academic_schemes").select("id").eq("scheme_year",Number(p?.scheme)).eq("is_active",true);
-   if(schemeError)throw schemeError;
-   const schemeId=schemes?.[0]?.id;
-   if(!schemeId){setOfficial([]);return;}
-   const {data,error}=await db.from("exam_events").select("id,subject_code,subject_title,starts_at,exam_timetables!inner(version_label,scheme_id,semester,status,timetable_sources!inner(source_title,source_url,verification_status))").eq("exam_timetables.status","verified").eq("exam_timetables.scheme_id",schemeId).eq("exam_timetables.semester",Number(String(semester).replace(/\\D/g,""))).eq("exam_timetables.timetable_sources.verification_status","verified").order("starts_at");
-   if(error)throw error;
-   setOfficial((data||[]) as unknown as Exam[]);
-  }catch(e){setError(e instanceof Error?e.message:"Verified timetable feed unavailable.");}
-  finally{setLoading(false);}
- }
- function add(){if(!title.trim()||!date)return;const row={id:crypto.randomUUID(),title:title.trim(),code:code.trim(),date,sourceUrl:sourceUrl.trim()};const next=[...manual,row];setManual(next);localStorage.setItem("exampilot-manual-timetable",JSON.stringify(next));const subjects=JSON.parse(localStorage.getItem("exampilot-subjects")||"[]");const found=subjects.find((s:{code?:string;title:string})=>(row.code&&s.code===row.code)||s.title.toLowerCase()===row.title.toLowerCase());const updated=found?subjects.map((s:{code?:string;title:string;examDate:string})=>s===found?{...s,examDate:row.date}:s):[...subjects,{id:row.id,title:row.title,code:row.code,difficulty:"medium",examDate:row.date,modules:5,verified:false}];localStorage.setItem("exampilot-subjects",JSON.stringify(updated));setTitle("");setCode("");setDate("");setSourceUrl("");}
- return <main className="min-h-screen px-4 py-7 sm:px-8"><div className="mx-auto max-w-4xl"><Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link><p className="eyebrow mb-2">EXAM DATES & NOTICES</p><h1 className="text-3xl font-extrabold">Examination timetable</h1><p className="mt-2 text-sm text-slate-500">Officially verified entries are kept separate from student-entered dates.</p>
- <section className="panel mt-5 p-5"><div className="flex items-center gap-2"><ShieldCheck className="text-emerald-600"/><h2 className="font-bold">Officially verified timetable</h2></div><p className="mt-2 text-xs text-slate-500">{profile?"Showing verified records for KTU "+profile.scheme+" scheme · "+profile.semester+".":"Set your academic profile to match timetable records."}</p>{loading&&<p className="mt-3 text-sm text-slate-500">Checking verified records…</p>}{error&&<p className="mt-3 rounded-lg bg-amber-50 p-3 text-xs leading-5 text-amber-900">{error} A missing result does not mean there are no examinations.</p>}{!loading&&!official.length&&<p className="mt-3 text-sm text-slate-500">No verified timetable entries are published for this selection. Check the official KTU portal before relying on any exam date.</p>}
- {official.map(e=><div key={e.id} className="mt-3 rounded-xl border border-emerald-100 p-3"><p className="text-sm font-bold">{e.subject_code} · {e.subject_title}</p><p className="mt-1 text-xs text-slate-600">{new Date(e.starts_at).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"})} · {e.version_label||"Verified timetable"}</p>{e.timetable_sources?.source_url&&<a href={e.timetable_sources.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-emerald-700">{e.timetable_sources.source_title||"Official source"} <ExternalLink size={12}/></a>}</div>)}</section>
- <section className="panel mt-5 space-y-3 p-5"><h2 className="font-bold">Add dates from your latest official notice</h2><p className="text-xs leading-5 text-slate-500">Student-entered dates are used in your study plan but remain unverified until independently reviewed.</p><input value={title} onChange={e=>setTitle(e.target.value)} placeholder="Subject / paper name" className="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm"/><div className="grid gap-3 sm:grid-cols-2"><input value={code} onChange={e=>setCode(e.target.value)} placeholder="Subject code (optional)" className="rounded-xl border border-slate-200 px-3 py-3 text-sm"/><input type="date" value={date} onChange={e=>setDate(e.target.value)} className="rounded-xl border border-slate-200 px-3 py-3 text-sm"/></div><input value={sourceUrl} onChange={e=>setSourceUrl(e.target.value)} placeholder="Official notice URL (optional)" className="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm"/><button onClick={add} disabled={!title.trim()||!date} className="inline-flex items-center gap-2 rounded-xl bg-[#315efb] px-4 py-3 text-sm font-bold text-white disabled:opacity-40"><Plus size={16}/> Save date to study planner</button></section>
- <section className="mt-5"><h2 className="font-bold">Student-entered dates</h2>{manual.map(m=><div key={m.id} className="panel mt-3 p-4"><p className="font-bold">{m.code?m.code+" · ":""}{m.title}</p><p className="mt-1 text-xs text-slate-500">{m.date} · Student-entered, not verified</p>{m.sourceUrl&&<a href={m.sourceUrl} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs text-blue-700">Notice link <ExternalLink size={12}/></a>}</div>)}</section><a href="https://ktu.edu.in/" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-700">Open official KTU website <ExternalLink size={14}/></a></div></main>;
+
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
+import { ArrowLeft, ExternalLink, RefreshCw, ShieldCheck } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+
+type Profile = { semester: string; scheme: string; branch: string; programme: string };
+type Exam = {
+  id: string;
+  subject_code: string;
+  subject_title: string;
+  starts_at: string;
+  exam_timetables?: {
+    version_label: string | null;
+    timetable_sources?: { source_title: string | null; source_url: string } | null;
+  };
+};
+
+export default function TimetablePage() {
+  const [official, setOfficial] = useState<Exam[]>([]);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [lastChecked, setLastChecked] = useState("");
+
+  const loadOfficial = useCallback(async (p: Profile) => {
+    setLoading(true);
+    setError("");
+    try {
+      const db = createClient();
+      const semester = Number(p.semester.replace(/\D/g, ""));
+      const schemeYear = Number(p.scheme);
+      const [{ data: schemes, error: schemeError }, { data: programmes, error: programmeError }] = await Promise.all([
+        db.from("academic_schemes").select("id").eq("scheme_year", schemeYear).eq("is_active", true),
+        db.from("programmes").select("id").eq("short_name", p.programme),
+      ]);
+      if (schemeError) throw schemeError;
+      if (programmeError) throw programmeError;
+      const schemeId = schemes?.[0]?.id;
+      const programmeId = programmes?.[0]?.id;
+      if (!schemeId || !programmeId) {
+        setOfficial([]);
+        setError("The selected KTU scheme or B.Tech programme is not yet in the verified catalogue.");
+        return;
+      }
+
+      const { data: branches, error: branchError } = await db.from("branches")
+        .select("id").eq("programme_id", programmeId).eq("name", p.branch);
+      if (branchError) throw branchError;
+      const branchId = branches?.[0]?.id;
+      if (!branchId) {
+        setOfficial([]);
+        setError("The selected branch is not yet in the verified curriculum catalogue.");
+        return;
+      }
+
+      const [{ data: subjects, error: subjectsError }, { data: events, error: eventsError }] = await Promise.all([
+        db.from("subjects").select("subject_code").eq("scheme_id", schemeId)
+          .eq("branch_id", branchId).eq("semester", semester).eq("verification_status", "verified"),
+        db.from("exam_events").select("id,subject_code,subject_title,starts_at,exam_timetables!inner(version_label,scheme_id,programme_id,semester,status,timetable_sources!inner(source_title,source_url,verification_status))")
+          .eq("exam_timetables.status", "verified")
+          .eq("exam_timetables.scheme_id", schemeId)
+          .eq("exam_timetables.programme_id", programmeId)
+          .eq("exam_timetables.semester", semester)
+          .eq("exam_timetables.timetable_sources.verification_status", "verified")
+          .order("starts_at"),
+      ]);
+      if (subjectsError) throw subjectsError;
+      if (eventsError) throw eventsError;
+      const branchCodes = new Set((subjects || []).map((s: { subject_code: string }) => s.subject_code));
+      const matching = ((events || []) as unknown as Exam[]).filter(e => branchCodes.has(e.subject_code));
+      setOfficial(matching);
+      setLastChecked(new Date().toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }));
+      if (!matching.length) setError("No verified timetable papers match this exact branch, scheme and semester yet. ExamPilot will not substitute another branch or invent dates.");
+    } catch (e) {
+      setOfficial([]);
+      setError(e instanceof Error ? e.message : "Could not retrieve the verified KTU timetable.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem("exampilot-profile-draft") || "null") as Profile | null;
+      if (!saved) {
+        setError("Complete your academic profile first.");
+        setLoading(false);
+        return;
+      }
+      setProfile(saved);
+      void loadOfficial(saved);
+    } catch {
+      setError("Could not read your saved academic profile.");
+      setLoading(false);
+    }
+  }, [loadOfficial]);
+
+  return (
+    <main className="min-h-screen px-4 py-7 sm:px-8">
+      <div className="mx-auto max-w-4xl">
+        <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16} /> Dashboard</Link>
+        <p className="eyebrow mb-2">OFFICIAL EXAMINATION DATES</p>
+        <h1 className="text-3xl font-extrabold">Your KTU timetable</h1>
+        <p className="mt-2 text-sm leading-6 text-slate-500">ExamPilot retrieves verified examination records for your exact programme, scheme, branch and semester. Revised versions must supersede older notices.</p>
+
+        <section className="panel mt-5 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2"><ShieldCheck className="text-emerald-600" /><h2 className="font-bold">Verified timetable</h2></div>
+            {profile && <button onClick={() => void loadOfficial(profile)} disabled={loading} className="inline-flex items-center gap-2 text-sm font-bold text-blue-700 disabled:opacity-50"><RefreshCw size={15} className={loading ? "animate-spin" : ""} /> Refresh</button>}
+          </div>
+          {profile && <p className="mt-2 text-xs text-slate-500">KTU · {profile.programme} · {profile.scheme} scheme · {profile.branch} · {profile.semester}</p>}
+          {loading && <p className="mt-4 text-sm text-slate-500">Checking verified KTU records…</p>}
+          {error && <p role="status" className="mt-4 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{error}</p>}
+          {lastChecked && <p className="mt-3 text-xs text-slate-400">Last checked {lastChecked} · Verified records only</p>}
+          {official.map(e => <article key={e.id} className="mt-3 rounded-xl border border-emerald-100 p-3">
+            <p className="text-sm font-bold">{e.subject_code} · {e.subject_title}</p>
+            <p className="mt-1 text-xs text-slate-600">{new Date(e.starts_at).toLocaleString("en-IN", { weekday: "short", day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })} · {e.exam_timetables?.version_label || "Verified timetable"}</p>
+            {e.exam_timetables?.timetable_sources?.source_url && <a href={e.exam_timetables.timetable_sources.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-emerald-700">{e.exam_timetables.timetable_sources.source_title || "Official source"} <ExternalLink size={12} /></a>}
+          </article>)}
+        </section>
+        <a href="https://ktu.edu.in/exam/Timetable" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-700">Open KTU examination portal <ExternalLink size={14} /></a>
+      </div>
+    </main>
+  );
 }
