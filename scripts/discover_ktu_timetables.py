@@ -20,8 +20,18 @@ def get_links(url):
     # Render the official portal because its public page is a JavaScript app.
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        page = browser.new_page()
+        # KTU's portal currently presents a hostname/certificate mismatch in
+        # some hosted runners. This context is used only for public discovery:
+        # no credentials or Supabase secrets are exposed to the page. We still
+        # reject redirects away from the explicit KTU HTTPS host allowlist and
+        # only persist links whose final URL is on that allowlist.
+        context = browser.new_context(ignore_https_errors=True)
+        page = context.new_page()
         page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        final = urlparse(page.url)
+        if final.scheme != "https" or final.hostname not in HOSTS:
+            browser.close()
+            raise RuntimeError(f"KTU portal redirected outside the official host allowlist: {page.url}")
         page.wait_for_timeout(7000)
         page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         page.wait_for_timeout(1500)
