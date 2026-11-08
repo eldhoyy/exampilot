@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ExamPilot — Study with direction",
   description: "Your academic planner for smarter, calmer exam preparation.",
-  applicationName: "ExamPilot",
+  applicationName: "ExamPilot",\n  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
