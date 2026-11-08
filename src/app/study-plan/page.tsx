@@ -76,7 +76,8 @@ export default function StudyPlanPage() {
           sourceUrl:e.exam_timetables?.timetable_sources?.source_url||"https://ktu.edu.in/exam/Timetable",
         } as PlannerSubject;
       });
-      const unique=next.filter((s,i,a)=>a.findIndex(x=>x.code===s.code)===i);
+      const typedNext: PlannerSubject[] = next;
+      const unique: PlannerSubject[] = typedNext.filter((subject: PlannerSubject, index: number, all: PlannerSubject[]) => all.findIndex((item: PlannerSubject) => item.code === subject.code) === index);
       setSubjects(unique);
       setLastChecked(new Date().toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}));
       localStorage.setItem("exampilot-official-exams",JSON.stringify(unique));
