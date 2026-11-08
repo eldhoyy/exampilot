@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";\nimport type { ReactNode } from "react";
+import { useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Check, GraduationCap, Sparkles } from "lucide-react";
 
