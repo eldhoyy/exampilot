@@ -8,6 +8,7 @@ It intentionally does not promote documents or invent exam events.
 from __future__ import annotations
 import json, os, re, sys
 from urllib.parse import urljoin, urlparse
+from urllib.request import Request, urlopen
 from playwright.sync_api import sync_playwright
 
 PORTAL = "https://ktu.edu.in/exam/Timetable"
