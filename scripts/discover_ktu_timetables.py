@@ -7,7 +7,6 @@ It intentionally does not promote documents or invent exam events.
 """
 from __future__ import annotations
 import json, os, re, sys
-from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 from playwright.sync_api import sync_playwright
@@ -17,32 +16,30 @@ HOSTS = {"ktu.edu.in", "www.ktu.edu.in", "app.ktu.edu.in"}
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 SERVICE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
 
-class Links(HTMLParser):
-    def __init__(self):
-        super().__init__(); self.items=[]; self.href=None; self.text=[]
-    def handle_starttag(self, tag, attrs):
-        if tag == "a":
-            self.href = dict(attrs).get("href"); self.text=[]
-    def handle_data(self, data):
-        if self.href is not None: self.text.append(data.strip())
-    def handle_endtag(self, tag):
-        if tag == "a" and self.href is not None:
-            self.items.append((" ".join(x for x in self.text if x), self.href))
-            self.href=None; self.text=[]
-
-def get(url):
+def get_links(url):
     # Render the official portal because its public page is a JavaScript app.
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         page = browser.new_page()
         page.goto(url, wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(7000)
-        # Scroll to trigger lazy-loaded notice cards before collecting links.
         page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         page.wait_for_timeout(1500)
-        html = page.content()
+        items = page.locator("a").evaluate_all("""anchors => anchors.map(a => {
+          const row = a.closest('tr, li, article, [class*=card], [class*=item]');
+          const container = row || a.parentElement;
+          return { text: (container?.innerText || a.innerText || '').trim(), href: a.href };
+        })""")
         browser.close()
-        return html
+        # Remove duplicate links while preserving their rendered row labels.
+        seen = set()
+        result = []
+        for item in items:
+            href = item.get("href", "")
+            if href and href not in seen:
+                seen.add(href)
+                result.append((item.get("text", ""), href))
+        return result
 
 def official(url):
     p=urlparse(url)
@@ -61,10 +58,9 @@ def main():
     if not SUPABASE_URL or not SERVICE_KEY:
         print("Discovery skipped: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY secrets are required.")
         return 0
-    html=get(PORTAL)
-    parser=Links(); parser.feed(html)
+    links=get_links(PORTAL)
     candidates=[]
-    for label, href in parser.items:
+    for label, href in links:
         title=" ".join(label.split())
         match=scope(title)
         url=urljoin(PORTAL, href or "")
@@ -77,7 +73,7 @@ def main():
                 "scheme_id": None, "exam_session": None,
                 "status": "discovered"
             })
-    print(f"Official KTU page returned {len(parser.items)} links; {len(candidates)} timetable candidates.")
+    print(f"Official KTU page returned {len(links)} links; {len(candidates)} timetable candidates.")
     if not candidates:
         print("No static timetable links found. KTU currently serves this page as a JavaScript app; no dates were inferred.")
         return 0
