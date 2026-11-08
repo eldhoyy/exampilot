@@ -14,10 +14,7 @@ export default function StudyPlanPage() {
   const [profile,setProfile]=useState<Profile|null>(null);
   const [subjects,setSubjects]=useState<PlannerSubject[]>([]);
   const [difficulty,setDifficulty]=useState<Record<string,Difficulty>>({});
-  const [dailyHours,setDailyHours]=useState(4);
-  const [focusMinutes,setFocusMinutes]=useState(50);
-  const [breakMinutes,setBreakMinutes]=useState(10);
-  const [loading,setLoading]=useState(true);
+   const [loading,setLoading]=useState(true);
   const [refreshing,setRefreshing]=useState(false);
   const [error,setError]=useState("");
   const [lastChecked,setLastChecked]=useState("");
@@ -90,7 +87,7 @@ export default function StudyPlanPage() {
     setSubjects(items=>items.map(s=>s.id===id?{...s,difficulty:value}:s));
   }
 
-  const plan=useMemo(()=>buildStudyPlan(subjects,dailyHours*60,new Date(),focusMinutes,breakMinutes),[subjects,dailyHours,focusMinutes,breakMinutes]);
+  const plan=useMemo(()=>buildStudyPlan(subjects,240,new Date(),50,10),[subjects]);
   const grouped=useMemo(()=>plan.reduce<Record<string,typeof plan>>((acc,s)=>{(acc[s.date] ||= []).push(s);return acc;},{}),[plan]);
   const upcoming=subjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate));
 
@@ -108,14 +105,9 @@ export default function StudyPlanPage() {
     {subjects.length>0&&<section className="panel mb-5 space-y-4 p-5"><div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Choose difficulty for each subject</h2></div><p className="text-sm text-slate-500">This is the only subject information ExamPilot needs from you. Exam dates and subject names come from the verified timetable.</p>
       {subjects.map(s=><div key={s.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-400">Exam {s.examDate}</p></div><select aria-label={"Difficulty for "+s.title} value={difficulty[s.id]||"medium"} onChange={e=>setSubjectDifficulty(s.id,e.target.value as Difficulty)} className="rounded-xl border border-slate-200 px-3 py-2.5 text-sm"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>)}
     </section>}
-    <section className="panel mb-5 grid gap-5 p-5 sm:grid-cols-3">
-      <div><label className="block text-sm font-bold">Study time per day: {dailyHours}h</label><input aria-label="Study hours per day" className="mt-3 w-full accent-[#315efb]" type="range" min="1" max="10" value={dailyHours} onChange={e=>setDailyHours(Number(e.target.value))}/></div>
-      <div><label className="block text-sm font-bold">Focus session: {focusMinutes} min</label><input aria-label="Focus session minutes" className="mt-3 w-full accent-[#315efb]" type="range" min="25" max="90" step="5" value={focusMinutes} onChange={e=>setFocusMinutes(Number(e.target.value))}/></div>
-      <div><label className="block text-sm font-bold">Rest break: {breakMinutes} min</label><input aria-label="Rest break minutes" className="mt-3 w-full accent-[#315efb]" type="range" min="5" max="30" step="5" value={breakMinutes} onChange={e=>setBreakMinutes(Number(e.target.value))}/></div>
-    </section>
     <section className="panel p-5"><div className="mb-4 flex items-center gap-2"><CalendarDays className="text-[#315efb]" size={18}/><h2 className="font-bold">Your automatically generated daily plan</h2></div>
-      {!subjects.length?<p className="text-sm text-slate-500">Your plan will appear as soon as a verified official timetable is available for your semester.</p>:!plan.length?<p className="text-sm text-slate-500">No preparation sessions remain for the upcoming exam dates.</p>:<div className="space-y-5">{Object.entries(grouped).map(([date,sessions])=><div key={date}><div className="mb-2 flex items-center gap-2 text-sm font-bold text-[#14213d]"><CalendarDays size={16} className="text-blue-600"/>{new Date(date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short"})}</div><div className="space-y-2">{sessions.map((s,i)=><div key={s.subjectId+"-"+i}><div className="flex items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="rounded-xl bg-blue-50 p-2 text-blue-600"><Clock3 size={17}/></div><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.subject}</p><p className="text-xs text-slate-400">{s.reason}</p></div><span className="whitespace-nowrap text-xs font-bold text-slate-600">{s.minutes} min</span></div>{i<sessions.length-1&&<div className="flex items-center gap-2 px-4 py-2 text-xs text-emerald-700"><Coffee size={14}/> Rest for {breakMinutes} minutes</div>}</div>)}</div></div>)}</div>}
-      <p className="mt-5 rounded-xl bg-blue-50 p-3 text-xs leading-5 text-blue-900">Plan is calculated from today's local date and current time. Subject difficulty changes the preparation priority. Recheck the official timetable for university revisions.</p>
+      {!subjects.length?<p className="text-sm text-slate-500">Your plan will appear as soon as a verified official timetable is available for your semester.</p>:!plan.length?<p className="text-sm text-slate-500">No preparation sessions remain for the upcoming exam dates.</p>:<div className="space-y-5">{Object.entries(grouped).map(([date,sessions])=><div key={date}><div className="mb-2 flex items-center gap-2 text-sm font-bold text-[#14213d]"><CalendarDays size={16} className="text-blue-600"/>{new Date(date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short"})}</div><div className="space-y-2">{sessions.map((s,i)=><div key={s.subjectId+"-"+i}><div className="flex items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="rounded-xl bg-blue-50 p-2 text-blue-600"><Clock3 size={17}/></div><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.subject}</p><p className="text-xs text-slate-400">{s.reason}</p></div><span className="whitespace-nowrap text-xs font-bold text-slate-600">{s.minutes} min</span></div>{i<sessions.length-1&&<div className="flex items-center gap-2 px-4 py-2 text-xs text-emerald-700"><Coffee size={14}/> Take a 10-minute rest break</div>}</div>)}</div></div>)}</div>}
+      <p className="mt-5 rounded-xl bg-blue-50 p-3 text-xs leading-5 text-blue-900">ExamPilot uses your current local date and time, the official examination dates, and your difficulty choices to prioritize preparation. A 50-minute focus block is followed by a 10-minute rest. Recheck the official timetable for university revisions.</p>
     </section>
   </div></main>;
 }
