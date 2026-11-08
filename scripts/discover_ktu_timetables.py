@@ -81,9 +81,18 @@ def main():
     universities=rest("universities?short_name=eq.KTU&select=id")
     if not universities: raise RuntimeError("KTU university seed is missing in Supabase.")
     university_id=universities[0]["id"]
+    programmes=rest("programmes?university_id=eq."+university_id+"&short_name=eq.B.Tech&select=id")
+    if not programmes: raise RuntimeError("B.Tech programme seed is missing in Supabase.")
+    programme_id=programmes[0]["id"]
+    scheme_rows=rest("academic_schemes?university_id=eq."+university_id+"&select=id,scheme_year")
+    scheme_ids={int(row["scheme_year"]):row["id"] for row in scheme_rows if row.get("scheme_year")}
     for candidate in candidates:
         candidate["university_id"]=university_id
-        req=Request(f"{SUPABASE_URL}/rest/v1/timetable_discovery_candidates",data=json.dumps(candidate).encode(),headers={**headers,"Prefer":"resolution=merge-duplicates,return=minimal"},method="POST")
+        candidate["programme_id"]=programme_id
+        # Keep an unspecified scheme null; never guess from semester number.
+        scheme_year=next((year for year in (2019, 2024) if year in scheme_ids and candidate["notice_title"].lower().find(str(year)) >= 0), None)
+        candidate["scheme_id"]=scheme_ids.get(scheme_year) if scheme_year else None
+        req=Request(f"{SUPABASE_URL}/rest/v1/timetable_discovery_candidates?on_conflict=university_id,notice_url",data=json.dumps(candidate).encode(),headers={**headers,"Prefer":"resolution=merge-duplicates,return=minimal"},method="POST")
         with urlopen(req,timeout=25) as response: response.read()
     print(f"Recorded {len(candidates)} candidate(s) as discovered; manual verification is still required.")
     return 0
