@@ -10,6 +10,7 @@ const navItems = [
   { label: "Overview", icon: LayoutDashboard, active: true },
   { label: "My study plan", icon: CalendarDays },
   { label: "Subjects", icon: BookOpen },
+  { label: "Exam timetable", icon: CalendarDays },
   { label: "Study materials", icon: Library },
   { label: "AI doubt solver", icon: MessageCircle },
 ];
@@ -25,7 +26,7 @@ export default function Home() {
         <div className="eyebrow mb-3 px-3">Workspace</div>
         <nav className="flex flex-col gap-1">
           {navItems.map(({ label, icon: Icon, active }) => {
-            const href = label === "Overview" ? "/" : label === "My study plan" ? "/study-plan" : label === "Subjects" ? "/subjects" : label === "Study materials" ? "/study-materials" : "/ai-tutor";
+            const href = label === "Overview" ? "/" : label === "My study plan" ? "/study-plan" : label === "Subjects" ? "/subjects" : label === "Study materials" ? "/study-materials" : label === "Exam timetable" ? "/timetable" : "/ai-tutor";
             return <Link key={label} href={href} className={`nav-link ${active ? "active" : ""}`}><Icon size={18} />{label}{label === "AI doubt solver" && <span className="ml-auto rounded-full bg-[#e8edff] px-2 py-0.5 text-[10px] text-[#315efb]">AI</span>}</Link>;
           })}
         </nav>
@@ -66,7 +67,7 @@ export default function Home() {
               <div className="flex items-center justify-between border-b border-[#edf0f6] px-5 py-4 sm:px-6"><div><h2 className="font-bold text-[#14213d]">Today&apos;s focus</h2><p className="mt-1 text-xs text-slate-400">Your daily study schedule will appear here</p></div><span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold text-slate-500">Not started</span></div>
               <div className="flex flex-col items-center px-6 py-10 text-center"><div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#eef3ff] text-[#315efb]"><CalendarDays size={25}/></div><h3 className="font-bold text-[#14213d]">Your day, thoughtfully planned.</h3><p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">Add your exam timetable and subjects. ExamPilot can then help organize focused study sessions and breaks.</p><Link href="/onboarding" className="mt-5 inline-flex items-center gap-2 rounded-xl border border-[#dce5ff] px-4 py-2.5 text-sm font-bold text-[#315efb] hover:bg-[#f5f7ff]">Get started <ArrowRight size={16}/></Link></div>
             </div>
-            <div className="panel p-5 sm:p-6"><div className="mb-5 flex items-center justify-between"><div><h2 className="font-bold text-[#14213d]">Quick actions</h2><p className="mt-1 text-xs text-slate-400">Jump back into your workflow</p></div><MoreHorizontal size={19} className="text-slate-400"/></div><div className="flex flex-col gap-3"><QuickAction icon={<CalendarDays size={18}/>} title="Add exam timetable" description="Enter dates or upload a PDF" /><QuickAction icon={<BookOpen size={18}/>} title="Add your subjects" description="Choose branch, semester and scheme" /><QuickAction icon={<MessageCircle size={18}/>} title="Ask a study doubt" description="Get help understanding a topic" /></div><div className="mt-5 rounded-xl bg-[#f5f7ff] p-3 text-xs leading-5 text-slate-500"><Compass size={15} className="mr-1 inline text-[#315efb]"/> Your dashboard will become personalized after setup.</div></div>
+            <div className="panel p-5 sm:p-6"><div className="mb-5 flex items-center justify-between"><div><h2 className="font-bold text-[#14213d]">Quick actions</h2><p className="mt-1 text-xs text-slate-400">Jump back into your workflow</p></div><MoreHorizontal size={19} className="text-slate-400"/></div><div className="flex flex-col gap-3"><QuickAction icon={<CalendarDays size={18}/>} title="Add exam timetable" description="Enter dates from an official notice" /><QuickAction icon={<BookOpen size={18}/>} title="Add your subjects" description="Choose branch, semester and scheme" /><QuickAction icon={<MessageCircle size={18}/>} title="Ask a study doubt" description="Get help understanding a topic" /></div><div className="mt-5 rounded-xl bg-[#f5f7ff] p-3 text-xs leading-5 text-slate-500"><Compass size={15} className="mr-1 inline text-[#315efb]"/> Your dashboard will become personalized after setup.</div></div>
           </section>
 
           <section className="grid gap-5 xl:grid-cols-[1.55fr_1fr]">
@@ -81,5 +82,6 @@ export default function Home() {
 }
 
 function QuickAction({ icon, title, description }: { icon: ReactNode; title: string; description: string }) {
-  return <Link href="/onboarding" className="flex items-center gap-3 rounded-xl border border-[#edf0f6] p-3 text-left transition hover:border-[#cbd8ff] hover:bg-[#fafbff]"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315efb]">{icon}</span><span className="min-w-0 flex-1"><span className="block text-sm font-bold text-[#263653]">{title}</span><span className="mt-1 block text-xs text-slate-400">{description}</span></span><ChevronRight size={16} className="text-slate-300"/></Link>;
+  const href = title === "Add exam timetable" ? "/timetable" : title === "Add your subjects" ? "/subjects" : title === "Ask a study doubt" ? "/ai-tutor" : "/onboarding";
+  return <Link href={href} className="flex items-center gap-3 rounded-xl border border-[#edf0f6] p-3 text-left transition hover:border-[#cbd8ff] hover:bg-[#fafbff]"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315efb]">{icon}</span><span className="min-w-0 flex-1"><span className="block text-sm font-bold text-[#263653]">{title}</span><span className="mt-1 block text-xs text-slate-400">{description}</span></span><ChevronRight size={16} className="text-slate-300"/></Link>;
 }
