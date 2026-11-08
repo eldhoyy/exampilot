@@ -1,8 +1,9 @@
 /**
  * KTU B.Tech timetable coverage and source validation helpers.
  *
- * The university timetable page is the authority. Discovery feeds and search
- * results may identify candidate notices, but never make a timetable verified.
+ * KTU-issued documents are the authority. Trusted publishers may distribute
+ * those documents, but publisher identity is not the same as KTU endorsement.
+ * Discovery feeds and search results never make a timetable verified.
  */
 export const KTU_TIMETABLE_PORTAL = "https://ktu.edu.in/exam/Timetable";
 export const KTU_ACADEMIC_CALENDAR = "https://ktu.edu.in/academics/academic_calendar";
@@ -20,6 +21,25 @@ export type KtuTimetableCandidate = {
 };
 
 const OFFICIAL_KTU_HOSTS = new Set(["ktu.edu.in", "www.ktu.edu.in", "app.ktu.edu.in"]);
+const TRUSTED_DISCOVERY_PUBLISHERS = new Set(["ktunotes.in", "www.ktunotes.in"]);
+
+export type KtuDocumentEvidence = {
+  documentSha256?: string | null;
+  documentNumber?: string | null;
+  documentDate?: string | null;
+  pdfSemester?: number | null;
+  pdfSchemeYear?: number | null;
+  humanApproved?: boolean;
+};
+
+export function isTrustedKtuDiscoveryPublisher(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && TRUSTED_DISCOVERY_PUBLISHERS.has(url.hostname);
+  } catch {
+    return false;
+  }
+}
 
 export function isOfficialKtuUrl(value: string): boolean {
   try {
@@ -37,19 +57,32 @@ export function isSupportedBtechScope(semester: number, schemeYear: number): boo
 }
 
 /**
- * Do not mark documents verified from title matching alone. The importer must
- * verify the PDF/document against an official KTU publication and retain its
- * URL, SHA-256, publication date and revision label before publishing events.
+ * Promotion is deliberately strict. A trusted third-party notice page may
+ * distribute a KTU-issued PDF, but only matching document evidence plus an
+ * explicit human approval can permit the next verification step.
  */
-export function canPromoteCandidate(candidate: KtuTimetableCandidate): boolean {
+export function canPromoteCandidate(
+  candidate: KtuTimetableCandidate,
+  evidence: KtuDocumentEvidence,
+): boolean {
+  const trustedNotice = isOfficialKtuUrl(candidate.noticeUrl)
+    || isTrustedKtuDiscoveryPublisher(candidate.noticeUrl);
+  const validDocumentUrl = Boolean(candidate.documentUrl && (() => {
+    try { return new URL(candidate.documentUrl).protocol === "https:"; }
+    catch { return false; }
+  })());
   return Boolean(
     candidate.title.trim()
-    && isOfficialKtuUrl(candidate.noticeUrl)
-    && candidate.documentUrl
-    && isOfficialKtuUrl(candidate.documentUrl)
-    && candidate.publishedAt
+    && trustedNotice
+    && validDocumentUrl
+    && evidence.documentSha256?.match(/^[a-f0-9]{64}$/i)
+    && evidence.documentNumber?.match(/^KTU\s*\//i)
+    && evidence.documentDate
     && candidate.semester
     && candidate.schemeYear
-    && isSupportedBtechScope(candidate.semester, candidate.schemeYear),
+    && isSupportedBtechScope(candidate.semester, candidate.schemeYear)
+    && evidence.pdfSemester === candidate.semester
+    && evidence.pdfSchemeYear === candidate.schemeYear
+    && evidence.humanApproved === true,
   );
 }
