@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Check, GraduationCap, Sparkles } from "lucide-react";
@@ -14,6 +15,8 @@ const branches = [
 ];
 
 export default function OnboardingPage() {
+  const router = useRouter();
+  const [saving, setSaving] = useState(false);
   const [name, setName] = useState("");
   const [university, setUniversity] = useState("APJ Abdul Kalam Technological University (KTU)");
   const [programme, setProgramme] = useState("B.Tech");
@@ -29,12 +32,15 @@ export default function OnboardingPage() {
       setMessage("Please enter your name to continue.");
       return;
     }
-    const profile = { name: name.trim(), university, programme, scheme, branch, semester };
+    const profile = { name: name.trim(), university, programme, scheme, branch, semester, savedAt: new Date().toISOString() };
     try {
+      setSaving(true);
       localStorage.setItem("exampilot-profile-draft", JSON.stringify(profile));
-      setMessage("Your academic profile draft is saved on this device. Account sync will be enabled after backend setup.");
+      // Keep the user moving into the next step of setup.
+      router.push("/study-plan?setup=1");
     } catch {
-      setMessage("Your browser could not save this draft. You can still continue once account sync is available.");
+      setSaving(false);
+      setMessage("We couldn't save your profile on this device. Please check browser storage and try again.");
     }
   }
 
@@ -65,7 +71,7 @@ export default function OnboardingPage() {
               <Field label="Current semester" id="semester"><select id="semester" value={semester} onChange={e=>setSemester(e.target.value)} className={selectClass}>{["S1","S2","S3","S4","S5","S6","S7","S8"].map(item=><option key={item}>{item}</option>)}</select></Field>
             </div>
             <div className="rounded-xl border border-blue-100 bg-blue-50/70 p-4 text-xs leading-5 text-blue-900"><BookOpen size={16} className="mr-2 inline"/> We&apos;ll verify curriculum and timetable information against official university sources before using it in your plan.</div>
-            <button onClick={saveDraft} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#315efb] px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-[#244fe8]">Save academic profile <ArrowRight size={17}/></button>
+            <button onClick={saveDraft} disabled={saving} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#315efb] px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-[#244fe8]">{saving ? "Saving…" : "Save academic profile"} <ArrowRight size={17}/></button>
             {message && <p role="status" className="rounded-xl bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-600"><Check size={16} className="mr-2 inline text-emerald-600"/>{message}</p>}
             <p className="text-center text-xs text-slate-400">This is an early setup draft. Secure account sync will be added with Supabase.</p>
           </div>
