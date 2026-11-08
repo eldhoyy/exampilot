@@ -1,6 +1,11 @@
 name: Discover KTU timetable notices
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/discover_ktu_timetables.py"
+      - ".github/workflows/ktu-timetable-discovery.yml"
   workflow_dispatch:
   schedule:
     - cron: "17 */6 * * *"
