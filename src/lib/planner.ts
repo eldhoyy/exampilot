@@ -4,7 +4,7 @@ export type StudySession = { date: string; subjectId: string; subject: string; m
 
 const weight: Record<Difficulty, number> = { easy: 1, medium: 1.35, hard: 1.75 };
 
-export function buildStudyPlan(subjects: StudySubject[], dailyMinutes = 240, from = new Date(), focusMinutes = 60): StudySession[] {
+export function buildStudyPlan(subjects: StudySubject[], dailyMinutes = 240, from = new Date(), focusMinutes = 60, breakMinutes = 10): StudySession[] {
   const valid = subjects.filter(s => Number.isFinite(Date.parse(s.examDate)) && s.modules > s.completedModules);
   const sessions: StudySession[] = [];
   const remaining = valid.map(s => ({ ...s, remaining: s.modules - s.completedModules }));
@@ -27,7 +27,7 @@ export function buildStudyPlan(subjects: StudySubject[], dailyMinutes = 240, fro
       const minutes = Math.min(focusMinutes, budget);
       sessions.push({ date, subjectId: chosen.id, subject: chosen.title, minutes, reason: chosen.difficulty + " priority · " + chosen.remaining + " modules remaining" });
       chosen.remaining -= 1;
-      budget -= minutes + 10;
+      budget -= minutes + breakMinutes;
     }
   }
   return sessions;
