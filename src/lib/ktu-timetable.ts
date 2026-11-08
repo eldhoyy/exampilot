@@ -67,10 +67,11 @@ export function canPromoteCandidate(
 ): boolean {
   const trustedNotice = isOfficialKtuUrl(candidate.noticeUrl)
     || isTrustedKtuDiscoveryPublisher(candidate.noticeUrl);
-  const validDocumentUrl = Boolean(candidate.documentUrl && (() => {
-    try { return new URL(candidate.documentUrl).protocol === "https:"; }
+  const documentUrl = candidate.documentUrl;
+  const validDocumentUrl = typeof documentUrl === "string" && (() => {
+    try { return new URL(documentUrl).protocol === "https:"; }
     catch { return false; }
-  })());
+  })();
   return Boolean(
     candidate.title.trim()
     && trustedNotice
