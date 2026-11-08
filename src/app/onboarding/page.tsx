@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";\nimport type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Check, GraduationCap, Sparkles } from "lucide-react";
 
@@ -75,6 +75,6 @@ export default function OnboardingPage() {
 }
 
 const selectClass = "w-full rounded-xl border border-[#dfe6f1] bg-white px-3.5 py-3 text-sm text-[#263653] outline-none focus:border-[#315efb] focus:ring-4 focus:ring-blue-100";
-function Field({label,id,children}:{label:string;id:string;children:React.ReactNode}) {
+function Field({label,id,children}:{label:string;id:string;children:ReactNode}) {
   return <div><label htmlFor={id} className="mb-2 block text-sm font-bold text-[#263653]">{label}</label>{children}</div>;
 }
