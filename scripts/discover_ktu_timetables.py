@@ -8,6 +8,7 @@ No dates are inferred from page titles or search snippets.
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 import re
@@ -18,6 +19,7 @@ from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
 from bs4 import BeautifulSoup
+from pypdf import PdfReader
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 SERVICE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
@@ -65,6 +67,45 @@ def extract_candidate_title(text: str):
         return None
     scheme = SCHEME_RE.search(title)
     return int(sm.group(1)), int(scheme.group(1)) if scheme else None
+
+
+def inspect_pdf(url: str) -> dict:
+    """Download and extract text for review; extraction alone never verifies dates."""
+    body, content_type, final_url = fetch(url, 20_000_000)
+    if not body.startswith(b"%PDF-"):
+        raise RuntimeError(f"Linked document is not a PDF (content-type={content_type})")
+    reader = PdfReader(io.BytesIO(body), strict=False)
+    pages = []
+    for page in reader.pages[:30]:
+        pages.append(page.extract_text() or "")
+    extracted = "\\n\\n".join(pages).strip()
+    if not extracted:
+        raise RuntimeError("PDF contains no extractable text; OCR/review is required")
+    header = " ".join(extracted[:5000].split())
+    # Record only explicit evidence. Do not derive exam events from partial text.
+    document_no = re.search(r"KTU\\s*/\\s*[^\\n]{0,100}", header, re.I)
+    published = re.search(r"\\b(\\d{1,2}\\.\\d{1,2}\\.\\d{4})\\b", header)
+    scope = re.search(r"\\bS\\s*([1-8])\\b.{0,100}?\\b(2019|2024)\\s*scheme\\b", header, re.I)
+    metadata = {
+        "document_number": document_no.group(0) if document_no else None,
+        "document_date": published.group(1) if published else None,
+        "semester_in_pdf": int(scope.group(1)) if scope else None,
+        "scheme_in_pdf": int(scope.group(2)) if scope else None,
+        "page_count": len(reader.pages),
+        "pdf_url_final": final_url,
+        "text_characters": len(extracted),
+        "extraction_method": "pypdf",
+        "requires_human_review": True,
+    }
+    return {
+        "document_sha256": hashlib.sha256(body).hexdigest(),
+        "document_content_type": content_type,
+        "extracted_text": extracted[:150000],
+        "extracted_metadata": metadata,
+        "parsed_at": datetime.utcnow().isoformat() + "Z",
+        "status": "under_review",
+        "review_notes": "Text extracted automatically. Exam dates are NOT published; verify the original PDF, scope, every paper code/date/time, and revisions before approval.",
+    }
 
 
 def discover_from_source(source: dict) -> list[dict]:
@@ -187,7 +228,15 @@ def main():
     for candidate in candidates:
         candidate["university_id"] = university_id
         candidate["programme_id"] = programme_id
-        # Strip diagnostic-only metadata; DB schema remains backwards-compatible.
+        # Extract text from the exact PDF linked by the discovered notice.
+        # This creates a review packet only; it does not create exam_events.
+        try:
+            extracted = inspect_pdf(candidate["document_url"])
+            candidate.update(extracted)
+            print(f"PDF extracted for review: {candidate['notice_title']}")
+        except Exception as exc:
+            candidate["review_notes"] = f"PDF extraction unavailable; manual review required: {exc}"[:2000]
+            print(f"PDF extraction deferred safely: {exc}")
         for key in ("_source_name", "_scheme_label", "_published_label"):
             candidate.pop(key, None)
         payload = json.dumps(candidate).encode()
