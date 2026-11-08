@@ -17,31 +17,44 @@ SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 SERVICE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
 
 def get_links(url):
-    # Render the official portal because its public page is a JavaScript app.
+    """Render KTU's SPA and collect rendered links plus relevant API diagnostics."""
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        # KTU's portal currently presents a hostname/certificate mismatch in
-        # some hosted runners. This context is used only for public discovery:
-        # no credentials or Supabase secrets are exposed to the page. We still
-        # reject redirects away from the explicit KTU HTTPS host allowlist and
-        # only persist links whose final URL is on that allowlist.
         context = browser.new_context(ignore_https_errors=True)
         page = context.new_page()
+        relevant_responses = []
+        def observe_response(response):
+            try:
+                parsed = urlparse(response.url)
+                if parsed.scheme == "https" and parsed.hostname in HOSTS:
+                    content_type = response.headers.get("content-type", "").lower()
+                    if any(word in response.url.lower() for word in ("exam", "time", "table", "notice", "notification")):
+                        relevant_responses.append({
+                            "url": response.url[:1000],
+                            "status": response.status,
+                            "content_type": content_type[:120]
+                        })
+            except Exception:
+                pass
+        page.on("response", observe_response)
         page.goto(url, wait_until="domcontentloaded", timeout=60000)
         final = urlparse(page.url)
         if final.scheme != "https" or final.hostname not in HOSTS:
             browser.close()
             raise RuntimeError(f"KTU portal redirected outside the official host allowlist: {page.url}")
-        page.wait_for_timeout(7000)
-        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        page.wait_for_timeout(1500)
+        # Allow SPA boot, API calls and lazy-loaded notice lists to complete.
+        page.wait_for_load_state("networkidle", timeout=20000)
+        page.wait_for_timeout(5000)
+        for _ in range(4):
+            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            page.wait_for_timeout(1000)
         items = page.locator("a").evaluate_all("""anchors => anchors.map(a => {
           const row = a.closest('tr, li, article, [class*=card], [class*=item]');
           const container = row || a.parentElement;
           return { text: (container?.innerText || a.innerText || '').trim(), href: a.href };
         })""")
+        body_text = page.locator("body").inner_text(timeout=10000)
         browser.close()
-        # Remove duplicate links while preserving their rendered row labels.
         seen = set()
         result = []
         for item in items:
@@ -49,6 +62,11 @@ def get_links(url):
             if href and href not in seen:
                 seen.add(href)
                 result.append((item.get("text", ""), href))
+        print("Rendered KTU page text (first 12000 chars):")
+        print(body_text[:12000])
+        print("Relevant official-host network responses:")
+        for item in relevant_responses:
+            print(json.dumps(item, ensure_ascii=False))
         return result
 
 def official(url):
@@ -83,9 +101,9 @@ def main():
                 "scheme_id": None, "exam_session": None,
                 "status": "discovered"
             })
-    print(f"Official KTU page returned {len(links)} links; {len(candidates)} timetable candidates.")
+    print(f"Official KTU page returned {len(links)} rendered links; {len(candidates)} title-matched timetable candidates.")
     if not candidates:
-        print("No static timetable links found. KTU currently serves this page as a JavaScript app; no dates were inferred.")
+        print("No title-matched timetable links were found. Rendered page text and official-host API response diagnostics were printed above; no dates were inferred.")
         return 0
 
     # Resolve KTU university and B.Tech programme IDs; scheme is resolved only
