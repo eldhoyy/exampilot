@@ -15,13 +15,13 @@ ExamPilot is a mobile-first academic planning workspace for university students.
 
 ## Important limitations — read before sharing
 
-- This beta does **not** fetch or verify live KTU examination timetables. Students must enter dates from the latest official KTU notification and check revisions themselves.
+- The app displays timetable records only when a trusted importer has marked both the timetable and its source verified. Student-entered dates are separate and visibly unverified; students must check official KTU notices for revisions.
 - An unavailable search result must never be interpreted as “no exams”.
-- KTU scheme/branch/semester syllabus and module data are not yet a complete verified catalogue.
+- KTU scheme/branch/semester syllabus and module data appear only after an administrator imports and verifies the exact official curriculum records.
 - Subject preparation is provisionally estimated as five modules per subject in the planner.
 - Study profiles and subjects are stored locally on the device. They do not sync across devices or accounts.
 - The AI doubt solver is not connected to an AI provider and must not be advertised as an active AI service.
-- Study-material pages are a verification placeholder; no YouTube links are currently certified as syllabus-matched.
+- Study materials are read from Supabase only when their status is approved. An empty catalogue means no resources have passed review yet.
 - Break durations are included in the schedule display. Browser notifications and background alarms are not yet implemented.
 
 ## Local development
