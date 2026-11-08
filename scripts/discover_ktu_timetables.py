@@ -78,14 +78,14 @@ def inspect_pdf(url: str) -> dict:
     pages = []
     for page in reader.pages[:30]:
         pages.append(page.extract_text() or "")
-    extracted = "\\n\\n".join(pages).strip()
+    extracted = "\n\n".join(pages).strip()
     if not extracted:
         raise RuntimeError("PDF contains no extractable text; OCR/review is required")
     header = " ".join(extracted[:5000].split())
     # Record only explicit evidence. Do not derive exam events from partial text.
-    document_no = re.search(r"KTU\\s*/\\s*[^\\n]{0,100}", header, re.I)
-    published = re.search(r"\\b(\\d{1,2}\\.\\d{1,2}\\.\\d{4})\\b", header)
-    scope = re.search(r"\\bS\\s*([1-8])\\b.{0,100}?\\b(2019|2024)\\s*scheme\\b", header, re.I)
+    document_no = re.search(r"KTU\s*/\s*[^\n]{0,100}", header, re.I)
+    published = re.search(r"\b(\d{1,2}\.\d{1,2}\.\d{4})\b", header)
+    scope = re.search(r"\bS\s*([1-8])\b.{0,100}?\b(2019|2024)\s*scheme\b", header, re.I)
     metadata = {
         "document_number": document_no.group(0) if document_no else None,
         "document_date": published.group(1) if published else None,
