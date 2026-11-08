@@ -28,11 +28,14 @@ Add these GitHub Actions repository secrets:
 Run the workflow manually once from **GitHub → Actions → Discover KTU timetable
 notices → Run workflow**. It repeats every six hours.
 
-## Important current limitation
+## Discovery limitations
 
-KTU's timetable page is JavaScript-rendered. If it does not expose static
-notice links to the crawler, the workflow reports that no links were found and
-does not fall back to unofficial dates. A future browser-backed crawler or
-university feed integration is needed to discover all dynamically loaded
-notices. A human verification/import step is still required before dates can
-be used to generate student plans.
+The scheduled crawler uses headless Chromium to render the JavaScript-driven
+KTU timetable page and collect linked notices. It can still miss notices if
+KTU changes its interface, hides links behind authentication, or publishes
+attachments through a separate service. The workflow logs an empty result
+rather than substituting unofficial dates. Monitor its Actions logs and add
+any alternate official KTU notice endpoints when they become available.
+
+A human verification/import step is still required before dates can be used to
+generate student plans. Discovery is not verification.
