@@ -42,7 +42,7 @@ export default function StudyPlanPage() {
     try {
       const db=createClient();
       const year=Number(p.scheme);
-      const semester=Number(p.semester.replace(/\\D/g,""));
+      const semester=Number(p.semester.replace(/\D/g,""));
       const [{data:schemes,error:schemeError},{data:programmes,error:programmeError}]=await Promise.all([
         db.from("academic_schemes").select("id").eq("scheme_year",year).eq("is_active",true),
         db.from("programmes").select("id").eq("short_name",p.programme),
@@ -59,15 +59,16 @@ export default function StudyPlanPage() {
 
       const [{data:catalogue,error:catalogueError},{data:events,error:eventsError}]=await Promise.all([
         db.from("subjects").select("id,subject_code,title,subject_modules(id,module_number,title)").eq("scheme_id",schemeId).eq("branch_id",branchId).eq("semester",semester).eq("verification_status","verified"),
-        db.from("exam_events").select("id,subject_code,subject_title,starts_at,exam_timetables!inner(version_label,scheme_id,semester,status,timetable_sources!inner(source_title,source_url,verification_status))").eq("exam_timetables.status","verified").eq("exam_timetables.scheme_id",schemeId).eq("exam_timetables.semester",semester).eq("exam_timetables.timetable_sources.verification_status","verified").order("starts_at"),
+        db.from("exam_events").select("id,subject_code,subject_title,starts_at,exam_timetables!inner(version_label,scheme_id,programme_id,semester,status,timetable_sources!inner(source_title,source_url,verification_status))").eq("exam_timetables.status","verified").eq("exam_timetables.scheme_id",schemeId).eq("exam_timetables.programme_id",programmeId).eq("exam_timetables.semester",semester).eq("exam_timetables.timetable_sources.verification_status","verified").order("starts_at"),
       ]);
       if(catalogueError)throw catalogueError;
       if(eventsError)throw eventsError;
       const today=localDateISO(new Date());
       const official=(events||[] as ExamRow[]).filter((e:ExamRow)=>e.starts_at.slice(0,10)>=today);
-      const next=official.map((e:ExamRow)=>{
+      const branchEvents=official.filter((e:ExamRow)=>catalogue?.some((s:{subject_code:string})=>s.subject_code===e.subject_code));
+      const next=branchEvents.map((e:ExamRow)=>{
         const match=(catalogue||[]).find((s:{subject_code:string})=>s.subject_code===e.subject_code);
-        const id=match?.id||e.id;
+        const id=match!.id;
         return {
           id,title:e.subject_title,code:e.subject_code,examDate:e.starts_at.slice(0,10),startsAt:e.starts_at,
           difficulty:saved[id]||"medium",modules:Math.max(1,match?.subject_modules?.length||5),
