@@ -1,0 +1,11 @@
+{
+  "name": "ExamPilot — Study with direction",
+  "short_name": "ExamPilot",
+  "description": "Your academic planner for smarter, calmer exam preparation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#f6f8fc",
+  "orientation": "portrait",
+  "icons": []
+}
