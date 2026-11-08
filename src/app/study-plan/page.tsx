@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, BookOpen, CalendarDays, Clock3, Coffee, Plus, Sparkles, Trash2 } from "lucide-react";
 import { buildStudyPlan, type Difficulty, type StudySubject } from "@/lib/planner";
 
-type SavedSubject = StudySubject & { code?: string };
+type SavedSubject = StudySubject & { code?: string; verified?: boolean };
 
 const todayISO = () => {
   const d = new Date();
@@ -28,9 +28,12 @@ export default function StudyPlanPage() {
       const academicProfile = JSON.parse(localStorage.getItem("exampilot-profile-draft") || "null");
       if (academicProfile) setProfile(academicProfile);
       const saved = JSON.parse(localStorage.getItem("exampilot-subjects") || "[]") as Array<{id:string;title:string;code?:string;difficulty:Difficulty;examDate:string}>;
-      const converted = saved.filter(s => s.title && s.examDate).map(s => ({...s, modules:5, completedModules:0}));
+      const converted = saved.filter(s => s.title && s.examDate).map(s => ({...s, modules:s.modules||5, completedModules:s.completedModules||0}));
       const manual = JSON.parse(localStorage.getItem("exampilot-planner-subjects") || "[]") as SavedSubject[];
-      const merged = [...converted, ...manual.filter(m => !converted.some(c => c.id === m.id))];
+      const timetable = JSON.parse(localStorage.getItem("exampilot-manual-timetable") || "[]") as Array<{id:string;title:string;code:string;date:string}>;
+      const withDates = timetable.map(t => ({id:t.id,title:t.title,code:t.code,examDate:t.date,difficulty:"medium" as Difficulty,modules:5,completedModules:0}));
+      const combined = [...converted, ...withDates.filter(t => !converted.some(c => c.id === t.id || (t.code && c.code === t.code)))];
+      const merged = [...combined, ...manual.filter(m => !combined.some(c => c.id === m.id))];
       setSubjects(merged);
     } catch { setSubjects([]); }
     setReady(true);
@@ -61,7 +64,7 @@ export default function StudyPlanPage() {
     {profile && <section className="panel mb-5 border-blue-100 bg-blue-50/50 p-5">
       <div className="flex items-center gap-2"><Sparkles size={18} className="text-blue-600"/><h2 className="font-bold text-[#14213d]">Academic profile loaded</h2></div>
       <p className="mt-2 text-sm text-slate-600">Welcome, {profile.name}. Your planner is set for {profile.university} · {profile.programme} · {profile.scheme === "2024" ? "2024 scheme" : profile.scheme === "2019" ? "2019 scheme" : profile.scheme} · {profile.branch} · {profile.semester}.</p>
-      <p className="mt-2 text-xs leading-5 text-slate-500">Next, add the subjects and exam dates exactly as shown in your latest official timetable. This beta does not yet retrieve KTU timetable notices automatically, so it will not guess or invent exam dates.</p>
+      <p className="mt-2 text-xs leading-5 text-slate-500">Verified curriculum module counts are used when available. Add exam dates from the latest official notice in the timetable section; student-entered dates remain labelled unverified.</p>
     </section>}
     <section className="panel mb-5 space-y-4 p-5">
       <div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Your exam subjects</h2></div>
@@ -83,7 +86,7 @@ export default function StudyPlanPage() {
     <section className="panel p-5">
       <div className="mb-4 flex items-center gap-2"><Sparkles className="text-[#315efb]" size={18}/><h2 className="font-bold">Your suggested study plan</h2></div>
       {!subjects.length ? <p className="text-sm text-slate-500">Add your subjects and exam dates to generate a plan.</p> : !plan.length ? <p className="text-sm text-slate-500">No sessions could be scheduled in the next 30 days. Check your exam dates and remaining preparation time.</p> : <div className="space-y-5">{Object.entries(grouped).map(([date,sessions])=><div key={date}><div className="mb-2 flex items-center gap-2 text-sm font-bold text-[#14213d]"><CalendarDays size={16} className="text-blue-600"/>{new Date(date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short"})}</div><div className="space-y-2">{sessions.map((s,i)=><div key={s.subjectId+"-"+i}><div className="flex items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="rounded-xl bg-blue-50 p-2 text-blue-600"><Clock3 size={17}/></div><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.subject}</p><p className="text-xs text-slate-400">{s.reason}</p></div><span className="whitespace-nowrap text-xs font-bold text-slate-600">{s.minutes} min</span></div>{i < sessions.length-1 && <div className="flex items-center gap-2 px-4 py-2 text-xs text-emerald-700"><Coffee size={14}/> Rest for {breakMinutes} minutes</div>}</div>)}</div></div>)}</div>}
-      <p className="mt-5 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">Planning guidance only: each subject is provisionally treated as five study modules. Adjust your subjects and preparation progress as needed. Exam dates are entered by you and are not verified against KTU announcements.</p>
+      <p className="mt-5 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">Planning guidance: verified catalogue module counts are used when available; subjects without verified module data use a five-block estimate. Student-entered exam dates are not represented as official KTU dates.</p>
     </section>
   </div></main>;
 }
