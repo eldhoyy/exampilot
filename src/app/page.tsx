@@ -81,6 +81,6 @@ export default function Home() {
   );
 }
 
-function QuickAction({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+function QuickAction({ icon, title, description }: { icon: ReactNode; title: string; description: string }) {
   return <button className="flex items-center gap-3 rounded-xl border border-[#edf0f6] p-3 text-left transition hover:border-[#cbd8ff] hover:bg-[#fafbff]"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315efb]">{icon}</span><span className="min-w-0 flex-1"><span className="block text-sm font-bold text-[#263653]">{title}</span><span className="mt-1 block text-xs text-slate-400">{description}</span></span><ChevronRight size={16} className="text-slate-300"/></button>;
 }
