@@ -69,7 +69,7 @@ def extract_candidate_title(text: str):
     return int(sm.group(1)), int(scheme.group(1)) if scheme else None
 
 
-def inspect_pdf(url: str) -> dict:
+def inspect_pdf(url: str, candidate_scope_semester: int | None = None, candidate_scope_scheme: int | None = None) -> dict:
     """Download and extract text for review; extraction alone never verifies dates."""
     body, content_type, final_url = fetch(url, 20_000_000)
     if not body.startswith(b"%PDF-"):
@@ -97,6 +97,16 @@ def inspect_pdf(url: str) -> dict:
         "extraction_method": "pypdf",
         "requires_human_review": True,
     }
+    scope_matches = (
+        metadata["semester_in_pdf"] == candidate_scope_semester
+        and metadata["scheme_in_pdf"] == candidate_scope_scheme
+    ) if candidate_scope_semester and candidate_scope_scheme else None
+    metadata["notice_scope_matches_pdf"] = scope_matches
+    review_note = (
+        "PDF scope does not match the notice title; manual investigation required. No exam dates are published."
+        if scope_matches is False else
+        "Text extracted automatically. Exam dates are NOT published; verify the original PDF, scope, every paper code/date/time, and revisions before approval."
+    )
     return {
         "document_sha256": hashlib.sha256(body).hexdigest(),
         "document_content_type": content_type,
@@ -104,7 +114,7 @@ def inspect_pdf(url: str) -> dict:
         "extracted_metadata": metadata,
         "parsed_at": datetime.utcnow().isoformat() + "Z",
         "status": "under_review",
-        "review_notes": "Text extracted automatically. Exam dates are NOT published; verify the original PDF, scope, every paper code/date/time, and revisions before approval.",
+        "review_notes": review_note,
     }
 
 
@@ -231,12 +241,14 @@ def main():
         # Extract text from the exact PDF linked by the discovered notice.
         # This creates a review packet only; it does not create exam_events.
         try:
-            extracted = inspect_pdf(candidate["document_url"])
+            extracted = inspect_pdf(candidate["document_url"], candidate.get("semester"), candidate.get("_scheme_label"))
             candidate.update(extracted)
             print(f"PDF extracted for review: {candidate['notice_title']}")
         except Exception as exc:
             candidate["review_notes"] = f"PDF extraction unavailable; manual review required: {exc}"[:2000]
             print(f"PDF extraction deferred safely: {exc}")
+        candidate_status = candidate.get("status", "discovered")
+        print(f"Candidate review status: {candidate['notice_title'][:100]} -> {candidate_status}")
         for key in ("_source_name", "_scheme_label", "_published_label"):
             candidate.pop(key, None)
         payload = json.dumps(candidate).encode()
@@ -248,7 +260,7 @@ def main():
             response.read()
         saved += 1
 
-    print(f"Recorded {saved} candidate(s) in Supabase with status=discovered.")
+    print(f"Upserted {saved} timetable candidate(s) in Supabase; see per-candidate status above.")
     print("IMPORTANT: discovered does not mean verified; no exam dates were imported.")
     return 0
 
