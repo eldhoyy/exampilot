@@ -28,17 +28,15 @@ USER_AGENT = "ExamPilotTimetableBot/1.0 (+https://github.com/eldhoyy/exampilot)"
 # Sources are intentionally explicit. A PDF host is accepted only when its URL
 # is linked from one of these trusted publisher pages.
 SOURCES = [
-    # Primary discovery: detailed notices and downloadable PDFs.
+    # Detailed notification index and original linked PDF files.
     {"name": "KTU Notes", "index": "https://ktunotes.in/notifications/",
      "hosts": {"ktunotes.in", "www.ktunotes.in"}},
-    # Department-wise timetable listings derived from detailed notices.
-    {"name": "KTU Notes Live timetable", "index": "https://timetable.ktunotes.live/",
+    # Semester/department timetable portal (2024 scheme and supply listings).
+    {"name": "KTU Notes Live", "index": "https://ktunotes.live/timetable",
      "hosts": {"ktunotes.live", "www.ktunotes.live", "timetable.ktunotes.live"}},
-    # Independent department-wise timetable and notice cross-check.
-    {"name": "KSU Student Assist Cell", "index": "https://sac.ksucet.in/notifications/",
-     "hosts": {"sac.ksucet.in", "ksucet.in", "www.ksucet.in"}},
-    # Additional student portal; some branch schedules are posted via its community.
-    {"name": "KTU Magic", "index": "https://www.ktumagic.in/",
+    # KTU Magic publishes department-wise timetable updates; some schedules
+    # are linked from its community posts and must be manually sourced if not crawlable.
+    {"name": "KTU Magic", "index": "https://ktumagic.in/",
      "hosts": {"ktumagic.in", "www.ktumagic.in"}},
 ]
 TIMETABLE_RE = re.compile(
