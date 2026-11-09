@@ -21,7 +21,8 @@ export type KtuTimetableCandidate = {
 };
 
 const OFFICIAL_KTU_HOSTS = new Set(["ktu.edu.in", "www.ktu.edu.in", "app.ktu.edu.in"]);
-const TRUSTED_DISCOVERY_PUBLISHERS = new Set(["ktunotes.in", "www.ktunotes.in"]);
+const TRUSTED_DISCOVERY_PUBLISHERS = new Set(["ktunotes.in", "www.ktunotes.in", "ktunotes.live", "www.ktunotes.live", "timetable.ktunotes.live", "ktumagic.in", "www.ktumagic.in", "sac.ksucet.in"]);
+const TRUSTED_DOCUMENT_HOSTS = new Set([...TRUSTED_DISCOVERY_PUBLISHERS, "objectstorage.ap-hyderabad-1.oraclecloud.com"]);
 
 export type KtuDocumentEvidence = {
   documentSha256?: string | null;
@@ -68,7 +69,7 @@ export function canPromoteCandidate(
   const trustedNotice = isTrustedKtuDiscoveryPublisher(candidate.noticeUrl);
   const documentUrl = candidate.documentUrl;
   const validDocumentUrl = typeof documentUrl === "string" && (() => {
-    try { return new URL(documentUrl).protocol === "https:"; }
+    try { const url = new URL(documentUrl); return url.protocol === "https:" && url.hostname !== null && TRUSTED_DOCUMENT_HOSTS.has(url.hostname); }
     catch { return false; }
   })();
   return Boolean(
