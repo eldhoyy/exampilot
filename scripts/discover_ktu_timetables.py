@@ -32,12 +32,15 @@ SOURCES = [
     {"name": "KTU Notes", "index": "https://ktunotes.in/notifications/",
      "hosts": {"ktunotes.in", "www.ktunotes.in"}},
     # Semester/department timetable portal (2024 scheme and supply listings).
-    {"name": "KTU Notes Live", "index": "https://ktunotes.live/timetable",
-     "hosts": {"ktunotes.live", "www.ktunotes.live", "timetable.ktunotes.live"}},
+    {"name": "KTU Notes Live", "index": "https://timetable.ktunotes.live/",
+     "hosts": {"timetable.ktunotes.live"}},
     # KTU Magic publishes department-wise timetable updates; some schedules
     # are linked from its community posts and must be manually sourced if not crawlable.
-    {"name": "KTU Magic", "index": "https://ktumagic.in/",
+    {"name": "KTU Magic", "index": "https://www.ktumagic.in/index.php",
      "hosts": {"ktumagic.in", "www.ktumagic.in"}},
+    {"name": "KSU Student Assist Cell S3",
+     "index": "https://sac.ksucet.in/notifications/btech-s3-2024-scheme-exam-timetable-nov-2026",
+     "hosts": {"sac.ksucet.in"}},
 ]
 TIMETABLE_RE = re.compile(
     r"(?:detailed\s*)?time\s*table|timetable|date\s*sheet", re.I
@@ -118,7 +121,7 @@ def inspect_pdf(url: str, candidate_scope_semester: int | None = None, candidate
         "document_content_type": content_type,
         "extracted_text": extracted[:150000],
         "extracted_metadata": metadata,
-        "parsed_at": datetime.utcnow().isoformat() + "Z",
+        "parsed_at": datetime.now().astimezone().isoformat(),
         "status": "under_review",
         "review_notes": review_note,
     }
