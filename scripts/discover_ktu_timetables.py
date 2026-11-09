@@ -144,6 +144,10 @@ def discover_from_source(source: dict) -> list[dict]:
     anchors = soup.find_all("a", href=True)
     print(f"Index page links inspected: {len(anchors)}")
     detail_pages = []
+    page_heading = " ".join((soup.title.get_text(" ", strip=True) if soup.title else "").split())
+    page_scope = extract_candidate_title(page_heading + " " + " ".join(soup.get_text(" ", strip=True).split())[:1200])
+    if page_scope:
+        detail_pages.append({"url": final_index, "title": page_heading or name, "scope": page_scope})
     for a in anchors:
         label = " ".join(a.get_text(" ", strip=True).split())
         scope = extract_candidate_title(label)
@@ -242,11 +246,15 @@ def main():
     if not programmes:
         raise RuntimeError("B.Tech programme seed is missing in Supabase.")
     programme_id = programmes[0]["id"]
+    scheme_rows = rest("academic_schemes?university_id=eq." + quote(university_id, safe="") + "&select=id,scheme_year")
+    scheme_ids = {int(row["scheme_year"]): row["id"] for row in scheme_rows if row.get("scheme_year")}
 
     saved = 0
     for candidate in candidates:
         candidate["university_id"] = university_id
         candidate["programme_id"] = programme_id
+        scheme_year = candidate.get("_scheme_label")
+        candidate["scheme_id"] = scheme_ids.get(int(scheme_year)) if scheme_year else None
         # Extract text from the exact PDF linked by the discovered notice.
         # This creates a review packet only; it does not create exam_events.
         try:
