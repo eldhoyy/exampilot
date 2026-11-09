@@ -85,8 +85,8 @@ export default function StudyPlanPage() {
           id,title:e.subject_title,code:e.subject_code,examDate:e.starts_at.slice(0,10),startsAt:e.starts_at,
           difficulty:saved[id]||"medium",modules:Math.max(1,match?.subject_modules?.length||5),
           completedModules:0,verified:true,
-          sourceTitle:e.exam_timetables?.timetable_sources?.source_title||"Verified timetable PDF",
-          sourceUrl:e.exam_timetables?.timetable_sources?.source_url||"https://ktu.edu.in/exam/Timetable",
+          sourceTitle:e.exam_timetables?.timetable_sources?.source_title||"Verified timetable source",
+          sourceUrl:e.exam_timetables?.timetable_sources?.source_url||undefined,
         } as PlannerSubject;
       });
       const typedNext: PlannerSubject[] = next;
