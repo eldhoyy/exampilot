@@ -28,8 +28,18 @@ USER_AGENT = "ExamPilotTimetableBot/1.0 (+https://github.com/eldhoyy/exampilot)"
 # Sources are intentionally explicit. A PDF host is accepted only when its URL
 # is linked from one of these trusted publisher pages.
 SOURCES = [
+    # Primary discovery: detailed notices and downloadable PDFs.
     {"name": "KTU Notes", "index": "https://ktunotes.in/notifications/",
      "hosts": {"ktunotes.in", "www.ktunotes.in"}},
+    # Department-wise timetable listings derived from detailed notices.
+    {"name": "KTU Notes Live timetable", "index": "https://timetable.ktunotes.live/",
+     "hosts": {"ktunotes.live", "www.ktunotes.live", "timetable.ktunotes.live"}},
+    # Independent department-wise timetable and notice cross-check.
+    {"name": "KSU Student Assist Cell", "index": "https://sac.ksucet.in/notifications/",
+     "hosts": {"sac.ksucet.in", "ksucet.in", "www.ksucet.in"}},
+    # Additional student portal; some branch schedules are posted via its community.
+    {"name": "KTU Magic", "index": "https://www.ktumagic.in/",
+     "hosts": {"ktumagic.in", "www.ktumagic.in"}},
 ]
 TIMETABLE_RE = re.compile(
     r"(?:detailed\s*)?time\s*table|timetable|date\s*sheet", re.I
