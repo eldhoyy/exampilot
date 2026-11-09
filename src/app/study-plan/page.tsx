@@ -85,7 +85,7 @@ export default function StudyPlanPage() {
           id,title:e.subject_title,code:e.subject_code,examDate:e.starts_at.slice(0,10),startsAt:e.starts_at,
           difficulty:saved[id]||"medium",modules:Math.max(1,match?.subject_modules?.length||5),
           completedModules:0,verified:true,
-          sourceTitle:e.exam_timetables?.timetable_sources?.source_title||"Official KTU timetable",
+          sourceTitle:e.exam_timetables?.timetable_sources?.source_title||"Verified timetable PDF",
           sourceUrl:e.exam_timetables?.timetable_sources?.source_url||"https://ktu.edu.in/exam/Timetable",
         } as PlannerSubject;
       });
@@ -119,8 +119,8 @@ export default function StudyPlanPage() {
     <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link>
     <div className="mb-7"><p className="eyebrow mb-2">AUTOMATIC EXAM PLANNER</p><h1 className="text-3xl font-extrabold tracking-tight">Your study plan, built automatically.</h1><p className="mt-2 text-sm leading-6 text-slate-500">ExamPilot uses verified timetable entries when available. You can also plan with exam dates saved in My Subjects; student-entered dates are clearly labelled.</p></div>
     {profile&&<section className="panel mb-5 p-5"><div className="flex items-center gap-2"><Sparkles size={18} className="text-blue-600"/><h2 className="font-bold">Academic profile matched</h2></div><p className="mt-2 text-sm text-slate-600">{profile.university} · {profile.programme} · {profile.scheme} scheme · {profile.branch} · {profile.semester}</p><div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500"><span>Today: {new Date().toLocaleString("en-IN",{dateStyle:"full",timeStyle:"short"})}</span><button onClick={()=>profile&&loadOfficial(profile,difficulty,true)} disabled={refreshing} className="inline-flex items-center gap-2 font-bold text-blue-700"><RefreshCw size={14} className={refreshing?"animate-spin":""}/> Refresh official timetable</button></div></section>}
-    <section className="panel mb-5 p-5"><div className="flex items-center gap-2"><ShieldCheck size={19} className="text-emerald-600"/><h2 className="font-bold">Official examination timetable</h2></div>
-      {loading&&<p className="mt-3 text-sm text-slate-500">Checking the university&apos;s verified timetable and matching your semester…</p>}
+    <section className="panel mb-5 p-5"><div className="flex items-center gap-2"><ShieldCheck size={19} className="text-emerald-600"/><h2 className="font-bold">Verified examination timetable</h2></div>
+      {loading&&<p className="mt-3 text-sm text-slate-500">Checking verified timetable records and matching your semester…</p>}
       {error&&<p role="status" className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{error} ExamPilot will not invent exam dates or substitute an unverified timetable.</p>}
       {!loading&&!error&&subjects.length===0&&<p className="mt-3 text-sm leading-6 text-slate-600">No upcoming verified examination dates were found for this exact profile. The timetable needs to be published and verified before a reliable date-based plan can be generated.</p>}
       {lastChecked&&<p className="mt-2 text-xs text-slate-400">Last checked {lastChecked} · Verified records and any labelled student-entered dates</p>}

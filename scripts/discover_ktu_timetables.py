@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Discover KTU B.Tech timetable notices from multiple trusted publication sources.
+"""Discover KTU B.Tech timetable notices from independent publication sources.
 
 A secondary portal is used for discovery and hosting the linked original PDF;
 the PDF contents still need parsing/review before any exam dates are published.
@@ -30,8 +30,6 @@ USER_AGENT = "ExamPilotTimetableBot/1.0 (+https://github.com/eldhoyy/exampilot)"
 SOURCES = [
     {"name": "KTU Notes", "index": "https://ktunotes.in/notifications/",
      "hosts": {"ktunotes.in", "www.ktunotes.in"}},
-    {"name": "KTU official portal", "index": "https://ktu.edu.in/exam/Timetable",
-     "hosts": {"ktu.edu.in", "www.ktu.edu.in", "app.ktu.edu.in"}},
 ]
 TIMETABLE_RE = re.compile(
     r"(?:detailed\s*)?time\s*table|timetable|date\s*sheet", re.I

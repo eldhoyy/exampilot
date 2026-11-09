@@ -65,8 +65,7 @@ export function canPromoteCandidate(
   candidate: KtuTimetableCandidate,
   evidence: KtuDocumentEvidence,
 ): boolean {
-  const trustedNotice = isOfficialKtuUrl(candidate.noticeUrl)
-    || isTrustedKtuDiscoveryPublisher(candidate.noticeUrl);
+  const trustedNotice = isTrustedKtuDiscoveryPublisher(candidate.noticeUrl);
   const documentUrl = candidate.documentUrl;
   const validDocumentUrl = typeof documentUrl === "string" && (() => {
     try { return new URL(documentUrl).protocol === "https:"; }

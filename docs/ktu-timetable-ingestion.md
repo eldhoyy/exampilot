@@ -8,10 +8,11 @@ published.
 ## Source and evidence model
 
 - KTU-issued timetable PDFs/notices are the authoritative examination records.
-- The KTU timetable portal is checked when reachable:
-  https://ktu.edu.in/exam/Timetable
-- The crawler also checks the KTU Notes notifications index as a discovery and
-  distribution source: https://ktunotes.in/notifications/
+- The automated crawler uses the KTU Notes notifications index as a discovery
+  and distribution source: https://ktunotes.in/notifications/
+- Independent consolidated calendars (for example Entri) may be used as a
+  secondary cross-check, but a slot calendar is not a substitute for the
+  detailed course-code PDF.
 - KTU Notes is an independent publisher, not KTU. A PDF linked from it is only
   a candidate until its contents establish that it is a KTU-issued document.
 - The crawler stores extracted PDF text, SHA-256, document metadata and a
@@ -40,9 +41,9 @@ workflow/script changes on the main branch.
 
 ## Current limitations
 
-The KTU official timetable portal may be temporarily unavailable. The crawler
-continues with configured discovery publishers and logs source failures. It
-currently extracts PDF text into a review packet; it does not automatically
+The crawler does not request the KTU official timetable website. It currently
+uses the independent KTU Notes publisher and extracts linked PDF text into a
+review packet; it does not automatically
 approve notices, map all paper codes to all branches, or publish exam dates.
 Scanned PDFs without selectable text require OCR/manual review.
 
