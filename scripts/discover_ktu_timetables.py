@@ -282,7 +282,7 @@ def main():
                 continue
             evidence = {
                 key: candidate[key]
-                for key in ("document_sha256", "document_content_type", "extracted_text", "extracted_metadata", "parsed_at")
+                for key in ("scheme_id", "programme_id", "semester", "document_url", "document_sha256", "document_content_type", "extracted_text", "extracted_metadata", "parsed_at")
                 if key in candidate
             }
             if evidence:
