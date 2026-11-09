@@ -145,7 +145,7 @@ def discover_from_source(source: dict) -> list[dict]:
     print(f"Index page links inspected: {len(anchors)}")
     detail_pages = []
     page_heading = " ".join((soup.title.get_text(" ", strip=True) if soup.title else "").split())
-    page_scope = extract_candidate_title(page_heading + " " + " ".join(soup.get_text(" ", strip=True).split())[:1200])
+    page_scope = extract_candidate_title(page_heading)
     if page_scope:
         detail_pages.append({"url": final_index, "title": page_heading or name, "scope": page_scope})
     for a in anchors:
