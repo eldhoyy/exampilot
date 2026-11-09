@@ -16,6 +16,17 @@ function remainingLabel(value:string) {
   const days=Math.floor(ms/86400000),hours=Math.floor((ms%86400000)/3600000),minutes=Math.floor((ms%3600000)/60000);
   return days>0?days+"d "+hours+"h "+minutes+"m remaining":hours>0?hours+"h "+minutes+"m remaining":minutes+"m remaining";
 }
+function localSubjectsFromStorage(saved:Record<string,Difficulty>):PlannerSubject[]{
+  try{
+    const rows=JSON.parse(localStorage.getItem("exampilot-subjects")||"[]") as Array<{id?:string;title?:string;code?:string;difficulty?:string;examDate?:string;modules?:number;verified?:boolean}>;
+    return rows.filter(row=>Boolean(row.title&&row.examDate&&row.examDate.length===10))
+      .map((row,index)=>{
+        const id=row.id||"local-"+index;
+        const level=(row.difficulty==="easy"||row.difficulty==="hard"||row.difficulty==="medium")?row.difficulty:(saved[id]||"medium");
+        return {id,title:row.title||"Untitled subject",code:row.code||"Manual",examDate:row.examDate||"",startsAt:row.examDate+"T23:59:59",difficulty:level,modules:Math.max(1,Number(row.modules)||5),completedModules:0,verified:row.verified===true,sourceTitle:row.verified?"Verified curriculum":"Student-entered date"} as PlannerSubject;
+      });
+  }catch{return [];}
+}
 export default function StudyPlanPage() {
   const [profile,setProfile]=useState<Profile|null>(null);
   const [subjects,setSubjects]=useState<PlannerSubject[]>([]);
@@ -39,6 +50,7 @@ export default function StudyPlanPage() {
   async function loadOfficial(p:Profile, saved:Record<string,Difficulty>, isRefresh=false) {
     if(isRefresh)setRefreshing(true);else setLoading(true);
     setError("");
+    const localFallback=localSubjectsFromStorage(saved);
     try {
       const db=createClient();
       const year=Number(p.scheme);
@@ -51,11 +63,11 @@ export default function StudyPlanPage() {
       if(programmeError)throw programmeError;
       const schemeId=schemes?.[0]?.id;
       const programmeId=programmes?.[0]?.id;
-      if(!schemeId||!programmeId) {setSubjects([]);setError("No matching official curriculum catalogue is available for this academic profile yet.");return;}
+      if(!schemeId||!programmeId) {setSubjects(localFallback);setError(localFallback.length?"No verified catalogue is available. Showing your student-entered subjects and dates; check them against your timetable.":"No matching verified curriculum catalogue is available for this profile yet.");return;}
       const {data:branches,error:branchError}=await db.from("branches").select("id").eq("programme_id",programmeId).eq("name",p.branch);
       if(branchError)throw branchError;
       const branchId=branches?.[0]?.id;
-      if(!branchId){setSubjects([]);setError("The official curriculum for this branch has not been published in ExamPilot yet.");return;}
+      if(!branchId){setSubjects(localFallback);setError(localFallback.length?"This branch is not in the verified catalogue yet. Showing your student-entered subjects and dates; check them against your timetable.":"The verified curriculum for this branch has not been published in ExamPilot yet.");return;}
 
       const [{data:catalogue,error:catalogueError},{data:events,error:eventsError}]=await Promise.all([
         db.from("subjects").select("id,subject_code,title,subject_modules(id,module_number,title)").eq("scheme_id",schemeId).eq("branch_id",branchId).eq("semester",semester).eq("verification_status","verified"),
@@ -79,12 +91,15 @@ export default function StudyPlanPage() {
       });
       const typedNext: PlannerSubject[] = next;
       const unique: PlannerSubject[] = typedNext.filter((subject: PlannerSubject, index: number, all: PlannerSubject[]) => all.findIndex((item: PlannerSubject) => item.code === subject.code) === index);
-      setSubjects(unique);
+      const combined=[...unique,...localFallback.filter(local=>!unique.some(official=>official.code===local.code))];
+      setSubjects(combined);
+      if(!unique.length&&localFallback.length)setError("No verified timetable entries were found. Showing your student-entered exam dates; verify them before relying on the plan.");
+      else if(localFallback.length)setError("Student-entered subjects are also included. Those dates are not independently verified.");
       setLastChecked(new Date().toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}));
       localStorage.setItem("exampilot-official-exams",JSON.stringify(unique));
     } catch(e) {
-      setError(e instanceof Error?e.message:"Could not retrieve the verified university timetable. Please try again.");
-      setSubjects([]);
+      setSubjects(localFallback);
+      setError(localFallback.length?"The verified timetable service is unavailable. Showing your student-entered exam dates; verify them before relying on the plan.":(e instanceof Error?e.message:"Could not retrieve the verified university timetable. Please try again."));
     } finally {setLoading(false);setRefreshing(false);}
   }
 
@@ -92,6 +107,7 @@ export default function StudyPlanPage() {
     const next={...difficulty,[id]:value};
     setDifficulty(next);
     localStorage.setItem("exampilot-difficulty",JSON.stringify(next));
+    try{const local=JSON.parse(localStorage.getItem("exampilot-subjects")||"[]") as Array<{id:string;difficulty:string}>;localStorage.setItem("exampilot-subjects",JSON.stringify(local.map(item=>item.id===id?{...item,difficulty:value}:item)));}catch{}
     setSubjects(items=>items.map(s=>s.id===id?{...s,difficulty:value}:s));
   }
 
@@ -101,14 +117,14 @@ export default function StudyPlanPage() {
 
   return <main className="min-h-screen px-4 py-7 sm:px-8"><div className="mx-auto max-w-4xl">
     <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link>
-    <div className="mb-7"><p className="eyebrow mb-2">AUTOMATIC EXAM PLANNER</p><h1 className="text-3xl font-extrabold tracking-tight">Your study plan, built automatically.</h1><p className="mt-2 text-sm leading-6 text-slate-500">ExamPilot checks the verified timetable for your university, scheme, branch and semester, then plans backwards from each examination.</p></div>
+    <div className="mb-7"><p className="eyebrow mb-2">AUTOMATIC EXAM PLANNER</p><h1 className="text-3xl font-extrabold tracking-tight">Your study plan, built automatically.</h1><p className="mt-2 text-sm leading-6 text-slate-500">ExamPilot uses verified timetable entries when available. You can also plan with exam dates saved in My Subjects; student-entered dates are clearly labelled.</p></div>
     {profile&&<section className="panel mb-5 p-5"><div className="flex items-center gap-2"><Sparkles size={18} className="text-blue-600"/><h2 className="font-bold">Academic profile matched</h2></div><p className="mt-2 text-sm text-slate-600">{profile.university} · {profile.programme} · {profile.scheme} scheme · {profile.branch} · {profile.semester}</p><div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500"><span>Today: {new Date().toLocaleString("en-IN",{dateStyle:"full",timeStyle:"short"})}</span><button onClick={()=>profile&&loadOfficial(profile,difficulty,true)} disabled={refreshing} className="inline-flex items-center gap-2 font-bold text-blue-700"><RefreshCw size={14} className={refreshing?"animate-spin":""}/> Refresh official timetable</button></div></section>}
     <section className="panel mb-5 p-5"><div className="flex items-center gap-2"><ShieldCheck size={19} className="text-emerald-600"/><h2 className="font-bold">Official examination timetable</h2></div>
       {loading&&<p className="mt-3 text-sm text-slate-500">Checking the university&apos;s verified timetable and matching your semester…</p>}
       {error&&<p role="status" className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{error} ExamPilot will not invent exam dates or substitute an unverified timetable.</p>}
       {!loading&&!error&&subjects.length===0&&<p className="mt-3 text-sm leading-6 text-slate-600">No upcoming verified examination dates were found for this exact profile. The timetable needs to be published and verified before a reliable date-based plan can be generated.</p>}
-      {lastChecked&&<p className="mt-2 text-xs text-slate-400">Last checked {lastChecked} · Official records only</p>}
-      {upcoming.map(s=><div key={s.id} className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">Exam: {new Date(s.startsAt).toLocaleString("en-IN",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})} · {s.modules} study blocks</p><p className="mt-1 text-xs font-semibold text-blue-700">{remainingLabel(s.startsAt)}</p></div><a href={s.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-emerald-700">{s.sourceTitle}</a></div>)}
+      {lastChecked&&<p className="mt-2 text-xs text-slate-400">Last checked {lastChecked} · Verified records and any labelled student-entered dates</p>}
+      {upcoming.map(s=><div key={s.id} className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">Exam: {new Date(s.examDate+"T00:00:00").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})} · {s.modules} study blocks</p><p className="mt-1 text-xs font-semibold text-blue-700">{remainingLabel(s.startsAt)}</p></div>{s.sourceUrl?<a href={s.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-emerald-700">{s.sourceTitle||"Source"}</a>:<span className="text-xs font-semibold text-amber-700">{s.sourceTitle||"Student-entered date"}</span>}</div>)}
     </section>
     {subjects.length>0&&<section className="panel mb-5 space-y-4 p-5"><div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Choose difficulty for each subject</h2></div><p className="text-sm text-slate-500">This is the only subject information ExamPilot needs from you. Exam dates and subject names come from the verified timetable.</p>
       {subjects.map(s=><div key={s.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-slate-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-400">Exam {s.examDate}</p></div><select aria-label={"Difficulty for "+s.title} value={difficulty[s.id]||"medium"} onChange={e=>setSubjectDifficulty(s.id,e.target.value as Difficulty)} className="rounded-xl border border-slate-200 px-3 py-2.5 text-sm"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>)}
