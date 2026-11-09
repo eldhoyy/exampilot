@@ -15,8 +15,8 @@ slots:[
 {date:"26 Nov 2026",day:"Thursday",slot:"B",session:"Afternoon"},
 {date:"30 Nov 2026",day:"Monday",slot:"C",session:"Afternoon"},
 {date:"2 Dec 2026",day:"Wednesday",slot:"D",session:"Afternoon"},
-{date:"5 Dec 2026",day:"Saturday",slot:"E",session:"Afternoon"},
-{date:"8 Dec 2026",day:"Tuesday",slot:"F",session:"Afternoon"}
+{date:"5 Dec 2026",day:"Saturday",slot:"F",session:"Afternoon"},
+{date:"8 Dec 2026",day:"Tuesday",slot:"G",session:"Afternoon"}
 ],
 note:"Semester-wide slots only. KTU Notes Live provides branch-wise course-code mapping; select your department there before relying on a paper date. This page does not yet contain every branch mapping."
 },
