@@ -17,7 +17,7 @@ export default function TimetablePage(){
  const [query,setQuery]=useState("");
  const [selectedElectives,setSelectedElectives]=useState<Record<string,string>>({});
  useEffect(()=>{try{const p=JSON.parse(localStorage.getItem("exampilot-profile-draft")||"null") as Profile|null;if(p){setProfile(p);const s=String(p.semester).match(/\d+/)?.[0];if(s&&sources[s])setSemester(s);}setSelectedElectives(JSON.parse(localStorage.getItem("exampilot-selected-electives")||"{}") as Record<string,string>);}catch{}},[]);
- const activeProfile=profile?{...profile,semester,scheme:sources[semester]?.scheme||profile.scheme}:null;
+ const activeProfile=useMemo(()=>profile?{...profile,semester,scheme:sources[semester]?.scheme||profile.scheme}:null,[profile,semester]);
  const papers=useMemo(()=>activeProfile?getApprovedPapers(activeProfile):[],[activeProfile]);
  const visible=papers.filter(p=>(p.code+" "+p.title).toLowerCase().includes(query.toLowerCase()));
  const electiveGroups=useMemo(()=>activeProfile?getApprovedElectiveGroups(activeProfile):[],[activeProfile]);
