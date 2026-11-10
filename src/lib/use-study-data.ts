@@ -28,16 +28,19 @@ export function useStudyData(){
    setDemo(localStorage.getItem("exampilot-demo-data")==="yes");
   }finally{setReady(true)}
  },[]);
+ const allSubjects=useMemo(()=>{
+  const localCodes=new Set(subjects.map(s=>s.code).filter(Boolean));
+  const official=profile?.branch&&profile?.semester&&profile?.scheme
+   ?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>!localCodes.has(p.code)).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:"medium" as const,modules:5,verified:false,sourceTitle:"User-approved timetable PDF"}))
+   :[];
+  return [...official,...subjects];
+ },[subjects,profile]);
  const plan=useMemo(()=>{
-  const valid=subjects.filter(s=>s.title&&s.examDate);
+  const valid=allSubjects.filter(s=>s.title&&s.examDate);
   const planner:StudySubject[]=valid.map(s=>({id:s.id,title:s.title,examDate:s.examDate,difficulty:s.difficulty||"medium",modules:Math.max(1,s.modules||5),completedModules:0}));
   return buildStudyPlan(planner,240,new Date(),50,10) as PlannedTask[];
- },[subjects]);
- const upcoming=useMemo(()=>{
-  const local=subjects.filter(s=>s.examDate>=localDateISO(new Date())).map(s=>({...s,verified:s.verified===true}));
-  const official=profile?.branch&&profile?.semester&&profile?.scheme?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>p.date>=localDateISO(new Date())).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:"medium" as const,modules:5,verified:false,sourceTitle:"User-approved timetable PDF"})):[];
-  return [...local,...official].sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null;
- },[subjects,profile]);
+ },[allSubjects]);
+ const upcoming=useMemo(()=>allSubjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null,[allSubjects]);
  const completedCount=completed.filter(id=>plan.some((task,i)=>taskKey(task,i)===id)).length;
  const completion=plan.length?Math.round(completedCount/plan.length*100):0;
  const today=localDateISO(new Date());
@@ -58,6 +61,6 @@ export function useStudyData(){
   setSubjects(rows);setCompleted([]);setDemo(true);
  }
  function clearDemo(){if(!demo)return;localStorage.removeItem("exampilot-subjects");localStorage.removeItem("exampilot-demo-data");localStorage.removeItem(DONE_KEY);setSubjects([]);setCompleted([]);setDemo(false)}
- return {ready,subjects,sessions,profile,plan,upcoming,weekSeconds,streak,completion,todayTasks,demo,toggleTask,loadDemo,clearDemo};
+ return {ready,subjects:allSubjects,sessions,profile,plan,upcoming,weekSeconds,streak,completion,todayTasks,demo,toggleTask,loadDemo,clearDemo};
 }
 export function taskKey(task:PlannedTask,index:number){return task.date+"|"+task.subjectId+"|"+index}
