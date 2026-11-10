@@ -147,62 +147,86 @@
   },
   "GNEST305": {
     "subject": "Introduction to Artificial Intelligence and Data Science",
-    "evidence": "One KTU S3 (R) November 2025 question paper supplied in the Library. Priorities reflect the questions in this paper only.",
-    "papers": 1,
+    "evidence": "Analysed two actual KTU S3 (R) November 2025 and S3 (S) May 2026 question papers (2024 Scheme). High priority means a topic appeared in both papers and/or carried substantial marks; medium means it appeared in one paper or mainly as a short-answer item. This is a two-paper trend, not a guarantee.",
+    "papers": 2,
     "topics": [
       {
         "module": 1,
         "name": "Machine learning types, elements and applications",
         "priority": "High",
-        "evidence": "Short-answer classification/regression and 5-mark ML explanation."
+        "evidence": "Both papers test ML types/classification-regression or supervised/unsupervised learning; November 2025 also asks ML elements."
       },
       {
         "module": 1,
-        "name": "Activation functions and perceptron learning",
+        "name": "Activation functions and artificial neural networks",
         "priority": "High",
-        "evidence": "4-mark activation functions; 6-mark AND-gate perceptron numerical."
+        "evidence": "Activation-function question appears in both papers (4 marks in November 2025; 6 marks in May 2026)."
+      },
+      {
+        "module": 1,
+        "name": "Perceptron, MLP and K-means clustering",
+        "priority": "High",
+        "evidence": "November 2025 has a 6-mark AND-gate perceptron problem; May 2026 has 5-mark K-means iteration and 4-mark MLP architecture."
       },
       {
         "module": 1,
         "name": "Universal Approximation Theorem",
         "priority": "Medium",
-        "evidence": "Direct 3-mark question."
+        "evidence": "Direct 3-mark question in November 2025 only."
       },
       {
         "module": 2,
         "name": "Singular Value Decomposition and matrix decomposition",
         "priority": "High",
-        "evidence": "5-mark SVD procedure and 4-mark decomposition methods."
+        "evidence": "SVD is a 5-mark procedure question in November 2025 and a 4-mark numerical in May 2026."
       },
       {
         "module": 2,
         "name": "PCA and spectral decomposition",
         "priority": "High",
-        "evidence": "5-mark conceptual question and 4-mark spectral-decomposition numerical."
+        "evidence": "PCA/spectral decomposition appears as a 5-mark question in both papers; May 2026 also asks PCA applications."
       },
       {
-        "module": 3,
-        "name": "Pearson correlation, covariance and least squares",
-        "priority": "High",
-        "evidence": "5-mark correlation numerical, 4-mark least-squares explanation and 3-mark comparison."
-      },
-      {
-        "module": 3,
-        "name": "Bayes' theorem and conditional probability",
-        "priority": "High",
-        "evidence": "6-mark defective-ball Bayes numerical; Bayes theorem short answer."
-      },
-      {
-        "module": 4,
-        "name": "Data processing and big-data analysis",
-        "priority": "High",
-        "evidence": "5-mark data-processing question and 4-mark traditional vs big-data comparison."
-      },
-      {
-        "module": 4,
-        "name": "Five Vs of big data",
+        "module": 2,
+        "name": "Linear algebra, eigenvalues, eigenvectors and rank",
         "priority": "Medium",
-        "evidence": "Direct 3-mark question."
+        "evidence": "Linear algebra and matrix rank appear in November 2025; eigenvalues/eigenvectors and applications of linear algebra appear in May 2026."
+      },
+      {
+        "module": 3,
+        "name": "Least squares, covariance and Pearson correlation",
+        "priority": "High",
+        "evidence": "Least squares and covariance-versus-Pearson comparison appear in both papers; November 2025 also includes a 5-mark Pearson numerical."
+      },
+      {
+        "module": 3,
+        "name": "Probability distributions and Bayes' theorem",
+        "priority": "High",
+        "evidence": "November 2025 includes Bayes theorem and a 6-mark Bayes numerical; May 2026 asks probability distributions for 6 marks."
+      },
+      {
+        "module": 3,
+        "name": "Maximum likelihood estimation",
+        "priority": "Medium",
+        "evidence": "Direct 5-mark question in May 2026 only."
+      },
+      {
+        "module": 4,
+        "name": "Data processing and traditional versus big-data analysis",
+        "priority": "High",
+        "evidence": "Both papers ask data-processing steps (5 marks) and traditional versus big-data analysis (4 marks)."
+      },
+      {
+        "module": 4,
+        "name": "Machine-learning applications in data science",
+        "priority": "High",
+        "evidence": "Both papers include a direct 3-mark question on applications of ML in data science."
+      },
+      {
+        "module": 4,
+        "name": "Five Vs of big data and data-science foundations",
+        "priority": "Medium",
+        "evidence": "Five Vs is a direct 3-mark question in November 2025; May 2026 asks the significance of statistics for data science."
       }
     ]
   }
