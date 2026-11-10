@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Coffee, Flame, Pause, Play, RotateCcw, Square, Timer, TrendingUp } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 type Session = { date: string; seconds: number; subject: string };
 const KEY = "exampilot-study-sessions";
@@ -11,6 +11,7 @@ const dateKey = (d:Date) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.g
 const clock = (s:number) => `${pad(Math.floor(s/3600))}:${pad(Math.floor(s%3600/60))}:${pad(s%60)}`;
 
 export default function StudyTracker() {
+  const reduceMotion = useReducedMotion();
   const [sessions,setSessions] = useState<Session[]>([]);
   const [subject,setSubject] = useState("");
   const [mode,setMode] = useState<"idle"|"focus"|"paused"|"rest">("idle");
@@ -36,7 +37,7 @@ export default function StudyTracker() {
     <div className="grid gap-5 p-5 md:grid-cols-[1.2fr_1fr]">
       <div className="rounded-2xl bg-[#163b36] p-5 text-white"><div className="flex items-center gap-2 text-xs font-semibold text-blue-200"><Timer size={15}/> {mode==="rest"?"REST TIMER":"FOCUS TIMER"}</div><div className="my-5 text-center font-mono text-5xl font-bold tracking-tight tabular-nums">{clock(mode==="rest"?restLeft:seconds)}</div>
         <input value={subject} onChange={e=>setSubject(e.target.value)} placeholder="What are you studying? (optional)" className="w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-300"/>
-        {savedPulse&&<motion.div initial={{opacity:0,scale:.82,y:6}} animate={{opacity:1,scale:1,y:0}} transition={{type:"spring",stiffness:420,damping:24}} className="mt-3 flex items-center justify-center gap-2 text-sm font-bold text-emerald-300"><CheckCircle2 size={17}/> Session saved. Nice work.</motion.div>}
+        {savedPulse&&<motion.div initial={{opacity:0,scale:.82,y:6}} animate={{opacity:1,scale:1,y:0}} transition={reduceMotion?{duration:0}:{type:"spring",stiffness:420,damping:24}} className="mt-3 flex items-center justify-center gap-2 text-sm font-bold text-emerald-300"><CheckCircle2 size={17}/> Session saved. Nice work.</motion.div>}
         <div className="mt-4 flex flex-wrap justify-center gap-2">
           {mode==="idle"&&<button onClick={()=>{setSavedPulse(false);setMode("focus")}} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-[#14213d]"><Play size={16}/> Start studying</button>}
           {mode==="focus"&&<><button onClick={()=>setMode("paused")} className="inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2.5 text-sm font-bold"><Pause size={16}/> Pause</button><button onClick={()=>{setRestLeft(600);setMode("rest");}} className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-4 py-2.5 text-sm font-bold text-[#14213d]"><Coffee size={16}/> Take 10-min rest</button><button onClick={finish} className="inline-flex items-center gap-2 rounded-xl bg-emerald-400 px-4 py-2.5 text-sm font-bold text-[#14213d]"><Square size={15}/> Finish</button></>}
