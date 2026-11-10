@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, CalendarDays, Clock3, Coffee, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, BookOpen, CalendarDays, Coffee, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
 import StudyTracker from "@/components/study-tracker";
 import { buildStudyPlan, localDateISO, type Difficulty, type StudySubject } from "@/lib/planner";
 import { getApprovedPapers } from "@/lib/approved-timetable";
