@@ -46,7 +46,8 @@ const branches:BranchFamily[] = [
 ];
 
 const sharedCodes = new Set(["GNEST305"]);
-const electiveAlternatives = new Set(["UCHUT346","UCHUT347"]);
+const s3Electives = new Set(["UCHUT346","UCHUT347"]);
+
 
 function familyFor(branch:string):BranchFamily|undefined {
  const normalized=branch.toLowerCase().replace(/\s+/g," ").trim();
@@ -57,17 +58,41 @@ function familyFor(branch:string):BranchFamily|undefined {
 }
 
 export function getApprovedPapers(profile:ProfileLike):ApprovedPaper[] {
- const semester=Number(String(profile.semester).match(/\d+/)?.[0]);
- const scheme=Number(String(profile.scheme).match(/\d{4}/)?.[0]);
+ const semester=Number(String(profile.semester).match(/\\d+/)?.[0]);
+ const scheme=Number(String(profile.scheme).match(/\\d{4}/)?.[0]);
  const family=familyFor(profile.branch);
  if(!family || ![3,5,7].includes(semester)) return [];
  const allowed=semester===3?family.s3:semester===5?family.s5:family.s7;
  const math=semester===3?family.maths||[]:[];
- return papers.filter(p=>
-   p.semester===semester && p.scheme===scheme &&
-   (sharedCodes.has(p.code) || math.includes(p.code) ||
-    allowed.some(prefix=>p.code.startsWith(prefix)))
- );
+ return papers.filter(p=>{
+   if(p.semester!==semester || p.scheme!==scheme) return false;
+   if(semester===3 && p.slot==="G") return false;
+   if(semester===5 && p.slot==="E") return false;
+   if(semester===7 && p.slot!=="A") return false;
+   return sharedCodes.has(p.code) || math.includes(p.code) ||
+     allowed.some(prefix=>p.code.startsWith(prefix));
+ });
+}
+
+/** Returns one-choice-per-slot elective groups from the approved detailed timetable. */
+export function getApprovedElectiveGroups(profile:ProfileLike):{slot:string;papers:ApprovedPaper[]}[] {
+ const semester=Number(String(profile.semester).match(/\\d+/)?.[0]);
+ const scheme=Number(String(profile.scheme).match(/\\d{4}/)?.[0]);
+ if(semester===3 && scheme===2024){
+   return [{slot:"G",papers:papers.filter(p=>p.semester===3&&p.scheme===2024&&s3Electives.has(p.code))}];
+ }
+ const family=familyFor(profile.branch);
+ if(!family) return [];
+ if(semester===5 && scheme===2024){
+   const electivePrefixes=family.s5.filter(prefix=>prefix.startsWith("PE"));
+   const options=papers.filter(p=>p.semester===5&&p.scheme===2024&&p.slot==="E"&&electivePrefixes.some(prefix=>p.code.startsWith(prefix)));
+   return options.length?[{slot:"E",papers:options}]:[];
+ }
+ if(semester===7 && scheme===2019){
+   const options=["B","C"].map(slot=>({slot,papers:papers.filter(p=>p.semester===7&&p.scheme===2019&&p.slot===slot&&family.s7.some(prefix=>p.code.startsWith(prefix)))})).filter(group=>group.papers.length>0);
+   return options;
+ }
+ return [];
 }
 
 /** Elective alternatives are exposed separately so the planner never schedules both as compulsory. */
