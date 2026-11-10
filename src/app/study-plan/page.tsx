@@ -95,7 +95,7 @@ export default function StudyPlanPage() {
     setSubjects(items=>items.map(s=>s.id===id?{...s,difficulty:value}:s));
   }
 
-  const plan=useMemo(()=>buildStudyPlan(subjects,240,new Date(startDate+"T00:00:00"),50,10),[subjects,startDate]);
+  const plan=useMemo(()=>{const today=localDateISO(new Date());const effectiveStart=startDate<today?today:startDate;return buildStudyPlan(subjects,240,new Date(effectiveStart+"T00:00:00"),50,10)},[subjects,startDate]);
   const grouped=useMemo(()=>plan.reduce<Record<string,typeof plan>>((acc,s)=>{(acc[s.date] ||= []).push(s);return acc;},{}),[plan]);
   const upcoming=subjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate));
 
