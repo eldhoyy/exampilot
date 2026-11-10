@@ -1,51 +1,71 @@
 # ExamPilot
 
-**Study with direction.**
+A mobile-first exam planner for KTU B.Tech students: subjects, exam dates and a study plan in one place.
 
-ExamPilot is a mobile-first academic planning workspace for university students. The first release is aimed at Kerala Technological University (KTU) B.Tech students.
+## Why I built this
 
-## What works in the current beta
+I'm a mechanical engineering student in Kerala. Keeping track of KTU notices, subject lists and what to revise next can get messy, especially when exams are close. I started ExamPilot to put those everyday student tasks in one practical place, without pretending that unverified dates or guessed study advice are official.
 
-- Responsive Next.js dashboard and academic profile setup.
-- Subject list: add, edit difficulty through remove/re-add, set exam date, and save on the current device.
-- Study-plan generator using the student's entered subjects, exam dates, difficulty, daily study availability and focus/rest preferences.
-- Existing subject entries are imported into the planner when they include an exam date.
-- Study plan and subject list persist in the same browser using local storage.
-- PWA manifest foundation.
+## Features
 
-## Important limitations — read before sharing
+- Save your academic profile, branch, semester and scheme.
+- Add subjects from the verified curriculum catalogue or enter them manually.
+- Keep verified curriculum/timetable sources distinct from student-entered dates.
+- Generate a daily study schedule from saved subjects and exam dates.
+- Run focus and rest timers and keep a local study-session history.
+- Review topic guides where previous-paper evidence is available.
+- Browse approved KTU timetable records and study materials.
+- Installable PWA manifest, responsive mobile navigation and light/dark themes.
+- Optional, consent-based feature analytics and a protected admin dashboard.
 
-- The app displays timetable records only when a trusted importer has marked both the timetable and its source verified. Student-entered dates are separate and visibly unverified; students must check official KTU notices for revisions.
-- An unavailable search result must never be interpreted as “no exams”.
-- KTU scheme/branch/semester syllabus and module data appear only after an administrator imports and verifies the exact official curriculum records.
-- Subject preparation is provisionally estimated as five modules per subject in the planner.
-- Study profiles and subjects are stored locally on the device. They do not sync across devices or accounts.
-- The AI doubt solver is not connected to an AI provider and must not be advertised as an active AI service.
-- Study materials are read from Supabase only when their status is approved. An empty catalogue means no resources have passed review yet.
-- Break durations are included in the schedule display. Browser notifications and background alarms are not yet implemented.
+## Screenshots
 
-## Local development
+Add current product screenshots to `docs/screenshots/` and link them here:
+
+- `docs/screenshots/dashboard.png`
+- `docs/screenshots/study-plan.png`
+- `docs/screenshots/mobile.png`
+
+## Tech stack
+
+Next.js 15 App Router · React 19 · TypeScript · Tailwind CSS v4 · lucide-react · Supabase.
+
+## Run locally
 
 Requirements: Node.js 20.9 or later.
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
 Open http://localhost:3000.
 
-## Environment variables
+For production checks:
 
-Supabase public environment variables are prepared in the project, but authenticated account sync is not yet implemented. Never commit service-role keys or other secrets.
+```bash
+npm run lint
+npm run build
+```
 
-## Data integrity principles
+## Limitations
 
-- Timetable entries must retain their source, retrieval time and revision history.
-- Only official timetable notifications or explicitly user-entered dates should be used for planning.
-- YouTube search results are candidates, not verified learning resources.
-- AI answers should use the student's selected syllabus and approved academic sources, and clearly state uncertainty.
+- Subjects, profile and study history are stored in the current browser; they do not sync across devices.
+- Timetable records are shown only when included in the trusted/approved source data. Student-entered dates remain visibly unverified; always check the official KTU notice for revisions.
+- An empty timetable result does not mean KTU has no examination.
+- Subject preparation is provisionally estimated from the saved module count.
+- The doubt-solver route is a coming-soon placeholder, not a connected AI service.
+- Browser notifications and background alarms are not implemented.
+- Login and analytics IP limits currently use an in-memory best-effort fallback; use shared rate limiting before high-traffic production use.
+
+## Data integrity
+
+- Preserve source documents, dates and revision context for timetable entries.
+- Never promote student-entered dates to verified timetable records.
+- Previous-paper topic evidence is a revision aid, not a prediction; students should cover the full syllabus.
+- Unapproved YouTube/resource candidates must not be presented as verified learning material.
 
 ## License
 
-All rights reserved unless a license is added by the repository owner.
+MIT is a suitable option if the repository owner wants to permit reuse. Add an MIT `LICENSE` file before describing this repository as MIT-licensed.
