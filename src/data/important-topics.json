@@ -1,0 +1,209 @@
+{
+  "PCMET302": {
+    "subject": "Mechanics of Solids",
+    "evidence": "One KTU S3 (S) May 2026 question paper supplied in the Library. Priority is based on marks and question coverage in this paper only, not a multi-year frequency claim.",
+    "papers": 1,
+    "topics": [
+      {
+        "module": 1,
+        "name": "Compound bars and thermal stresses",
+        "priority": "High",
+        "evidence": "9-mark numerical on steel/copper rods and 9-mark thermal-stress numerical."
+      },
+      {
+        "module": 1,
+        "name": "Stress, strain and elastic constants",
+        "priority": "High",
+        "evidence": "3-mark Hooke's law; definitions of Young's and shear modulus."
+      },
+      {
+        "module": 2,
+        "name": "Torsion of solid and hollow shafts",
+        "priority": "High",
+        "evidence": "9-mark comparison numerical on power transmission and angle of twist; torsion assumptions."
+      },
+      {
+        "module": 2,
+        "name": "Shear force and bending moment diagrams",
+        "priority": "High",
+        "evidence": "9-mark SFD/BMD problem for a simply supported beam with UDL and point load."
+      },
+      {
+        "module": 3,
+        "name": "Bending equation and flexural rigidity",
+        "priority": "High",
+        "evidence": "Bending-equation assumptions; flexural rigidity short answer; beam stress numerical."
+      },
+      {
+        "module": 3,
+        "name": "Beam slope and deflection",
+        "priority": "High",
+        "evidence": "9-mark deflection and maximum-deflection numerical; Macaulay's method short answer."
+      },
+      {
+        "module": 4,
+        "name": "Euler and Rankine column theory",
+        "priority": "High",
+        "evidence": "Euler derivation, Rankine safe-load numerical, equivalent length and limitations."
+      },
+      {
+        "module": 4,
+        "name": "Mohr's circle and principal stresses",
+        "priority": "High",
+        "evidence": "9-mark Mohr's-circle problem for normal, shear, principal and maximum shear stress."
+      }
+    ]
+  },
+  "PBMET304": {
+    "subject": "Manufacturing Processes",
+    "evidence": "One KTU S3 (R) November 2025 question paper supplied in the Library. Priorities reflect the questions in this paper only.",
+    "papers": 1,
+    "topics": [
+      {
+        "module": 1,
+        "name": "Casting defects and inspection",
+        "priority": "High",
+        "evidence": "4-mark question asking for casting defects with sketches; 2-mark sand properties."
+      },
+      {
+        "module": 1,
+        "name": "Precision investment casting",
+        "priority": "High",
+        "evidence": "Direct 2-mark question."
+      },
+      {
+        "module": 1,
+        "name": "Chvorinov's rule and solidification time",
+        "priority": "High",
+        "evidence": "3-mark numerical."
+      },
+      {
+        "module": 1,
+        "name": "Sintering mechanisms and process parameters",
+        "priority": "High",
+        "evidence": "Direct 3-mark explanation."
+      },
+      {
+        "module": 2,
+        "name": "Oxy-acetylene welding, flames and applications",
+        "priority": "High",
+        "evidence": "4-mark descriptive question."
+      },
+      {
+        "module": 2,
+        "name": "Thermit welding",
+        "priority": "Medium",
+        "evidence": "Direct 2-mark question."
+      },
+      {
+        "module": 2,
+        "name": "Brazing, soldering and adhesive bonding",
+        "priority": "High",
+        "evidence": "3-mark comparison."
+      },
+      {
+        "module": 2,
+        "name": "Heat-affected zone in welding",
+        "priority": "High",
+        "evidence": "Direct 3-mark question; Part A also asks weld porosity and TIG electrode."
+      },
+      {
+        "module": 3,
+        "name": "Rolling mills and rolling defects",
+        "priority": "High",
+        "evidence": "4-mark rolling-mill question; Part A asks hot vs cold rolling and rolled-product defects."
+      },
+      {
+        "module": 3,
+        "name": "Ring rolling and roll-bite condition",
+        "priority": "High",
+        "evidence": "3-mark ring-rolling sequence and 3-mark roll-bite condition."
+      },
+      {
+        "module": 4,
+        "name": "Direct and indirect extrusion",
+        "priority": "High",
+        "evidence": "4-mark comparison."
+      },
+      {
+        "module": 4,
+        "name": "Bend allowance and bend deduction",
+        "priority": "Medium",
+        "evidence": "Direct 2-mark question."
+      },
+      {
+        "module": 4,
+        "name": "Deep drawing and defects",
+        "priority": "High",
+        "evidence": "Direct 3-mark question."
+      },
+      {
+        "module": 4,
+        "name": "Open-die and closed-die forging",
+        "priority": "High",
+        "evidence": "Direct 3-mark comparison; Part A also tests grain flow and springback."
+      }
+    ]
+  },
+  "GNEST305": {
+    "subject": "Introduction to Artificial Intelligence and Data Science",
+    "evidence": "One KTU S3 (R) November 2025 question paper supplied in the Library. Priorities reflect the questions in this paper only.",
+    "papers": 1,
+    "topics": [
+      {
+        "module": 1,
+        "name": "Machine learning types, elements and applications",
+        "priority": "High",
+        "evidence": "Short-answer classification/regression and 5-mark ML explanation."
+      },
+      {
+        "module": 1,
+        "name": "Activation functions and perceptron learning",
+        "priority": "High",
+        "evidence": "4-mark activation functions; 6-mark AND-gate perceptron numerical."
+      },
+      {
+        "module": 1,
+        "name": "Universal Approximation Theorem",
+        "priority": "Medium",
+        "evidence": "Direct 3-mark question."
+      },
+      {
+        "module": 2,
+        "name": "Singular Value Decomposition and matrix decomposition",
+        "priority": "High",
+        "evidence": "5-mark SVD procedure and 4-mark decomposition methods."
+      },
+      {
+        "module": 2,
+        "name": "PCA and spectral decomposition",
+        "priority": "High",
+        "evidence": "5-mark conceptual question and 4-mark spectral-decomposition numerical."
+      },
+      {
+        "module": 3,
+        "name": "Pearson correlation, covariance and least squares",
+        "priority": "High",
+        "evidence": "5-mark correlation numerical, 4-mark least-squares explanation and 3-mark comparison."
+      },
+      {
+        "module": 3,
+        "name": "Bayes' theorem and conditional probability",
+        "priority": "High",
+        "evidence": "6-mark defective-ball Bayes numerical; Bayes theorem short answer."
+      },
+      {
+        "module": 4,
+        "name": "Data processing and big-data analysis",
+        "priority": "High",
+        "evidence": "5-mark data-processing question and 4-mark traditional vs big-data comparison."
+      },
+      {
+        "module": 4,
+        "name": "Five Vs of big data",
+        "priority": "Medium",
+        "evidence": "Direct 3-mark question."
+      }
+    ]
+  }
+}
