@@ -35,7 +35,13 @@ const prefixes:Record<string,string[]> = {
   "computer":["PCCST","PBCST","PCITT","PBITT","CST","ITT"],
   "ai & ds":["PCAIT","PBAIT","PCAMT","PBCMT","AIT","ADT"]
 };
-const commonCodes = new Set(["GYMAT301","GAMAT301","GDMAT301","GNEST305","GAEST305","UCHUT346","UCHUT347"]);
+const commonCodes = new Set(["GNEST305","UCHUT346","UCHUT347"]);
+const branchSpecificCodes:Record<string,string[]> = {
+  mechanical:["GYMAT301"], electrical:["GYMAT301"],
+  computer:["GAMAT301"], "computer science":["GAMAT301"],
+  "information technology":["GAMAT301"], "artificial intelligence":["GAMAT301"], "ai & ds":["GAMAT301"],
+  biotechnology:["GDMAT301"], "food technology":["GDMAT301"]
+};
 
 export function getApprovedPapers(profile:ProfileLike):ApprovedPaper[] {
   const semester=Number(String(profile.semester).match(/\d+/)?.[0]);
@@ -43,6 +49,7 @@ export function getApprovedPapers(profile:ProfileLike):ApprovedPaper[] {
   const branch=profile.branch.toLowerCase();
   const key=Object.keys(prefixes).sort((a,b)=>b.length-a.length).find(k=>branch.includes(k));
   const allowed=key?prefixes[key]:[];
+  const branchCodes=key?branchSpecificCodes[key]||[]:[];
   return papers.filter(p=>p.semester===semester && p.scheme===scheme &&
-    (commonCodes.has(p.code) || allowed.some(prefix=>p.code.startsWith(prefix))));
+    (commonCodes.has(p.code) || branchCodes.includes(p.code) || allowed.some(prefix=>p.code.startsWith(prefix))));
 }
