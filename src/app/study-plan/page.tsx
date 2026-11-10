@@ -39,7 +39,7 @@ export default function StudyPlanPage() {
   const [lastChecked,setLastChecked]=useState("");
   const [startDate,setStartDate]=useState(localDateISO(new Date()));
 
-  useEffect(()=>{const saved=localStorage.getItem("exampilot-plan-start-date");if(saved && /^\\d{4}-\\d{2}-\\d{2}$/.test(saved))setStartDate(saved);},[]);
+  useEffect(()=>{const saved=localStorage.getItem("exampilot-plan-start-date");if(saved && /^\d{4}-\d{2}-\d{2}$/.test(saved))setStartDate(saved);},[]);
   function changeStartDate(value:string){setStartDate(value);localStorage.setItem("exampilot-plan-start-date",value);}
 
   useEffect(()=> {
