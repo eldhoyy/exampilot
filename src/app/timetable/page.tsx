@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, CalendarDays, ExternalLink, Search } from "lucide-react";
-import { getApprovedPapers, getApprovedElectiveAlternatives } from "@/lib/approved-timetable";
+import { getApprovedPapers, getApprovedElectiveGroups } from "@/lib/approved-timetable";
 
 type Profile = { university:string; programme:string; scheme:string; branch:string; semester:string };
 const sources:Record<string,{scheme:string;url:string;label:string}> = {
@@ -15,23 +15,27 @@ export default function TimetablePage(){
  const [profile,setProfile]=useState<Profile|null>(null);
  const [semester,setSemester]=useState("3");
  const [query,setQuery]=useState("");
- const [selectedElective,setSelectedElective]=useState("");
- useEffect(()=>{try{const p=JSON.parse(localStorage.getItem("exampilot-profile-draft")||"null") as Profile|null;if(p){setProfile(p);const s=String(p.semester).match(/\d+/)?.[0];if(s&&sources[s])setSemester(s);}}catch{}},[]);
+ const [selectedElectives,setSelectedElectives]=useState<Record<string,string>>({});
+ useEffect(()=>{try{const p=JSON.parse(localStorage.getItem("exampilot-profile-draft")||"null") as Profile|null;if(p){setProfile(p);const s=String(p.semester).match(/\d+/)?.[0];if(s&&sources[s])setSemester(s);}setSelectedElectives(JSON.parse(localStorage.getItem("exampilot-selected-electives")||"{}") as Record<string,string>);}catch{}},[]);
  const activeProfile=profile?{...profile,semester,scheme:sources[semester]?.scheme||profile.scheme}:null;
  const papers=useMemo(()=>activeProfile?getApprovedPapers(activeProfile):[],[activeProfile]);
  const visible=papers.filter(p=>(p.code+" "+p.title).toLowerCase().includes(query.toLowerCase()));
- const electiveAlternatives=useMemo(()=>activeProfile?getApprovedElectiveAlternatives(activeProfile):[],[activeProfile]);
- const visibleElectives=electiveAlternatives.filter(p=>(p.code+" "+p.title).toLowerCase().includes(query.toLowerCase()));
+ const electiveGroups=useMemo(()=>activeProfile?getApprovedElectiveGroups(activeProfile):[],[activeProfile]);
+ const visibleElectiveGroups=electiveGroups.map(group=>({...group,papers:group.papers.filter(p=>(p.code+" "+p.title).toLowerCase().includes(query.toLowerCase()))})).filter(group=>group.papers.length>0);
  const source=sources[semester];
- function saveElective(code:string){
-  const paper=electiveAlternatives.find(item=>item.code===code);
-  if(!paper)return;
+ function saveElective(slot:string,code:string){
+  const next={...selectedElectives,[semester+"-"+slot]:code};
+  setSelectedElectives(next);
+  localStorage.setItem("exampilot-selected-electives",JSON.stringify(next));
   const current=JSON.parse(localStorage.getItem("exampilot-subjects")||"[]") as Array<Record<string,unknown>>;
-  const without=current.filter(item=>item.code!=="UCHUT346"&&item.code!=="UCHUT347");
-  without.push({id:paper.code,code:paper.code,title:paper.title,examDate:paper.date,difficulty:"medium",modules:5,verified:false,sourceTitle:"Selected from approved timetable PDF"});
-  localStorage.setItem("exampilot-subjects",JSON.stringify(without));
-  localStorage.setItem("exampilot-s3-elective",paper.code);
-  setSelectedElective(paper.code);
+  const currentOptionCodes=electiveGroups.flatMap(group=>group.papers.map(p=>p.code));
+  const without=current.filter(item=>!currentOptionCodes.includes(String(item.code||"")));
+  const selectedRows=electiveGroups.flatMap(group=>{
+   const selected=next[semester+"-"+group.slot];
+   const paper=group.papers.find(item=>item.code===selected);
+   return paper?[{id:paper.code,code:paper.code,title:paper.title,examDate:paper.date,difficulty:"medium",modules:5,verified:false,sourceTitle:"Selected from approved timetable PDF"}]:[];
+  });
+  localStorage.setItem("exampilot-subjects",JSON.stringify([...without,...selectedRows]));
  }
  return <main className="min-h-screen px-4 py-7 sm:px-8"><div className="mx-auto max-w-4xl">
   <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link>
@@ -46,7 +50,7 @@ export default function TimetablePage(){
    {!visible.length&&<p className="py-6 text-sm text-amber-800">{profile?"No paper matched this branch name. You can still open the complete PDF below.":"Complete your academic profile to filter the timetable."}</p>}
    <a href={source.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-700">Open original {source.label} <ExternalLink size={15}/></a>
   </section>
-  {visibleElectives.length>0&&<section className="panel mt-5 p-5"><div className="flex items-center gap-2"><CalendarDays className="text-amber-600" size={18}/><h2 className="font-bold">Elective choice — one paper only</h2></div><p className="mt-2 text-sm leading-6 text-slate-500">The S3 timetable lists Economics for Engineers and Engineering Ethics and Sustainable Development in the same slot. They are alternatives, not two compulsory papers. Choose the one registered by your college.</p><div className="mt-3 divide-y divide-slate-100">{visibleElectives.map(p=><div key={p.code} className="flex flex-wrap items-center justify-between gap-3 py-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{p.code} · {p.title}</p><p className="mt-1 text-xs text-slate-500">Slot {p.slot} · {new Date(p.date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short",year:"numeric"})} · {p.start}–{p.end}</p></div><button onClick={()=>saveElective(p.code)} className={"rounded-lg px-3 py-2 text-xs font-bold "+(selectedElective===p.code?"bg-emerald-100 text-emerald-800":"bg-[#315efb] text-white")}>{selectedElective===p.code?"Selected":"Choose this paper"}</button></div>)}</div><p className="mt-3 text-xs text-slate-500">{selectedElective?"Your choice is saved and added to your study plan.":"Choose the elective registered by your college to include it in your study plan."}</p></section>}
+  {visibleElectiveGroups.length>0&&<section className="panel mt-5 p-5"><div className="flex items-center gap-2"><CalendarDays className="text-amber-600" size={18}/><h2 className="font-bold">Choose your registered elective papers</h2></div><p className="mt-2 text-sm leading-6 text-slate-500">These are elective options, not all compulsory papers. Choose only the paper registered by your college for each listed slot. Your choices are saved into the study plan.</p>{visibleElectiveGroups.map(group=><div key={group.slot} className="mt-4 border-t border-slate-100 pt-3"><div className="mb-2 flex items-center justify-between gap-2"><p className="text-sm font-bold">Elective slot {group.slot}</p><span className="text-xs text-slate-500">{group.papers.length} options shown</span></div><div className="divide-y divide-slate-100">{group.papers.map(p=><div key={p.code} className="flex flex-wrap items-center justify-between gap-3 py-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{p.code} · {p.title}</p><p className="mt-1 text-xs text-slate-500">{new Date(p.date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short",year:"numeric"})} · {p.start}–{p.end}</p></div><button onClick={()=>saveElective(group.slot,p.code)} className={"rounded-lg px-3 py-2 text-xs font-bold "+(selectedElectives[semester+"-"+group.slot]===p.code?"bg-emerald-100 text-emerald-800":"bg-[#315efb] text-white")}>{selectedElectives[semester+"-"+group.slot]===p.code?"Selected":"Choose"}</button></div>)}</div></div>)}<p className="mt-3 text-xs text-slate-500">Unselected elective slots are left out of the study plan rather than being scheduled as compulsory exams.</p></section>}
   <Link href="/study-plan" className="mt-5 inline-flex rounded-xl bg-[#14213d] px-4 py-3 text-sm font-bold text-white">Open my connected study plan →</Link>
  </div></main>;
 }
