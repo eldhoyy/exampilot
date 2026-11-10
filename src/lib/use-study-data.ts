@@ -36,7 +36,8 @@ export function useStudyData(){
  const upcoming=useMemo(()=>{
   const local=subjects.filter(s=>s.examDate>=localDateISO(new Date())).map(s=>({...s,verified:s.verified===true}));
   const official=profile?.branch&&profile?.semester&&profile?.scheme?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>p.date>=localDateISO(new Date())).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:"medium" as const,modules:5,verified:false,sourceTitle:"User-approved timetable PDF"})):[];
-  return [...local,...official].sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null;\n },[subjects,profile]);
+  return [...local,...official].sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null;
+ },[subjects,profile]);
  const completedCount=completed.filter(id=>plan.some((task,i)=>taskKey(task,i)===id)).length;
  const completion=plan.length?Math.round(completedCount/plan.length*100):0;
  const today=localDateISO(new Date());
