@@ -17,7 +17,7 @@ export function useStudyData(){
  const [sessions,setSessions]=useState<SavedSession[]>([]);
  const [profile,setProfile]=useState<StudentProfile|null>(null);
  const [completed,setCompleted]=useState<string[]>([]);
- const [demo,setDemo]=useState(false);
+ const [demo,setDemo]=useState(false);\n const [planStartDate,setPlanStartDate]=useState(localDateISO(new Date()));\n const [excludedCodes,setExcludedCodes]=useState<string[]>([]);\n const [difficultyMap,setDifficultyMap]=useState<Record<string,"easy"|"medium"|"hard">>({});
  useEffect(()=>{
   try{
    const parse=<T,>(key:string,fallback:T):T=>{try{const value=localStorage.getItem(key);return value?JSON.parse(value) as T:fallback}catch{return fallback}};
@@ -25,21 +25,21 @@ export function useStudyData(){
    setSessions(parse<SavedSession[]>(SESSION_KEY,[]));
    setProfile(parse<StudentProfile|null>("exampilot-profile-draft",null));
    setCompleted(parse<string[]>(DONE_KEY,[]));
-   setDemo(localStorage.getItem("exampilot-demo-data")==="yes");
+   setDemo(localStorage.getItem("exampilot-demo-data")==="yes");\n   const start=localStorage.getItem("exampilot-plan-start-date");if(start&&/^\\d{4}-\\d{2}-\\d{2}$/.test(start))setPlanStartDate(start);\n   setExcludedCodes(parse<string[]>("exampilot-excluded-subjects",[]));\n   setDifficultyMap(parse<Record<string,"easy"|"medium"|"hard">>("exampilot-difficulty",{}));
   }finally{setReady(true)}
  },[]);
  const allSubjects=useMemo(()=>{
   const localCodes=new Set(subjects.map(s=>s.code).filter(Boolean));
   const official=profile?.branch&&profile?.semester&&profile?.scheme
-   ?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>!localCodes.has(p.code)).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:"medium" as const,modules:5,verified:false,sourceTitle:"User-approved timetable PDF"}))
+   ?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>!localCodes.has(p.code)&&!excludedCodes.includes(p.code)).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:difficultyMap[p.code]||"medium",modules:5,verified:false,sourceTitle:"User-approved timetable PDF"}))
    :[];
   return [...official,...subjects];
- },[subjects,profile]);
+ },[subjects,profile,excludedCodes,difficultyMap]);
  const plan=useMemo(()=>{
   const valid=allSubjects.filter(s=>s.title&&s.examDate);
   const planner:StudySubject[]=valid.map(s=>({id:s.id,title:s.title,examDate:s.examDate,difficulty:s.difficulty||"medium",modules:Math.max(1,s.modules||5),completedModules:0}));
-  return buildStudyPlan(planner,240,new Date(),50,10) as PlannedTask[];
- },[allSubjects]);
+  return buildStudyPlan(planner,240,new Date(planStartDate+"T00:00:00"),50,10) as PlannedTask[];
+ },[allSubjects,planStartDate]);
  const upcoming=useMemo(()=>allSubjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null,[allSubjects]);
  const completedCount=completed.filter(id=>plan.some((task,i)=>taskKey(task,i)===id)).length;
  const completion=plan.length?Math.round(completedCount/plan.length*100):0;
@@ -61,6 +61,6 @@ export function useStudyData(){
   setSubjects(rows);setCompleted([]);setDemo(true);
  }
  function clearDemo(){if(!demo)return;localStorage.removeItem("exampilot-subjects");localStorage.removeItem("exampilot-demo-data");localStorage.removeItem(DONE_KEY);setSubjects([]);setCompleted([]);setDemo(false)}
- return {ready,subjects:allSubjects,sessions,profile,plan,upcoming,weekSeconds,streak,completion,todayTasks,demo,toggleTask,loadDemo,clearDemo};
+ return {ready,subjects:allSubjects,sessions,profile,plan,upcoming,weekSeconds,streak,completion,todayTasks,demo,toggleTask,loadDemo,clearDemo,planStartDate};
 }
 export function taskKey(task:PlannedTask,index:number){return task.date+"|"+task.subjectId+"|"+index}
