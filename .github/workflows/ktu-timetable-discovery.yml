@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "scripts/discover_ktu_timetables.py"
+      - "scripts/extract_nov_2026_timetables.py"
+      - "src/data/november-2026-timetables.json"
       - ".github/workflows/ktu-timetable-discovery.yml"
   workflow_dispatch:
   schedule:
