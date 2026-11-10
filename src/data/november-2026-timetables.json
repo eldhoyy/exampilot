@@ -1,23 +1,1040 @@
 {
   "sourceDate": "2026-11-07",
-  "publisher": "KTU Notes (host of the KTU-issued PDF)",
+  "publisher": "User-approved timetable PDFs hosted by KTU Notes",
   "documents": [
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "documentNumber": "KTU/SOEX-IV/2122/2024",
+      "title": "B.Tech S3 November 2026 (2024 Scheme)",
+      "url": "https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s3-r-s-examinations-november-20-1794048058.pdf"
+    },
     {
       "semester": 5,
       "scheme": 2024,
       "documentNumber": "KTU/EX-II#1/1833/2025",
-      "title": "Detailed Time Table of B.Tech S5 (R) Exam November 2026, including (WP) (R) (2024 Scheme)",
+      "title": "B.Tech S5 November 2026 (2024 Scheme)",
       "url": "https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-time-table-of-b-tech-s5-r-exam-november-2026-includ-1794048414.pdf"
     },
     {
       "semester": 7,
       "scheme": 2019,
       "documentNumber": "KTU/SOEX-IV/2122/2024",
-      "title": "Detailed Timetable of B.Tech S7 (R, S) Examinations, November 2026 (2019 Scheme) / Working Professionals",
+      "title": "B.Tech S7 November 2026 (2019 Scheme)",
       "url": "https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s7-r-s-examinations-november-20-1794048779.pdf"
     }
   ],
   "exams": [
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-24",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "GAMAT301",
+      "title": "MATHEMATICS FOR INFORMATION SCIENCE-3"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-24",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "GDMAT301",
+      "title": "MATHEMATICS FOR LIFE SCIENCE-3"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-24",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "GYMAT301",
+      "title": "MATHEMATICS FOR PHYSICAL SCIENCE-3 / ELECTRICAL SCIENCE-3"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAET302",
+      "title": "ELECTRONIC DEVICES AND CIRCUITS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAGT302",
+      "title": "STRENGTH OF MATERIALS & THEORY OF STRUCTURES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAIT302",
+      "title": "FOUNDATIONS OF ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAMT302",
+      "title": "MACHINE LEARNING - I"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAOT302",
+      "title": "ENGINEERING THERMODYNAMICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAUT302",
+      "title": "FLUID MECHANICS AND HYDRAULIC MACHINES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBBT302",
+      "title": "BIOCHEMISTRY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBMT302",
+      "title": "ANALOG ELECTRONICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBRT302",
+      "title": "INTRODUCTION TO ROBOTICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCBT302",
+      "title": "Fundamentals of Management"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCET302",
+      "title": "FLUID MECHANICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCGT302",
+      "title": "COMPUTER NETWORKS AND PROTOCOLS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCHT302",
+      "title": "PARTICLE TECHNOLOGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCPT302",
+      "title": "MICROCONTROLLERS AND EMBEDDED SYSTEMS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCST302",
+      "title": "THEORY OF COMPUTATION"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEBT302",
+      "title": "ELECTRONIC DEVICES & CIRCUITS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCECT302",
+      "title": "SOLID STATE DEVICES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEET302",
+      "title": "CIRCUITS AND NETWORKS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCERT302",
+      "title": "DATA STRUCTURES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCFTT302",
+      "title": "FOOD THERMODYNAMICS AND PROCESS CALCULATIONS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCICT302",
+      "title": "ELECTRONICS CIRCUITS AND NETWORK"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCIET302",
+      "title": "FLUID MECHANICS AND HYDRAULIC MACHINES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCITT302",
+      "title": "COMPUTER ORGANISATION AND ARCHITECTURE"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMET302",
+      "title": "MECHANICS OF SOLIDS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMRT302",
+      "title": "ELECTRICAL MACHINES & DRIVES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMUT302",
+      "title": "AUTOMOTIVE SYSTEMS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCNST302",
+      "title": "FLUID MECHANICS FOR NAVAL ARCHITECTS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPET302",
+      "title": "SOLID MECHANICS AND DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPOT302",
+      "title": "POLYMER SCIENCE"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRAT302",
+      "title": "MICROCONTROLLERS AND EMBEDDED SYSTEMS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRUT302",
+      "title": "SOLID MECHANICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-26",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCSFT302",
+      "title": "FIRE ENGINEERING FUNDAMENTALS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAET303",
+      "title": "TRANSDUCERS AND MEASUREMENTS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAGT303",
+      "title": "FLUID MECHANICS & OPEN CHANNEL HYDRAULICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAOT303",
+      "title": "MECHANICS OF AIRCRAFT MATERIALS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAUT303",
+      "title": "AUTOMOTIVE CHASSIS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBBT303",
+      "title": "MICROBIOLOGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBMT303",
+      "title": "MEDICAL PHYSICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBRT303",
+      "title": "SENSORS AND ACTUATORS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCET303",
+      "title": "STRUCTURAL ANALYSIS-I"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCHT303",
+      "title": "CHEMICAL ENGINEERING THERMODYNAMICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCPT303",
+      "title": "FUNDAMENTALS OF CYBER PHYSICAL SYSTEMS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCST303",
+      "title": "DATA STRUCTURES AND ALGORITHMS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCVT303",
+      "title": "ANALYSIS OF STRUCTURES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEBT303",
+      "title": "LOGIC CIRCUITS & DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCECT303",
+      "title": "ANALOG CIRCUITS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEET303",
+      "title": "DC MACHINES AND TRANSFORMERS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEIT303",
+      "title": "NETWORK THEORY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEOT303",
+      "title": "DATA STRUCTURES AND ALGORITHMS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCERT303",
+      "title": "DIGITAL SYSTEM DESIGN USING VERILOG"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCFTT303",
+      "title": "FOOD MICROBIOLOGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCICT303",
+      "title": "TRANSDUCERS AND MEASUREMENTS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCIET303",
+      "title": "THERMAL ENGINEERING"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCITT303",
+      "title": "DATA STRUCTURES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMET303",
+      "title": "FLUID MECHANICS AND MACHINERY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMRT303",
+      "title": "MECHANICS OF SOLIDS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCNST303",
+      "title": "SOLID MECHANICS FOR NAVAL ARCHITECTS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPET303",
+      "title": "FLUID AND THERMAL SCIENCES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPOT303",
+      "title": "LATEX TECHNOLOGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRAT303",
+      "title": "ROBOTIC MANIPULATORS AND WORKCELL DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRUT303",
+      "title": "MATERIALS AND MANUFACTURING PROCESSES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-11-30",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCSFT303",
+      "title": "FLUID MECHANICS AND HYDRAULIC MACHINES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBADT304",
+      "title": "INTRODUCTION TO DATA SCIENCE"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAGT304",
+      "title": "SURFACE & GROUNDWATER HYDROLOGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAIT304",
+      "title": "HUMAN COMPUTER INTERACTION"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAOT304",
+      "title": "FLUID MECHANICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAUT304",
+      "title": "MATERIAL SCIENCE AND METALLURGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBBBT304",
+      "title": "PBL1: INDUSTRIAL BIOPROCESS TECHNOLOGY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBBMT304",
+      "title": "DIGITAL ELECTRONICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBBRT304",
+      "title": "ELECTRONICS CIRCUITS & LOGIC DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCCT304",
+      "title": "BASIC CONCEPTS IN COMPUTER NETWORKS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCET304",
+      "title": "SURVEYING & GEOMATICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCHT304",
+      "title": "FLUID AND PARTICLE MECHANICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCMT304",
+      "title": "CONCEPTS IN MACHINE LEARNING"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCPT304",
+      "title": "ANALOG AND DIGITAL ELECTRONICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCST304",
+      "title": "OBJECT ORIENTED PROGRAMMING"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEBT304",
+      "title": "BIOSENSORS & TRANSDUCERS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBECT304",
+      "title": "LOGIC CIRCUIT DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEET304",
+      "title": "ANALOG ELECTRONICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEIT304",
+      "title": "SENSORS & MEASUREMENTS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEOT304",
+      "title": "DIGITAL ELECTRONICS AND LOGIC SYSTEM DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBERT304",
+      "title": "ELECTRONIC DEVICES AND CIRCUITS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBFTT304",
+      "title": "FOOD PROCESS ENGINEERING"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBICT304",
+      "title": "DESIGN OF LOGIC CIRCUITS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBIET304",
+      "title": "OPERATIONS MANAGEMENT"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBITT304",
+      "title": "DATABASE MANAGEMENT SYSTEM"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBMET304",
+      "title": "MANUFACTURING PROCESSES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBMRT304",
+      "title": "ANALOG ELECTRONICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBNST304",
+      "title": "SHIP STABILITY"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBPET304",
+      "title": "MATERIAL SCIENCE AND ENGINEERING"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBPOT304",
+      "title": "BIOMEDICAL & BIOPOLYMERS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBRAT304",
+      "title": "ANALOG AND DIGITAL ELECTRONICS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBRUT304",
+      "title": "ELECTRONIC CIRCUITS AND LOGIC DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBSFT304",
+      "title": "CHEMICAL PROCESS PRINCIPLES"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "F",
+      "date": "2026-12-05",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "GAEST305",
+      "title": "DIGITAL ELECTRONICS & LOGIC DESIGN"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "F",
+      "date": "2026-12-05",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "GNEST305",
+      "title": "INTRODUCTION TO ARTIFICIAL INTELLIGENCE AND DATA SCIENCE"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "G",
+      "date": "2026-12-08",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "UCHUT346",
+      "title": "ECONOMICS FOR ENGINEERS"
+    },
+    {
+      "semester": 3,
+      "scheme": 2024,
+      "slot": "G",
+      "date": "2026-12-08",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "UCHUT347",
+      "title": "ENGINEERING ETHICS AND SUSTAINABLE DEVELOPMENT"
+    },
     {
       "semester": 5,
       "scheme": 2024,
@@ -116,7 +1133,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCCET501",
-      "title": "HYDROLOGY & WATER RESOURCES  ENGINEERING"
+      "title": "HYDROLOGY & WATER RESOURCES ENGINEERING"
     },
     {
       "semester": 5,
@@ -186,7 +1203,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCEET501",
-      "title": "POWER GENERATION, TRANSMISSION AND  PROTECTION"
+      "title": "POWER GENERATION, TRANSMISSION AND PROTECTION"
     },
     {
       "semester": 5,
@@ -246,7 +1263,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCIET501",
-      "title": "DATA  ANALYTICS"
+      "title": "DATA ANALYTICS"
     },
     {
       "semester": 5,
@@ -286,7 +1303,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCMUT501",
-      "title": "AUTOMOTIVE ELECTRICAL AND ELECTRONICS  SYSTEMS"
+      "title": "AUTOMOTIVE ELECTRICAL AND ELECTRONICS SYSTEMS"
     },
     {
       "semester": 5,
@@ -346,7 +1363,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCSFT501",
-      "title": "STRUCTURAL FIRE SAFETY AND DESIGN OF FIRE  PROTECTION SYSTEMS"
+      "title": "STRUCTURAL FIRE SAFETY AND DESIGN OF FIRE PROTECTION SYSTEMS"
     },
     {
       "semester": 5,
@@ -646,7 +1663,7 @@
       "start": "14:00",
       "end": "16:30",
       "code": "PCPET502",
-      "title": "SENSORS AND MECHATRONIC  SYSTEMS"
+      "title": "SENSORS AND MECHATRONIC SYSTEMS"
     },
     {
       "semester": 5,
@@ -666,7 +1683,7 @@
       "start": "14:00",
       "end": "16:30",
       "code": "PCRAT502",
-      "title": "ADVANCED TOPICS IN ARTIFICIAL  INTELLIGENCE & MACHINE LEARNING"
+      "title": "ADVANCED TOPICS IN ARTIFICIAL INTELLIGENCE & MACHINE LEARNING"
     },
     {
       "semester": 5,
@@ -676,7 +1693,7 @@
       "start": "14:00",
       "end": "16:30",
       "code": "PCRUT502",
-      "title": "KINEMATICS AND DESIGN OF MACHINE  ELEMENTS"
+      "title": "KINEMATICS AND DESIGN OF MACHINE ELEMENTS"
     },
     {
       "semester": 5,
@@ -686,7 +1703,7 @@
       "start": "14:00",
       "end": "16:30",
       "code": "PCSFT502",
-      "title": "QUALITATIVE AND QUANTITATIVE APPROACH  IN SAFETY"
+      "title": "QUALITATIVE AND QUANTITATIVE APPROACH IN SAFETY"
     },
     {
       "semester": 5,
@@ -786,7 +1803,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCCDT503",
-      "title": "DATA  ANALYTICS"
+      "title": "DATA ANALYTICS"
     },
     {
       "semester": 5,
@@ -1016,7 +2033,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCPET503",
-      "title": "MECHANICAL MEASUREMENTS AND  QUALITY CONTROL"
+      "title": "MECHANICAL MEASUREMENTS AND QUALITY CONTROL"
     },
     {
       "semester": 5,
@@ -1026,7 +2043,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCPOT503",
-      "title": "POLYMER MACHINERY & PRODUCT  MANUFACTURING"
+      "title": "POLYMER MACHINERY & PRODUCT MANUFACTURING"
     },
     {
       "semester": 5,
@@ -1056,7 +2073,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PCSFT503",
-      "title": "OCCUPATIONAL HEALTH, HYGIENE AND FIRST  AID"
+      "title": "OCCUPATIONAL HEALTH, HYGIENE AND FIRST AID"
     },
     {
       "semester": 5,
@@ -1066,7 +2083,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PBADT504",
-      "title": "BIG DATA  ANALYTICS"
+      "title": "BIG DATA ANALYTICS"
     },
     {
       "semester": 5,
@@ -1106,7 +2123,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PBAUT504",
-      "title": "COMPUTER AIDED DESIGN AND  MANUFACTURING"
+      "title": "COMPUTER AIDED DESIGN AND MANUFACTURING"
     },
     {
       "semester": 5,
@@ -1256,7 +2273,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PBEBT504",
-      "title": "INTRODUCTION TO BIOMEDICAL SIGNAL  PROCESSING"
+      "title": "INTRODUCTION TO BIOMEDICAL SIGNAL PROCESSING"
     },
     {
       "semester": 5,
@@ -1616,7 +2633,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEAUT525",
-      "title": "ELECTRIC DRIVES AND CONTROLS FOR  AUTOMATION"
+      "title": "ELECTRIC DRIVES AND CONTROLS FOR AUTOMATION"
     },
     {
       "semester": 5,
@@ -1696,7 +2713,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEBMT526",
-      "title": "Fundamentals of BioMEMS and  Microfluidics"
+      "title": "Fundamentals of BioMEMS and Microfluidics"
     },
     {
       "semester": 5,
@@ -1706,7 +2723,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEBRT525",
-      "title": "ARTIFICIAL INTELLIGENCE FOR  ROBOTICS"
+      "title": "ARTIFICIAL INTELLIGENCE FOR ROBOTICS"
     },
     {
       "semester": 5,
@@ -1876,7 +2893,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PECHT525",
-      "title": "MATHEMATICAL METHODS IN  PROCESS ENGINEERING"
+      "title": "MATHEMATICAL METHODS IN PROCESS ENGINEERING"
     },
     {
       "semester": 5,
@@ -1966,7 +2983,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PECST523",
-      "title": "DATA  ANALYTICS"
+      "title": "DATA ANALYTICS"
     },
     {
       "semester": 5,
@@ -2006,7 +3023,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PECST595",
-      "title": "ADVANCED GRAPH  ALGORITHMS"
+      "title": "ADVANCED GRAPH ALGORITHMS"
     },
     {
       "semester": 5,
@@ -2086,7 +3103,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEECT525",
-      "title": "ARM ARCHITECTURE  PROGRAMMING & INTERFACING"
+      "title": "ARM ARCHITECTURE PROGRAMMING & INTERFACING"
     },
     {
       "semester": 5,
@@ -2206,7 +3223,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEEVT521",
-      "title": "ANALOG AND DIGITAL  COMMUNICATION"
+      "title": "ANALOG AND DIGITAL COMMUNICATION"
     },
     {
       "semester": 5,
@@ -2296,7 +3313,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEIET525",
-      "title": "ADDITIVE MANUFACTURING AND 3D  PRINTING"
+      "title": "ADDITIVE MANUFACTURING AND 3D PRINTING"
     },
     {
       "semester": 5,
@@ -2476,7 +3493,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEMUT523",
-      "title": "TRACTORS, FARM EQUIPMENTS AND SPECIAL TYPES OF  VEHICLES"
+      "title": "TRACTORS, FARM EQUIPMENTS AND SPECIAL TYPES OF VEHICLES"
     },
     {
       "semester": 5,
@@ -2496,7 +3513,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEPET524",
-      "title": "LOGISTICS & SUPPLY CHAIN  ENGINEERING"
+      "title": "LOGISTICS & SUPPLY CHAIN ENGINEERING"
     },
     {
       "semester": 5,
@@ -2506,7 +3523,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PEPET525",
-      "title": "DESIGN OF EXPERIMENTS AND  STATISTICAL ANALYSIS"
+      "title": "DESIGN OF EXPERIMENTS AND STATISTICAL ANALYSIS"
     },
     {
       "semester": 5,
@@ -2526,7 +3543,7 @@
       "start": "13:30",
       "end": "16:00",
       "code": "PERAT524",
-      "title": "ADDITIVE MANUFACTURING AND 3D  PRINTING"
+      "title": "ADDITIVE MANUFACTURING AND 3D PRINTING"
     },
     {
       "semester": 5,
@@ -2756,7 +3773,7 @@
       "start": "09:30",
       "end": "12:30",
       "code": "EBT401",
-      "title": "PRINCIPLES OF RADIO DIAGNOSIS AND  RADIOTHERAPY"
+      "title": "PRINCIPLES OF RADIO DIAGNOSIS AND RADIOTHERAPY"
     },
     {
       "semester": 7,
@@ -2796,7 +3813,7 @@
       "start": "09:30",
       "end": "12:30",
       "code": "ERT401",
-      "title": "CMOS VLSI  DESIGN"
+      "title": "CMOS VLSI DESIGN"
     },
     {
       "semester": 7,
@@ -3806,7 +4823,7 @@
       "start": "09:30",
       "end": "12:30",
       "code": "MET423",
-      "title": "OPTIMIZATION TECHNIQUES AND  APPLICATIONS"
+      "title": "OPTIMIZATION TECHNIQUES AND APPLICATIONS"
     },
     {
       "semester": 7,
@@ -4547,16 +5564,6 @@
       "end": "12:30",
       "code": "SBT435",
       "title": "MARINE MATERIALS AND CORROSION"
-    },
-    {
-      "semester": 7,
-      "scheme": 2019,
-      "slot": "D",
-      "date": "2026-12-02",
-      "start": "09:30",
-      "end": "12:30",
-      "code": "MCN401",
-      "title": "INDUSTRIAL SAFETY ENGINEERING 02.12.2026 Wednesday 9.30am- 12.30pm"
     }
   ]
 }
