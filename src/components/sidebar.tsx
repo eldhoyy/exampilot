@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "next/link";\nimport {motion} from "motion/react";
 import { usePathname } from "next/navigation";
 import { BookOpen, CalendarDays, GraduationCap, Home, Library, Target, UserRound } from "lucide-react";
 
@@ -22,7 +22,7 @@ export default function Sidebar() {
     <nav className="sidebar-nav" aria-label="Main navigation">
       {navItems.map(({label,href,icon:Icon}) => {
         const active = href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
-        return <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`nav-link ${active ? "active" : ""}`}><Icon size={18}/><span>{label}</span></Link>;
+        return <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`nav-link ${active ? "active" : ""}`}>{active&&<motion.span layoutId="sidebar-active-pill" className="absolute inset-0 rounded-xl bg-[var(--surface-muted)]" transition={{type:"spring",stiffness:420,damping:34}}/>}<span className="relative z-10"><Icon size={18}/></span><span className="relative z-10">{label}</span></Link>;
       })}
     </nav>
     <div className="sidebar-note"><span className="note-rule"/><p>KTU exams, minus the last-minute scramble.</p></div>
