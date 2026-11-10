@@ -34,7 +34,7 @@ export default function StudyTracker() {
   return <section className="panel mb-5 overflow-hidden">
     <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4"><div><p className="eyebrow">FOCUS ROOM</p><h2 className="mt-1 text-lg font-extrabold">Make this session count</h2></div><span className={`rounded-full px-3 py-1 text-xs font-bold ${mode==="focus"?"bg-emerald-50 text-emerald-700":mode==="rest"?"bg-amber-50 text-amber-700":"bg-slate-100 text-slate-600"}`}>{mode==="focus"?"Focus in progress":mode==="rest"?"Taking a break":mode==="paused"?"Paused":"Ready when you are"}</span></div>
     <div className="grid gap-5 p-5 md:grid-cols-[1.2fr_1fr]">
-      <div className="rounded-2xl bg-[#14213d] p-5 text-white"><div className="flex items-center gap-2 text-xs font-semibold text-blue-200"><Timer size={15}/> {mode==="rest"?"REST TIMER":"FOCUS TIMER"}</div><div className="my-5 text-center font-mono text-5xl font-bold tracking-tight tabular-nums">{clock(mode==="rest"?restLeft:seconds)}</div>
+      <div className="rounded-2xl bg-[#163b36] p-5 text-white"><div className="flex items-center gap-2 text-xs font-semibold text-blue-200"><Timer size={15}/> {mode==="rest"?"REST TIMER":"FOCUS TIMER"}</div><div className="my-5 text-center font-mono text-5xl font-bold tracking-tight tabular-nums">{clock(mode==="rest"?restLeft:seconds)}</div>
         <input value={subject} onChange={e=>setSubject(e.target.value)} placeholder="What are you studying? (optional)" className="w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-300"/>
         {savedPulse&&<motion.div initial={{opacity:0,scale:.82,y:6}} animate={{opacity:1,scale:1,y:0}} transition={{type:"spring",stiffness:420,damping:24}} className="mt-3 flex items-center justify-center gap-2 text-sm font-bold text-emerald-300"><CheckCircle2 size={17}/> Session saved. Nice work.</motion.div>}
         <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -45,9 +45,9 @@ export default function StudyTracker() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-2xl bg-[#f5f7fb] p-4"><Flame className="mb-3 text-orange-500" size={20}/><p className="text-2xl font-extrabold">{streak} days</p><p className="mt-1 text-xs text-slate-500">Current streak</p></div>
-        <div className="rounded-2xl bg-[#f5f7fb] p-4"><Timer className="mb-3 text-blue-600" size={20}/><p className="text-2xl font-extrabold">{Math.floor(todaySeconds/3600)}h {Math.floor(todaySeconds%3600/60)}m</p><p className="mt-1 text-xs text-slate-500">Studied today</p></div>
-        <div className="col-span-2 rounded-2xl bg-[#f5f7fb] p-4"><div className="mb-2 flex items-center justify-between"><p className="text-sm font-bold">Last 7 days</p><TrendingUp size={17} className="text-emerald-600"/></div><p className="text-2xl font-extrabold">{Math.floor(weekSeconds/3600)}h {Math.floor(weekSeconds%3600/60)}m</p><p className="mt-1 text-xs text-slate-500">Total focused time · completed sessions are saved on this device</p></div>
+        <div className="rounded-2xl bg-[var(--surface-muted)] p-4"><Flame className="mb-3 text-[var(--accent)]" size={20}/><p className="text-2xl font-extrabold">{streak} days</p><p className="mt-1 text-xs text-slate-500">Current streak</p></div>
+        <div className="rounded-2xl bg-[var(--surface-muted)] p-4"><Timer className="mb-3 text-[var(--accent)]" size={20}/><p className="text-2xl font-extrabold">{Math.floor(todaySeconds/3600)}h {Math.floor(todaySeconds%3600/60)}m</p><p className="mt-1 text-xs text-slate-500">Studied today</p></div>
+        <div className="col-span-2 rounded-2xl bg-[var(--surface-muted)] p-4"><div className="mb-2 flex items-center justify-between"><p className="text-sm font-bold">Last 7 days</p><TrendingUp size={17} className="text-[var(--accent)]"/></div><p className="text-2xl font-extrabold">{Math.floor(weekSeconds/3600)}h {Math.floor(weekSeconds%3600/60)}m</p><p className="mt-1 text-xs text-slate-500">Total focused time · completed sessions are saved on this device</p></div>
       </div>
     </div>
   </section>;
