@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BookOpen, CalendarDays, Check, Circle, Clock3, Flame, Plus, Target, Timer, Trash2 } from "lucide-react";
 import topicData from "@/data/important-topics.json";
-import { useStudyData } from "@/lib/use-study-data";
+import { useStudyData } from "@/lib/use-study-data";\nimport CountUp from "@/components/count-up";
 
 type Topic={module:number;name:string;priority:string;evidence:string};
 type TopicEntry={subject:string;evidence:string;papers:number;topics:Topic[]};
@@ -34,4 +34,4 @@ export default function Home(){
  <div className="panel flex flex-col justify-between p-5"><div><p className="eyebrow">KEEP YOUR ROUTINE MOVING</p><h2 className="text-2xl font-bold">One session at a time.</h2><p className="mt-3 text-sm muted">Start a focus timer, take a proper break, and let your study history build as you go.</p></div><div className="mt-7 grid grid-cols-2 gap-3"><Link href="/study-plan" className="primary-button"><Timer size={16}/> Focus timer</Link><Link href="/subjects" className="secondary-button"><Plus size={16}/> Subjects</Link></div></div></section>
  </div>
 }
-function Stat({icon,label,value,detail}:{icon:React.ReactNode;label:string;value:string;detail:string}){return <article className="panel card-hover p-4"><div className="flex items-center justify-between"><p className="eyebrow">{label}</p><span className="text-[var(--accent)]">{icon}</span></div><p className="stat-value mt-3">{value}</p><p className="mt-2 text-[11px] leading-5 muted">{detail}</p></article>}
+function Stat({icon,label,value,detail}:{icon:React.ReactNode;label:string;value:string;detail:string}){return <article className="panel card-hover p-4"><div className="flex items-center justify-between"><p className="eyebrow">{label}</p><span className="text-[var(--accent)]">{icon}</span></div><p className="stat-value mt-3">{/^\\d+/.test(value)?<CountUp value={Number(value.match(/^\\d+/)?.[0]||0)} suffix={value.replace(/^\\d+/,"")}/>:value}</p><p className="mt-2 text-[11px] leading-5 muted">{detail}</p></article>}
