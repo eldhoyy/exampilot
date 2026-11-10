@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, CalendarDays, Clock3, Coffee, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
+import StudyTracker from "@/components/study-tracker";
 import { buildStudyPlan, localDateISO, type Difficulty, type StudySubject } from "@/lib/planner";
 import { getApprovedPapers } from "@/lib/approved-timetable";
 import topicData from "@/data/important-topics.json";
@@ -36,6 +37,10 @@ export default function StudyPlanPage() {
   const [refreshing,setRefreshing]=useState(false);
   const [error,setError]=useState("");
   const [lastChecked,setLastChecked]=useState("");
+  const [startDate,setStartDate]=useState(localDateISO(new Date()));
+
+  useEffect(()=>{const saved=localStorage.getItem("exampilot-plan-start-date");if(saved && /^\\d{4}-\\d{2}-\\d{2}$/.test(saved))setStartDate(saved);},[]);
+  function changeStartDate(value:string){setStartDate(value);localStorage.setItem("exampilot-plan-start-date",value);}
 
   useEffect(()=> {
     try {
@@ -90,7 +95,7 @@ export default function StudyPlanPage() {
     setSubjects(items=>items.map(s=>s.id===id?{...s,difficulty:value}:s));
   }
 
-  const plan=useMemo(()=>buildStudyPlan(subjects,240,new Date(),50,10),[subjects]);
+  const plan=useMemo(()=>buildStudyPlan(subjects,240,new Date(startDate+"T00:00:00"),50,10),[subjects,startDate]);
   const grouped=useMemo(()=>plan.reduce<Record<string,typeof plan>>((acc,s)=>{(acc[s.date] ||= []).push(s);return acc;},{}),[plan]);
   const upcoming=subjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate));
 
@@ -115,6 +120,8 @@ export default function StudyPlanPage() {
       <div className="space-y-3">{subjects.map(s=>{const analysis=topicData[s.code as keyof typeof topicData];return <details key={s.code} className="rounded-xl border border-slate-200 bg-white p-3"><summary className="cursor-pointer list-none"><div className="flex flex-wrap items-center justify-between gap-2"><div><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">{analysis?(analysis.papers>0?analysis.papers+" previous question paper(s) analysed":"Syllabus-based checklist · no PYQ frequency claimed"):"No verified question-paper analysis available yet"}</p></div><span className={"rounded-full px-2.5 py-1 text-[11px] font-bold "+(analysis?"bg-amber-50 text-amber-800":"bg-slate-100 text-slate-600")}>{analysis?"Topic guide":"Analysis pending"}</span></div></summary>{analysis?<><p className="mt-3 text-xs leading-5 text-slate-500">{analysis.evidence}</p><div className="mt-3 space-y-2">{analysis.topics.map(topic=><div key={topic.module+"-"+topic.name} className="rounded-lg bg-slate-50 p-3"><div className="flex flex-wrap items-center justify-between gap-2"><p className="text-sm font-semibold text-slate-800">M{topic.module} · {topic.name}</p><span className={"rounded-md px-2 py-1 text-[10px] font-bold "+(topic.priority==="High"?"bg-rose-50 text-rose-700":"bg-amber-50 text-amber-800")}>{topic.priority} priority</span></div><p className="mt-1 text-xs leading-5 text-slate-500">{topic.evidence}</p></div>)}</div></>:<p className="mt-3 rounded-lg bg-slate-50 p-3 text-xs leading-5 text-slate-600">This subject is included in your timetable and study plan, but ExamPilot does not yet have enough verified previous question papers and the matching module syllabus to publish reliable important topics. Upload or add those source documents to complete this analysis. Do not treat a guessed topic list as exam guidance.</p>}</details>})}</div>
       <p className="mt-4 rounded-lg bg-blue-50 p-3 text-xs leading-5 text-blue-900">Question-paper trends are shown only when source papers exist. Syllabus-based checklists are not frequency rankings. Always cover the full syllabus.</p>
     </section>}
+    {subjects.length>0&&<section className="panel mb-5 p-5"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow mb-1">PLAN SETTINGS</p><h2 className="font-bold">Choose when your preparation begins</h2><p className="mt-1 text-sm text-slate-500">Your daily schedule will be generated from this date.</p></div><label className="text-sm font-semibold text-slate-700">Start date<input type="date" value={startDate} min={localDateISO(new Date())} max={subjects.length?subjects.reduce((m,s)=>s.examDate<m?s.examDate:m,subjects[0].examDate):undefined} onChange={e=>changeStartDate(e.target.value)} className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2.5"/></label></div></section>}
+    <StudyTracker />
     {subjects.length>0&&<section className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
       <div className="panel p-4"><p className="text-xs font-semibold text-slate-500">Upcoming exams</p><p className="mt-1 text-2xl font-extrabold">{upcoming.length}</p><p className="text-xs text-slate-400">In your semester</p></div>
       <div className="panel p-4"><p className="text-xs font-semibold text-slate-500">Study sessions</p><p className="mt-1 text-2xl font-extrabold">{plan.length}</p><p className="text-xs text-slate-400">Planned focus blocks</p></div>
