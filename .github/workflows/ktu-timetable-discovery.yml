@@ -44,6 +44,7 @@ jobs:
           git add src/data/november-2026-timetables.json
           if ! git diff --cached --quiet; then
             git commit -m "Update extracted November 2026 KTU timetable data"
+            git pull --rebase origin main
             git push
           else
             echo "Timetable data is unchanged."
