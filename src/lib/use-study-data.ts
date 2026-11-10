@@ -49,6 +49,7 @@ export function useStudyData(){
  const upcoming=useMemo(()=>allSubjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null,[allSubjects]);
  const completedCount=completed.filter(id=>plan.some((task,i)=>taskKey(task,i)===id)).length;
  const completion=plan.length?Math.round(completedCount/plan.length*100):0;
+ const subjectProgress=allSubjects.map(subject=>{const tasks=plan.map((task,index)=>({task,key:taskKey(task,index)})).filter(item=>item.task.subjectId===subject.id);const done=tasks.filter(item=>completed.includes(item.key)).length;return {id:subject.id,code:subject.code,title:subject.title,total:tasks.length,done,percent:tasks.length?Math.round(done/tasks.length*100):0}});
  const today=localDateISO(new Date());
  const todayTasks=plan.map((task,index)=>({...task,key:taskKey(task,index),done:completed.includes(taskKey(task,index))})).filter(task=>task.date===today);
  const weekSeconds=sessions.filter(s=>{const day=new Date(s.date+"T00:00:00");const start=new Date();start.setDate(start.getDate()-6);start.setHours(0,0,0,0);return day>=start&&day<=new Date();}).reduce((sum,s)=>sum+s.seconds,0);
@@ -66,6 +67,6 @@ export function useStudyData(){
   setSubjects(rows);setCompleted([]);setDemo(true);
  }
  function clearDemo(){if(!demo)return;localStorage.removeItem("exampilot-subjects");localStorage.removeItem("exampilot-demo-data");localStorage.removeItem(DONE_KEY);setSubjects([]);setCompleted([]);setDemo(false)}
- return {ready,subjects:allSubjects,sessions,profile,plan,upcoming,weekSeconds,streak,completion,todayTasks,demo,toggleTask,loadDemo,clearDemo,planStartDate};
+ return {ready,subjects:allSubjects,sessions,profile,plan,upcoming,weekSeconds,streak,completion,subjectProgress,todayTasks,demo,toggleTask,loadDemo,clearDemo,planStartDate};
 }
 export function taskKey(task:PlannedTask,index:number){return task.date+"|"+task.subjectId+"|"+index}
