@@ -43,6 +43,7 @@ def extract(doc):
   match=re.match(r"^\s*([A-Z]{2,5}\d{3})\s*[-–]\s*(.+?)\s*$",line)
   if not match: continue
   code,title=match.group(1), " ".join(match.group(2).split())
+  title=re.sub(r"\\s+\\d{2}\\.\\d{2}\\.\\d{4}.*$","",title).strip()
   if code in seen: continue
   seen.add(code)
   slot=slot_for(doc["semester"],code)
