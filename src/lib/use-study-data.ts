@@ -17,7 +17,10 @@ export function useStudyData(){
  const [sessions,setSessions]=useState<SavedSession[]>([]);
  const [profile,setProfile]=useState<StudentProfile|null>(null);
  const [completed,setCompleted]=useState<string[]>([]);
- const [demo,setDemo]=useState(false);\n const [planStartDate,setPlanStartDate]=useState(localDateISO(new Date()));\n const [excludedCodes,setExcludedCodes]=useState<string[]>([]);\n const [difficultyMap,setDifficultyMap]=useState<Record<string,"easy"|"medium"|"hard">>({});
+ const [demo,setDemo]=useState(false);
+ const [planStartDate,setPlanStartDate]=useState(localDateISO(new Date()));
+ const [excludedCodes,setExcludedCodes]=useState<string[]>([]);
+ const [difficultyMap,setDifficultyMap]=useState<Record<string,"easy"|"medium"|"hard">>({});
  useEffect(()=>{
   try{
    const parse=<T,>(key:string,fallback:T):T=>{try{const value=localStorage.getItem(key);return value?JSON.parse(value) as T:fallback}catch{return fallback}};
@@ -25,7 +28,10 @@ export function useStudyData(){
    setSessions(parse<SavedSession[]>(SESSION_KEY,[]));
    setProfile(parse<StudentProfile|null>("exampilot-profile-draft",null));
    setCompleted(parse<string[]>(DONE_KEY,[]));
-   setDemo(localStorage.getItem("exampilot-demo-data")==="yes");\n   const start=localStorage.getItem("exampilot-plan-start-date");if(start&&/^\\d{4}-\\d{2}-\\d{2}$/.test(start))setPlanStartDate(start);\n   setExcludedCodes(parse<string[]>("exampilot-excluded-subjects",[]));\n   setDifficultyMap(parse<Record<string,"easy"|"medium"|"hard">>("exampilot-difficulty",{}));
+   setDemo(localStorage.getItem("exampilot-demo-data")==="yes");
+   const start=localStorage.getItem("exampilot-plan-start-date");if(start&&/^\d{4}-\d{2}-\d{2}$/.test(start))setPlanStartDate(start);
+   setExcludedCodes(parse<string[]>("exampilot-excluded-subjects",[]));
+   setDifficultyMap(parse<Record<string,"easy"|"medium"|"hard">>("exampilot-difficulty",{}));
   }finally{setReady(true)}
  },[]);
  const allSubjects=useMemo(()=>{
