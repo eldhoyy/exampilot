@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Activity, BookOpen, CalendarDays, GraduationCap, LogOut, RefreshCw, Users } from "lucide-react";
+import { Activity, BookOpen, LogOut, RefreshCw, Users } from "lucide-react";
 
 type Visitor = {
   visitor_id: string; display_name: string | null; branch: string | null; semester: string | null;
