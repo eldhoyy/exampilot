@@ -6,16 +6,4557 @@
       "semester": 5,
       "scheme": 2024,
       "documentNumber": "KTU/EX-II#1/1833/2025",
-      "title": "B.Tech S5 November 2026 (2024 Scheme)",
+      "title": "Detailed Time Table of B.Tech S5 (R) Exam November 2026, including (WP) (R) (2024 Scheme)",
       "url": "https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-time-table-of-b-tech-s5-r-exam-november-2026-includ-1794048414.pdf"
     },
     {
       "semester": 7,
       "scheme": 2019,
       "documentNumber": "KTU/SOEX-IV/2122/2024",
-      "title": "B.Tech S7 November 2026 (2019 Scheme)",
+      "title": "Detailed Timetable of B.Tech S7 (R, S) Examinations, November 2026 (2019 Scheme) / Working Professionals",
       "url": "https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s7-r-s-examinations-november-20-1794048779.pdf"
     }
   ],
-  "exams": []
+  "exams": [
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAET501",
+      "title": "CONTROL SYSTEM THEORY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAGT501",
+      "title": "DESIGN OF FARM STRUCTURES & COST ESTIMATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAMT501",
+      "title": "INTRODUCTION TO INTERNET OF THINGS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAOT501",
+      "title": "HIGH SPEED AERODYNAMICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAUT501",
+      "title": "AUTOMOBILE ELECTRICAL AND ELECTRONICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBBT501",
+      "title": "HEAT TRANSFER OPERATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBMT501",
+      "title": "BIOMEDICAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBRT501",
+      "title": "MEDICAL ROBOTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCCT501",
+      "title": "APPLIED CRYPTOGRAPHY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCET501",
+      "title": "HYDROLOGY & WATER RESOURCES  ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCGT501",
+      "title": "FOUNDATIONS OF CRYPTOGRAPHY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCHT501",
+      "title": "MASS TRANSFER OPERATION-II"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCPT501",
+      "title": "CONTROL SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCST501",
+      "title": "COMPUTER NETWORKS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEBT501",
+      "title": "HOSPITAL ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCECT501",
+      "title": "ELECTROMAGNETICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEET501",
+      "title": "POWER GENERATION, TRANSMISSION AND  PROTECTION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEOT501",
+      "title": "MICROCONTROLLER AND EMBEDDED SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCERT501",
+      "title": "DIGITAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEVT501",
+      "title": "DIGITAL CMOS DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCFTT501",
+      "title": "PROCESSING OF FRUITS AND VEGETABLES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCICT501",
+      "title": "CLASSICAL CONTROL ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCIET501",
+      "title": "DATA  ANALYTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCITT501",
+      "title": "MACHINE LEARNING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMET501",
+      "title": "DYNAMICS OF MACHINERY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMRT501",
+      "title": "LINEAR CONTROL SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMUT501",
+      "title": "AUTOMOTIVE ELECTRICAL AND ELECTRONICS  SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCNST501",
+      "title": "SHIP DYNAMICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPET501",
+      "title": "INDUSTRIAL ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPOT501",
+      "title": "RUBBERS – SCIENCE & TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRAT501",
+      "title": "CONTROL SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRUT501",
+      "title": "INDUSTRIAL AUTOMATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCSFT501",
+      "title": "STRUCTURAL FIRE SAFETY AND DESIGN OF FIRE  PROTECTION SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCADT502",
+      "title": "ROBOTICS AND INTELLIGENT SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCAET502",
+      "title": "PROCESS DYNAMICS AND CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCAGT502",
+      "title": "THERMODYNAMICS & HEAT ENGINES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCAIT502",
+      "title": "RECOMMENDATION SYSTEM"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCAOT502",
+      "title": "AIRCRAFT STRUCTURES -II"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCAUT502",
+      "title": "THEORY OF MACHINES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCBBT502",
+      "title": "BIOPROCESS ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCBMT502",
+      "title": "THERAPEUTIC EQUIPMENT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCBRT502",
+      "title": "ELECTRICAL DRIVES & CONTROL SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCCAT502",
+      "title": "INTRODUCTION TO ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCCCT502",
+      "title": "NETWORK AND SYSTEM SECURITY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCCET502",
+      "title": "TRANSPORTATION ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCCHT502",
+      "title": "CHEMICAL REACTION ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCCPT502",
+      "title": "INTRODUCTION TO WIRELESS COMMUNICATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCCST502",
+      "title": "DESIGN AND ANALYSIS OF ALGORITHMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCEBT502",
+      "title": "MEDICAL IMAGING TECHNIQUES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCECT502",
+      "title": "ANALOG AND DIGITAL COMMUNICATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCEET502",
+      "title": "ELECTROMAGNETIC THEORY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCEOT502",
+      "title": "POWER ELECTRONICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCERT502",
+      "title": "THEORY OF COMPUTATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCEVT502",
+      "title": "FPGA BASED SYSTEM DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCFTT502",
+      "title": "PROCESSING OF MILK & MILK PRODUCTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCICT502",
+      "title": "PROCESS CONTROL INSTRUMENTATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCIET502",
+      "title": "SUPPLY CHAIN AND LOGISTICS MANAGEMENT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCITT502",
+      "title": "ALGORITHM ANALYSIS AND DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCMET502",
+      "title": "ADVANCED MANUFACTURING ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCMRT502",
+      "title": "THERMODYNAMICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCMUT502",
+      "title": "HEAT AND MASS TRANSFER"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCNST502",
+      "title": "SHIP STRUCTURES I"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCPET502",
+      "title": "SENSORS AND MECHATRONIC  SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCPOT502",
+      "title": "POLYMER PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCRAT502",
+      "title": "ADVANCED TOPICS IN ARTIFICIAL  INTELLIGENCE & MACHINE LEARNING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCRUT502",
+      "title": "KINEMATICS AND DESIGN OF MACHINE  ELEMENTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "B",
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:30",
+      "code": "PCSFT502",
+      "title": "QUALITATIVE AND QUANTITATIVE APPROACH  IN SAFETY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAET503",
+      "title": "POWER ELECTRONICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAGT503",
+      "title": "HEAT & MASS TRANSFER"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAIT503",
+      "title": "WEB AND MOBILE APPLICATION FOR AI"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAOT503",
+      "title": "AIR BREATHING PROPULSION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCAUT503",
+      "title": "AUTOMOTIVE TRANSMISSION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBBT503",
+      "title": "MASS TRANSFER OPERATIONS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBMT503",
+      "title": "MEDICAL IMAGING TECHNIQUES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCBRT503",
+      "title": "POWER ELECTRONICS & APPLICATIONS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCBT503",
+      "title": "COMPUTATIONAL STATISTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCDT503",
+      "title": "DATA  ANALYTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCET503",
+      "title": "ENVIRONMENTAL ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCGT503",
+      "title": "MICROPROCESSORS AND MICROCONTROLLERS FOR IOT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCHT503",
+      "title": "CHEMICAL TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCMT503",
+      "title": "DEEP LEARNING CONCEPTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCNT503",
+      "title": "WEB PROGRAMMING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCPT503",
+      "title": "ELECTRIC DRIVES & CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCST503",
+      "title": "MACHINE LEARNING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCCVT503",
+      "title": "FOUNDATION ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEBT503",
+      "title": "THERAPEUTIC EQUIPMENTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCECT503",
+      "title": "CONTROL SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEET503",
+      "title": "SIGNALS & SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEOT503",
+      "title": "POWER SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCERT503",
+      "title": "MICROCONTROLLERS AND INTERFACING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCEVT503",
+      "title": "VLSI TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCFTT503",
+      "title": "FOOD SAFETY & QUALITY REGULATIONS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCICT503",
+      "title": "INDUSTRIAL INSTRUMENTATION-II"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCIET503",
+      "title": "QUALITY ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCITT503",
+      "title": "SOFTWARE ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMET503",
+      "title": "HEAT AND MASS TRANSFER"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMRT503",
+      "title": "INDUSTRIAL HYDRAULICS & PNEUMATICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCMUT503",
+      "title": "ELECTRIC VEHICLES - DRIVES AND CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCNST503",
+      "title": "MARINE ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPET503",
+      "title": "MECHANICAL MEASUREMENTS AND  QUALITY CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCPOT503",
+      "title": "POLYMER MACHINERY & PRODUCT  MANUFACTURING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRAT503",
+      "title": "ELECTRIC DRIVES & CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCRUT503",
+      "title": "ELECTRIC DRIVES AND CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "C",
+      "date": "2026-12-01",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PCSFT503",
+      "title": "OCCUPATIONAL HEALTH, HYGIENE AND FIRST  AID"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBADT504",
+      "title": "BIG DATA  ANALYTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAGT504",
+      "title": "IRRIGATION & DRAINAGE ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAIT504",
+      "title": "REAL TIME SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAOT504",
+      "title": "HEAT TRANSFER"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBAUT504",
+      "title": "COMPUTER AIDED DESIGN AND  MANUFACTURING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBBBT504",
+      "title": "ENZYME KINETICS AND TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBBMT504",
+      "title": "Analytical and Diagnostic Equipment"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBBRT504",
+      "title": "BIOMEDICAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCAT504",
+      "title": "ADVANCED GRAPH ALGORITHMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCBT504",
+      "title": "OPERATIONS RESEARCH"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCDT504",
+      "title": "BIG DATA PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCET504",
+      "title": "FOUNDATION ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCGT504",
+      "title": "SOFTWARE ENGINEERING AND DESIGN CONCEPTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCHT504",
+      "title": "CHEMICAL ENGINEERING DESIGN-I"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCMT504",
+      "title": "INTRODUCTION TO COMPUTER VISION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCNT504",
+      "title": "VIRTUAL REALITY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCPT504",
+      "title": "FUNDAMENTALS OF REAL TIME DIGITAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCST504",
+      "title": "MICROCONTROLLERS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBCVT504",
+      "title": "ENVIRONMENTAL ENGINEERING II"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEBT504",
+      "title": "INTRODUCTION TO BIOMEDICAL SIGNAL  PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBECT504",
+      "title": "DIGITAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEET504",
+      "title": "MICROPROCESSOR AND EMBEDDED SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEOT504",
+      "title": "DATABASE MANAGEMENT SYSTEM"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBERT504",
+      "title": "DATABASE MANAGEMENT SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBEVT504",
+      "title": "EMBEDDED SYSTEM DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBFTT504",
+      "title": "FOOD ADDITIVES AND FLAVORINGS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBICT504",
+      "title": "MICROCONTROLLER"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBIET504",
+      "title": "OPTIMISATION TECHNIQUES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBITT504",
+      "title": "WEB APPLICATION DEVELOPMENT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBMET504",
+      "title": "MANAGEMENT FOR ENGINEERS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBMRT504",
+      "title": "SIGNAL PROCESSING & COMMUNICATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBMUT504",
+      "title": "MECHANICS OF MACHINERY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBNST504",
+      "title": "SHIP DESIGN I"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBPET504",
+      "title": "CAD/CAM/CAE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBPOT504",
+      "title": "TYRE TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBRAT504",
+      "title": "ROBOT OPERATING SYSTEM"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBRUT504",
+      "title": "MOBILE ROBOTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "D",
+      "date": "2026-12-03",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PBSFT504",
+      "title": "HEAT AND MASS TRANSFER OPERATIONS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEADT522",
+      "title": "BUSINESS ANALYTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEADT523",
+      "title": "INFORMATION SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEADT525",
+      "title": "FUNDAMENTALS OF DIGITAL IMAGE PROCESSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAET521",
+      "title": "DATA COMMUNICATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAET522",
+      "title": "MODERN PROCESSOR ARCHITECTURE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAET525",
+      "title": "VLSI SYSTEM DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAET526",
+      "title": "BIOMEDICAL INSTRUMENTATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAET595",
+      "title": "ROBOTICS AND AUTOMATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAGT521",
+      "title": "REMOTE SENSING & GIS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAGT522",
+      "title": "PUMP ENGINEERING AND HYDRAULIC CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAIT521",
+      "title": "KNOWLEDGE ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAIT522",
+      "title": "HEALTHCARE ANALYTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAIT527",
+      "title": "RESPONSIBLE ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAMT595",
+      "title": "OPERATING SYSTEM CONCEPTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAOT525",
+      "title": "CIVIL AVIATION REGULATIONS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAOT527",
+      "title": "AIRFRAME MAINTENANCE AND REPAIR"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAUT522",
+      "title": "AUTOMOTIVE POLLUTION AND TESTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEAUT525",
+      "title": "ELECTRIC DRIVES AND CONTROLS FOR  AUTOMATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBBT521",
+      "title": "CANCER BIOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBBT522",
+      "title": "BIOETHICS AND SAFETY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBBT524",
+      "title": "GENETIC ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBBT525",
+      "title": "BIO SEPARATION TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBMT523",
+      "title": "Radiological Equipments"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBMT524",
+      "title": "Implants & Prosthetic Engineering"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBMT525",
+      "title": "Artificial Neural Networks"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBMT526",
+      "title": "Fundamentals of BioMEMS and  Microfluidics"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEBRT525",
+      "title": "ARTIFICIAL INTELLIGENCE FOR  ROBOTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECAT522",
+      "title": "ARTIFICIAL NEURAL NETWORKS TECHNIQUES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECBT525",
+      "title": "MANAGERIAL ECONOMICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECCT521",
+      "title": "NETWORK FUNDAMENTALS FOR CLOUD"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECCT522",
+      "title": "BLOCK CHAIN AND CRYPTO CURRENCY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECCT523",
+      "title": "AI IN CYBER SECURITY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECCT524",
+      "title": "ADVANCED INDUSTRIAL CYBER SECURITY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECDT523",
+      "title": "DATA PRIVACY AND SECURITY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECET521",
+      "title": "ADVANCED STRUCTURAL ANALYSIS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECET522",
+      "title": "MODERN CONSTRUCTION TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECET523",
+      "title": "OPEN CHANNEL HYDRAULICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECET524",
+      "title": "DISASTER MANAGEMENT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECET525",
+      "title": "DESIGN OF PRESTRESSED CONCRETE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECET527",
+      "title": "TOWN PLANNING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECHT522",
+      "title": "OIL AND NATURAL GAS ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECHT523",
+      "title": "POLYMER TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECHT524",
+      "title": "PROJECT ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECHT525",
+      "title": "MATHEMATICAL METHODS IN  PROCESS ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECHT527",
+      "title": "CORROSION ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECMT522",
+      "title": "EXPERT SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECMT535",
+      "title": "OBJECT ORIENTED PROGRAMMING CONCEPTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECNT529",
+      "title": "VISUAL DESIGN AND COMMUNICATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECPT521",
+      "title": "SENSOR AND ACTUATOR INTEGRATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECPT525",
+      "title": "CLOUD COMPUTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST521",
+      "title": "SOFTWARE PROJECT MANAGEMENT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST522",
+      "title": "ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST523",
+      "title": "DATA  ANALYTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST524",
+      "title": "DATA COMPRESSION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST525",
+      "title": "DATA MINING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST527",
+      "title": "COMPUTER GRAPHICS & MULTIMEDIA"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PECST595",
+      "title": "ADVANCED GRAPH  ALGORITHMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEBT524",
+      "title": "BIOMEDICAL OPTICS & BIO PHOTONICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEBT525",
+      "title": "ARTIFICIAL NEURAL NETWORKS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEBT526",
+      "title": "VLSI DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEECT521",
+      "title": "BIOMEDICAL ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEECT522",
+      "title": "DATA STRUCTURES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEECT523",
+      "title": "SENSORS AND ACTUATORS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEECT524",
+      "title": "ARM ARCHITECTURE & PROGRAMMING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEECT525",
+      "title": "ARM ARCHITECTURE  PROGRAMMING & INTERFACING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEECT526",
+      "title": "HIGH SPEED DIGITAL DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEET521",
+      "title": "ENERGY STORAGE SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEET522",
+      "title": "ELECTRIC VEHICLES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEET523",
+      "title": "DIGITAL SYSTEM DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEET526",
+      "title": "DATA STRUCTURES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEET527",
+      "title": "INTRODUCTION TO MACHINE LEARNING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEET528",
+      "title": "COMPUTER NETWORK SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEOT521",
+      "title": "MODERN OPERATING SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEERT521",
+      "title": "WIRELESS SENSOR NETWORKS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEERT522",
+      "title": "CMOS VLSI DESIGN"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEERT524",
+      "title": "CLOUD COMPUTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEVT521",
+      "title": "ANALOG AND DIGITAL  COMMUNICATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEVT523",
+      "title": "GRAPH THEORY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEEVT527",
+      "title": "REAL TIME OPERATING SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEFTT522",
+      "title": "NANOTECHNOLOGY IN FOOD"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEFTT524",
+      "title": "SENSORY EVALUATION OF FOOD PRODUCTS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEFTT528",
+      "title": "FOOD FERMENTATION TECHNOLOGY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEICT521",
+      "title": "ANALYTICAL INSTRUMENTATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEICT522",
+      "title": "BIOMEDICAL INSTRUMENTATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEIET521",
+      "title": "ADVANCED MANUFACTURING PROCESSES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEIET525",
+      "title": "ADDITIVE MANUFACTURING AND 3D  PRINTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEITT521",
+      "title": "SOFT COMPUTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEITT522",
+      "title": "INTERNETWORKING USING TCP/IP"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEITT523",
+      "title": "CLOUD COMPUTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEITT524",
+      "title": "DATA MINING AND WAREHOUSING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEITT525",
+      "title": "FORMAL LANGUAGES AND AUTOMATA THEORY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET521",
+      "title": "COMPUTATIONAL FLUID DYNAMICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET522",
+      "title": "DESIGN FOR MANUFACTURE AND ASSEMBLY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET523",
+      "title": "COMPUTER AIDED DESIGN AND ANALYSIS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET524",
+      "title": "ADDITIVE MANUFACTURING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET525",
+      "title": "INSTRUMENTATION AND CONTROL SYSTEMS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET526",
+      "title": "ENERGY ECONOMICS AND POLICY"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET527",
+      "title": "HUMAN RESOURCES MANAGEMENT"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMET528",
+      "title": "OPERATIONS RESEARCH"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMRT521",
+      "title": "POWER ELECTRONICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMRT522",
+      "title": "DESIGN OF MANUFACTURE"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMRT525",
+      "title": "IOT & APPLICATIONS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMUT522",
+      "title": "AUTOMOTIVE POLLUTION AND CONTROL"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEMUT523",
+      "title": "TRACTORS, FARM EQUIPMENTS AND SPECIAL TYPES OF  VEHICLES"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PENST521",
+      "title": "ELECTRICAL TECHNOLOGY & INSTRUMENTATION"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEPET524",
+      "title": "LOGISTICS & SUPPLY CHAIN  ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEPET525",
+      "title": "DESIGN OF EXPERIMENTS AND  STATISTICAL ANALYSIS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PEPOT525",
+      "title": "POLYMER ELECTROLYTES & GELS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PERAT524",
+      "title": "ADDITIVE MANUFACTURING AND 3D  PRINTING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PERUT521",
+      "title": "ARTIFICIAL INTELLIGENCE FOR ROBOTICS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PERUT525",
+      "title": "ROBOT OPERATING SYSTEM ROS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PERUT526",
+      "title": "INDUSTRIAL ENGINEERING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PESFT521",
+      "title": "NON-DESTRUCTIVE TESTING METHODS"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PESFT522",
+      "title": "SAFETY IN MATERIAL HANDLING"
+    },
+    {
+      "semester": 5,
+      "scheme": 2024,
+      "slot": "E",
+      "date": "2026-12-07",
+      "start": "13:30",
+      "end": "16:00",
+      "code": "PESFT526",
+      "title": "SAFETY IN CONSTRUCTION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AET401",
+      "title": "COMMUNICATION ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AGT401",
+      "title": "IRRIGATION ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AIT401",
+      "title": "FOUNDATIONS OF DEEP LEARNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT401",
+      "title": "COMPUTATIONAL AERODYNAMICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AUT401",
+      "title": "ADVANCED IC ENGINES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BMT401",
+      "title": "PRINCIPLES OF MEDICAL IMAGE PROCESSING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BTT401",
+      "title": "PROCESS EQUIPMENT AND PLANT DESIGN"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CCT401",
+      "title": "ETHICAL HACKING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CDT401",
+      "title": "CONCEPTS IN CLOUD COMPUTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET401",
+      "title": "DESIGN OF STEEL STRUCTURES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CGT401",
+      "title": "ARDUINO PROGRAMMING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT401",
+      "title": "CHEMICAL PROCESS EQUIPMENT DESIGN I"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CIT401",
+      "title": "IOT CLOUD PROCESSING AND ANALYTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CNT401",
+      "title": "ENVIRONMENTAL ENGINEERING II"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST401",
+      "title": "ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CXT401",
+      "title": "USER INTERFACE SOFTWARE AND TECHNOLOGY (UIST)"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EBT401",
+      "title": "PRINCIPLES OF RADIO DIAGNOSIS AND  RADIOTHERAPY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT401",
+      "title": "MICROWAVES AND ANTENNAS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET401",
+      "title": "ADVANCED CONTROL SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EOT401",
+      "title": "CONTROL SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ERT401",
+      "title": "CMOS VLSI  DESIGN"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EVT401",
+      "title": "REAL TIME OPERATING SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FST401",
+      "title": "SAFETY IN PETROLEUM AND PETROCHEMICAL INDUSTRIES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FTT401",
+      "title": "FOOD PROCESSING AND PRESERVATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ICT401",
+      "title": "PLC AND DCS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "IET401",
+      "title": "QUALITY ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT401",
+      "title": "DATA ANALYTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET401",
+      "title": "DESIGN OF MACHINE ELEMENTS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MPT401",
+      "title": "MACHINE DESIGN"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MRT401",
+      "title": "ADVANCED AUTOMATION SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MUT401",
+      "title": "HEAT AND MASS TRANSFER"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "PET401",
+      "title": "INDUSTRIAL ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "POT401",
+      "title": "POLYMER TESTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RAT401",
+      "title": "ALGORITHMS AND DATA STRUCTURES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RIT401",
+      "title": "AI FOR ROBOTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "A",
+      "date": "2026-11-23",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "SBT401",
+      "title": "SHIP DESIGN - II"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ADT453",
+      "title": "INFORMATION EXTRACTION AND RETRIEVAL"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AET423",
+      "title": "SCADA AND DISTRIBUTED CONTROL SYSTEM"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AET433",
+      "title": "ELECTROMAGNETIC INTERFERENCE AND COMPATIBILITY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AET473",
+      "title": "DATA STRUCTURES AND ALGORITHMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AGT433",
+      "title": "REMOTE SENSING AND GIS IN AGRICULTURE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AGT443",
+      "title": "AGRICULTURE WASTE MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AIT453",
+      "title": "GAME PROGRAMMING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT413",
+      "title": "EXPERIMENTAL STRESS ANALYSIS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT433",
+      "title": "ACTUATORS AND CONTROLS IN AIRCRAFT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT443",
+      "title": "FATIGUE AND FRACTURE MECHANICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT453",
+      "title": "WIND TUNNEL TECHNIQUES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT463",
+      "title": "AEROSPACE ENGINEERING AND NAVIGATION INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AUT413",
+      "title": "ALETERNATE ENERGY SOURCES FOR AUTOMOBILE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BMT443",
+      "title": "CLINICAL ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BMT473",
+      "title": "BIOMEDICAL OPTICS AND BIOPHOTONICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BTT423",
+      "title": "GENETIC ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BTT433",
+      "title": "PROTEOMICS AND PROTEIN ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BTT443",
+      "title": "BIO NANOTECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CBT433",
+      "title": "HR MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CCT423",
+      "title": "INTRUTION DETECTION AND PREVENTION SYSTEM"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CCT433",
+      "title": "CLOUD COMPUTING AND SECURITY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CDT423",
+      "title": "CONCEPTS IN ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET413",
+      "title": "PRESTRESSED CONCRETE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET423",
+      "title": "GROUND IMPROVEMENT TECHNIQUES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET433",
+      "title": "HIGHWAY MATERIALS AND DESIGN"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET443",
+      "title": "APPLIED HYDROLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET453",
+      "title": "CONSTRUCTION PLANNING AND MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET463",
+      "title": "ADVANCED ENVIRONMENTAL ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET473",
+      "title": "OPTIMISATION TECHNIQUES IN CIVIL ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CGT423",
+      "title": "FOUNDATIONS OF NETWORK FORENSICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT413",
+      "title": "FOOD PROCESSING AND TECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT433",
+      "title": "PROCESS MODELLING AND SIMULATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT443",
+      "title": "CORROSION ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT453",
+      "title": "PROJECT ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CIT433",
+      "title": "EMBEDDED SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CMT453",
+      "title": "FUNDAMENTALS OF BUSINESS ANALYTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CNT413",
+      "title": "INDUSTRIAL WATER POLLUTION CONTROL"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CNT423",
+      "title": "ENVIRONMENTAL HEALTH AND SAFETY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST413",
+      "title": "MACHINE LEARNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST423",
+      "title": "CLOUD COMPUTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST433",
+      "title": "SECURITY IN COMPUTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST443",
+      "title": "MODEL BASED SOFTWARE DEVELOPMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST463",
+      "title": "WEB PROGRAMMING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST473",
+      "title": "NATURAL LANGUAGE PROCESSING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CXT433",
+      "title": "VIDEO EDITING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CXT453",
+      "title": "DESIGN PROCESS AND PERSPECTIVE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EBT433",
+      "title": "TELEMEDICINE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EBT463",
+      "title": "COMPUTATIONAL METHODS IN BIOMEDICAL ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EBT473",
+      "title": "BIOMEDICAL OPTICS AND BIOPHOTONICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT413",
+      "title": "OPTICAL FIBER COMMUNICATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT423",
+      "title": "COMPUTER NETWORKS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT433",
+      "title": "OPTO-ELECTRONIC DEVICES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT443",
+      "title": "INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT453",
+      "title": "ERROR CONTROL CODES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT463",
+      "title": "MACHINE LEARNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT473",
+      "title": "DSP ARCHITECTURES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET413",
+      "title": "ELECTRIC DRIVES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET423",
+      "title": "DIGITAL CONTROL SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET433",
+      "title": "MODERN OPERATING SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET443",
+      "title": "DATA STRUCTURES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET453",
+      "title": "DIGITAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET463",
+      "title": "ILLUMINATION TECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET473",
+      "title": "DIGITAL PROTECTION OF POWER SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EOT413",
+      "title": "REAL TIME OPERATING SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EOT423",
+      "title": "ENERGY MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ERT423",
+      "title": "INTRODUCTION TO BIOMEDICAL SIGNAL PROCESSING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ERT433",
+      "title": "HYBRID AND ELECTRIC VEHICLES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ERT443",
+      "title": "FORMAL LANGUAGES AND AUTOMATA THEORY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EVT413",
+      "title": "ARM ARCHITECTURE AND PROGRAMMING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EVT443",
+      "title": "INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FST463",
+      "title": "SAFETY IN MATERIAL HANDLING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FTT413",
+      "title": "FOOD PACKAGING TECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FTT433",
+      "title": "NON THERMAL PROCESSING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FTT453",
+      "title": "MEAT AND FISH PROCESSING TECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FTT463",
+      "title": "POST HARVEST PHYSIOLOGY AND SPOILAGE IN FOOD"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ICT423",
+      "title": "INDUSTRIAL PROCESS CONTROL"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ICT443",
+      "title": "REFINERY INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ICT473",
+      "title": "CORROSION CONTROL"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "IET423",
+      "title": "ENTERPRISE RESOURCE PLANNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT413",
+      "title": "MOBILE COMPUTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT423",
+      "title": "ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT433",
+      "title": "OBJECT ORIENTED MODELING AND DESIGN"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT443",
+      "title": "ADVANCED DATABASE MANAGEMENT SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT453",
+      "title": "MACHINE LEARNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET413",
+      "title": "ADVANCED METHODS IN NONDESTRUCTIVE TESTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET423",
+      "title": "OPTIMIZATION TECHNIQUES AND  APPLICATIONS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET443",
+      "title": "AEROSPACE ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET453",
+      "title": "HYBRID AND ELECTRIC VEHICLES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET463",
+      "title": "OPERATIONS MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET473",
+      "title": "AIR CONDITIONING AND REFRIGERATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MRT433",
+      "title": "RENEWABLE ENERGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MRT443",
+      "title": "MANUFACTURING TECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MRT453",
+      "title": "ENTREPRENEURSHIP"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MUT423",
+      "title": "VEHICLE PERFORMANCE AND TESTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MUT433",
+      "title": "TRACTORS AND FARM EQUIPMENTS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MUT463",
+      "title": "AUTOMOTIVE TESTING EQUIPMENTS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "PET413",
+      "title": "NONCONVENTIONAL MACHINING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "PET433",
+      "title": "TQM"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "PET453",
+      "title": "FAILURE OF MATERIALS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "POT453",
+      "title": "PROJECT ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RAT413",
+      "title": "MOBILE ROBOTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RAT423",
+      "title": "PLC AND DISTRIBUTED CONTROL SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RAT433",
+      "title": "THEORY OF ELASTICITY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RAT453",
+      "title": "TRIBOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RIT413",
+      "title": "MOBILE ROBOTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "B",
+      "date": "2026-11-25",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "SBT443",
+      "title": "SHIP PRODUCTION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AET425",
+      "title": "BIOMEDICAL ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AET445",
+      "title": "ROBOTICS AND INDUSTRIAL AUTOMATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AGT445",
+      "title": "FOOD PLANT DESIGN AND MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AOT435",
+      "title": "FLIGHT AGAINST GRAVITY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "AUT425",
+      "title": "HYBRID AND ELECTRIC VEHICLES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BMT415",
+      "title": "BIOMEDICAL INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BMT425",
+      "title": "MEDICAL IMAGING AND IMAGE PROCESSING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BMT435",
+      "title": "ARTIFICIAL ORGANS AND IMPLANTS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BTT435",
+      "title": "SUSTAINABLE ENERGY PROCESS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "BTT445",
+      "title": "OCCUPATIONAL HEALTH AND GENERAL SAFETY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET415",
+      "title": "ENVIRONMENTAL IMPACT ASSESSMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET425",
+      "title": "APPLIED EARTH SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET445",
+      "title": "NATURAL DISASTERS AND MITIGATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET455",
+      "title": "ENVIRONMENTAL HEALTH AND SAFETY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CET465",
+      "title": "GEOINFORMATICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT415",
+      "title": "ENERGY TECHNOLOGY AND ENERGY MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CHT435",
+      "title": "PROCESS SAFETY ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST415",
+      "title": "INTRODUCTION TO MOBILE COMPUTING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST425",
+      "title": "INTRODUCTION TO DEEP LEARNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST435",
+      "title": "COMPUTER GRAPHICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST445",
+      "title": "PYTHON FOR ENGINEERS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "CST455",
+      "title": "OBJECT ORIENTED CONCEPTS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EBT415",
+      "title": "BIOMEDICAL INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT415",
+      "title": "MECHATRONICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT425",
+      "title": "BIOMEDICAL INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT435",
+      "title": "ELECTRONIC HARDWARE FOR ENGINEERS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ECT445",
+      "title": "IOT AND APPLICATIONS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET435",
+      "title": "RENEWABLE ENERGY SYSTEMS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET445",
+      "title": "ELECTRIC VEHICLES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "EET455",
+      "title": "ENERGY MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ERT427",
+      "title": "ROBOTICS AND AUTOMATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ERT455",
+      "title": "CONCEPTS IN MACHINE LEARNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FST425",
+      "title": "SAFETY IN CONSTRUCTION INDUSTRY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "FTT415",
+      "title": "FOOD PROCESS ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ICT415",
+      "title": "ENVIRONMENTAL INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ICT425",
+      "title": "INDUSTRIAL INSTRUMENTATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "IET435",
+      "title": "SYSTEM SIMULATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT415",
+      "title": "WEB DESIGNING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "ITT435",
+      "title": "FREE AND OPEN SOURCE SOFTWARE"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET415",
+      "title": "INTRODUCTION TO BUSINESS ANALYTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET425",
+      "title": "QUANTITATIVE TECHNIQUES FOR ENGINEERS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET435",
+      "title": "AUTOMOTIVE TECHNOLOGY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET445",
+      "title": "RENEWABLE ENERGY ENGINEERING"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MET455",
+      "title": "QUALITY ENGINEERING AND MANAGEMENT"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MPT415",
+      "title": "PRODUCT DEVELOPMENT AND DESIGN"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MPT445",
+      "title": "INDUSTRIAL PSYCHOLOGY AND ORGANISATIONAL BEHAVIOUR"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MRT415",
+      "title": "BASICS OF ROBOTICS AND AUTOMATION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MTT425",
+      "title": "NON DESTRUCTIVE TESTING AND FAILURE ANALYSIS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MUT425",
+      "title": "HYBRID AND ELECTRIC VEHICLES"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "PET425",
+      "title": "CONTEMPORARY MATERIALS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "PET435",
+      "title": "FLIGHT AGAINST GRAVITY"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RAT415",
+      "title": "FUNDAMENTALS OF ROBOTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "RIT415",
+      "title": "FUNDAMENTALS OF ROBOTICS"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "C",
+      "date": "2026-11-27",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "SBT435",
+      "title": "MARINE MATERIALS AND CORROSION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MCN401",
+      "title": "INDUSTRIAL SAFETY ENGINEERING 02.12.2026 Wednesday 9.30am- 12.30pm"
+    }
+  ]
 }
