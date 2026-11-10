@@ -25,6 +25,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install beautifulsoup4 pypdf
+      - name: Extract published S5 and S7 November 2026 PDFs
+        run: |
+          python -m pip install pypdf
+          python scripts/extract_nov_2026_timetables.py
       - name: Discover KTU timetable notices from multiple sources
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
