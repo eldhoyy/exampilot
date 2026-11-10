@@ -46,7 +46,7 @@ export default function Home() {
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#315efb] text-white md:hidden"><GraduationCap size={19}/></div>
             <div><p className="text-sm font-bold text-[#14213d]">Your workspace</p><p className="text-xs text-slate-400">Your academic journey starts here</p></div>
           </div>
-          <div className="flex items-center gap-3"><span className="hidden rounded-full border border-[#e8edf5] px-3 py-2 text-xs font-semibold text-slate-500 sm:inline-flex">KTU · B.Tech</span><div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e9efff] text-sm font-bold text-[#315efb]">E</div></div>
+          <div className="flex items-center gap-2 sm:gap-3"><span className="hidden rounded-full border border-[#e8edf5] px-3 py-2 text-xs font-semibold text-slate-500 sm:inline-flex">KTU · B.Tech</span><Link href="/admin/login" className="inline-flex items-center gap-1.5 rounded-xl border border-[#dce5ff] bg-white px-3 py-2 text-xs font-bold text-[#315efb] transition hover:bg-[#f5f7ff] sm:gap-2 sm:px-3.5 sm:text-sm"><Settings2 size={15}/> Admin</Link><div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e9efff] text-sm font-bold text-[#315efb]">E</div></div>
         </header>
 
         <div className="mx-auto max-w-[1440px] px-5 py-7 sm:px-8 sm:py-9">
