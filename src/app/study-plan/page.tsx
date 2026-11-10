@@ -70,7 +70,9 @@ export default function StudyPlanPage() {
     } finally {setLoading(false);setRefreshing(false);}
   }
 
-  function toggleSubjectIncluded(code:string){
+  const syllabusChoiceCodes=["UCHUT346","UCHUT347"];
+  function toggleSyllabusChoice(code:string){
+    if(!syllabusChoiceCodes.includes(code))return;
     const next=excludedCodes.includes(code)?excludedCodes.filter(item=>item!==code):[...excludedCodes,code];
     setExcludedCodes(next);
     localStorage.setItem("exampilot-excluded-subjects",JSON.stringify(next));
@@ -98,7 +100,7 @@ export default function StudyPlanPage() {
       {error&&<p role="status" className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{error} ExamPilot will not invent exam dates or substitute an unverified timetable.</p>}
       {!loading&&!error&&subjects.length===0&&<p className="mt-3 text-sm leading-6 text-slate-600">No upcoming examination dates were found for this profile.</p>}
       {lastChecked&&<p className="mt-2 text-xs text-slate-400">Loaded {lastChecked} · User-approved PDF timetable and labelled student-entered dates</p>}
-      {getApprovedPapers(profile||{branch:"",semester:"",scheme:""}).map(paper=><div key={"include-"+paper.code} className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-semibold">{paper.code} · {paper.title}</p><p className="text-xs text-slate-500">Slot {paper.slot} · {paper.date}</p></div><button type="button" onClick={()=>toggleSubjectIncluded(paper.code)} className={"rounded-lg px-3 py-2 text-xs font-bold "+(excludedCodes.includes(paper.code)?"bg-slate-100 text-slate-600":"bg-emerald-50 text-emerald-700")}>{excludedCodes.includes(paper.code)?"Not needed · Add back":"Included · Mark not needed"}</button></div>)}
+      {getApprovedPapers(profile||{branch:"",semester:"",scheme:""}).filter(paper=>syllabusChoiceCodes.includes(paper.code)).map(paper=><div key={"syllabus-"+paper.code} className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-semibold">{paper.code} · {paper.title}</p><p className="text-xs text-slate-500">Slot {paper.slot} · {paper.date} · Alternative subject</p></div><button type="button" onClick={()=>toggleSyllabusChoice(paper.code)} className={"rounded-lg px-3 py-2 text-xs font-bold "+(excludedCodes.includes(paper.code)?"bg-slate-100 text-slate-600":"bg-emerald-50 text-emerald-700")}>{excludedCodes.includes(paper.code)?"Not in my syllabus · Add":"In my syllabus · Change"}</button></div>)}
       {upcoming.map(s=><div key={s.id} className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">Exam: {new Date(s.examDate+"T00:00:00").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})} · {s.modules} study blocks</p><p className="mt-1 text-xs font-semibold text-blue-700">{remainingLabel(s.startsAt)}</p></div>{s.sourceUrl?<a href={s.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-emerald-700">{s.sourceTitle||"Source"}</a>:<span className="text-xs font-semibold text-amber-700">{s.sourceTitle||"Student-entered date"}</span>}</div>)}
     </section>
     {subjects.length>0&&<section className="panel mb-5 space-y-4 p-5"><div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Choose difficulty for each subject</h2></div><p className="text-sm text-slate-500">Choose how difficult each subject feels. PDF timetable papers are used directly; any manually entered dates remain clearly marked as student-entered.</p>
