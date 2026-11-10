@@ -33,7 +33,10 @@ export function useStudyData(){
   const planner:StudySubject[]=valid.map(s=>({id:s.id,title:s.title,examDate:s.examDate,difficulty:s.difficulty||"medium",modules:Math.max(1,s.modules||5),completedModules:0}));
   return buildStudyPlan(planner,240,new Date(),50,10) as PlannedTask[];
  },[subjects]);
- const upcoming=useMemo(()=>{\n  const local=subjects.filter(s=>s.examDate>=localDateISO(new Date())).map(s=>({...s,verified:s.verified===true}));\n  const official=profile?.branch&&profile?.semester&&profile?.scheme?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>p.date>=localDateISO(new Date())).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:"medium" as const,modules:5,verified:false,sourceTitle:"User-approved timetable PDF"})):[];\n  return [...local,...official].sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null;\n },[subjects,profile]);
+ const upcoming=useMemo(()=>{
+  const local=subjects.filter(s=>s.examDate>=localDateISO(new Date())).map(s=>({...s,verified:s.verified===true}));
+  const official=profile?.branch&&profile?.semester&&profile?.scheme?getApprovedPapers({branch:profile.branch,semester:profile.semester,scheme:profile.scheme}).filter(p=>p.date>=localDateISO(new Date())).map(p=>({id:p.code,code:p.code,title:p.title,examDate:p.date,difficulty:"medium" as const,modules:5,verified:false,sourceTitle:"User-approved timetable PDF"})):[];
+  return [...local,...official].sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null;\n },[subjects,profile]);
  const completedCount=completed.filter(id=>plan.some((task,i)=>taskKey(task,i)===id)).length;
  const completion=plan.length?Math.round(completedCount/plan.length*100):0;
  const today=localDateISO(new Date());
