@@ -47,7 +47,7 @@ export function buildStudyPlan(
     const date = localDateISO(day);
     let budget = dailyMinutes;
     while (budget >= Math.min(25, focusMinutes)) {
-      const candidates = valid.filter((s) => (remaining.get(s.id) || 0) > 0 && s.examDate >= date);
+      const candidates = valid.filter((s) => (remaining.get(s.id) || 0) > 0 && s.examDate > date);
       if (!candidates.length) break;
       candidates.sort((a, b) => {
         const daysA = Math.max(0.25, (new Date(a.examDate + "T23:59:59").getTime() - day.getTime()) / 86400000);
