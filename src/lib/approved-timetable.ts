@@ -46,7 +46,7 @@ const branches:BranchFamily[] = [
 ];
 
 const sharedCodes = new Set(["GNEST305"]);
-const s3Electives = new Set(["UCHUT346","UCHUT347"]);
+const s3RequiredPapers = new Set(["UCHUT346","UCHUT347"]);
 
 
 function familyFor(branch:string):BranchFamily|undefined {
@@ -66,10 +66,9 @@ export function getApprovedPapers(profile:ProfileLike):ApprovedPaper[] {
  const math=semester===3?family.maths||[]:[];
  return papers.filter(p=>{
    if(p.semester!==semester || p.scheme!==scheme) return false;
-   if(semester===3 && p.slot==="G") return false;
    if(semester===5 && p.slot==="E") return false;
    if(semester===7 && p.slot!=="A") return false;
-   return sharedCodes.has(p.code) || math.includes(p.code) ||
+   return sharedCodes.has(p.code) || (semester===3 && s3RequiredPapers.has(p.code)) || math.includes(p.code) ||
      allowed.some(prefix=>p.code.startsWith(prefix));
  });
 }
@@ -79,7 +78,7 @@ export function getApprovedElectiveGroups(profile:ProfileLike):{slot:string;pape
  const semester=Number(String(profile.semester).match(/\d+/)?.[0]);
  const scheme=Number(String(profile.scheme).match(/\d{4}/)?.[0]);
  if(semester===3 && scheme===2024){
-   return [{slot:"G",papers:papers.filter(p=>p.semester===3&&p.scheme===2024&&s3Electives.has(p.code))}];
+   return [];
  }
  const family=familyFor(profile.branch);
  if(!family) return [];
