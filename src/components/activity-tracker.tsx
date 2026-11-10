@@ -10,7 +10,9 @@ const featureByPath: Record<string, string> = {
   "/study-materials": "study_materials",
   "/ai-tutor": "ai_tutor",
   "/subjects": "subjects",
-  "/onboarding": "onboarding",\n  "/profile": "profile",\n  "/progress": "progress",
+  "/onboarding": "onboarding",
+  "/profile": "profile",
+  "/progress": "progress",
 };
 
 export default function ActivityTracker() {
