@@ -58,8 +58,8 @@ function familyFor(branch:string):BranchFamily|undefined {
 }
 
 export function getApprovedPapers(profile:ProfileLike):ApprovedPaper[] {
- const semester=Number(String(profile.semester).match(/\\d+/)?.[0]);
- const scheme=Number(String(profile.scheme).match(/\\d{4}/)?.[0]);
+ const semester=Number(String(profile.semester).match(/\d+/)?.[0]);
+ const scheme=Number(String(profile.scheme).match(/\d{4}/)?.[0]);
  const family=familyFor(profile.branch);
  if(!family || ![3,5,7].includes(semester)) return [];
  const allowed=semester===3?family.s3:semester===5?family.s5:family.s7;
@@ -76,8 +76,8 @@ export function getApprovedPapers(profile:ProfileLike):ApprovedPaper[] {
 
 /** Returns one-choice-per-slot elective groups from the approved detailed timetable. */
 export function getApprovedElectiveGroups(profile:ProfileLike):{slot:string;papers:ApprovedPaper[]}[] {
- const semester=Number(String(profile.semester).match(/\\d+/)?.[0]);
- const scheme=Number(String(profile.scheme).match(/\\d{4}/)?.[0]);
+ const semester=Number(String(profile.semester).match(/\d+/)?.[0]);
+ const scheme=Number(String(profile.scheme).match(/\d{4}/)?.[0]);
  if(semester===3 && scheme===2024){
    return [{slot:"G",papers:papers.filter(p=>p.semester===3&&p.scheme===2024&&s3Electives.has(p.code))}];
  }
