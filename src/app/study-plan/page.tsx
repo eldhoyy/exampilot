@@ -18,7 +18,7 @@ function remainingLabel(value:string) {
 }
 function localSubjectsFromStorage(saved:Record<string,Difficulty>):PlannerSubject[]{
   try{
-    const rows=JSON.parse(localStorage.getItem("exampilot-subjects")||"[]") as Array<{id?:string;title?:string;code?:string;difficulty?:string;examDate?:string;modules?:number;verified?:boolean}>;
+    const rows=JSON.parse(localStorage.getItem("exampilot-subjects")||"[]") as Array<{id?:string;title?:string;code?:string;difficulty?:string;examDate?:string;modules?:number;verified?:boolean;sourceTitle?:string}>;
     return rows.filter(row=>Boolean(row.title&&row.examDate&&row.examDate.length===10))
       .map((row,index)=>{
         const id=row.id||"local-"+index;
