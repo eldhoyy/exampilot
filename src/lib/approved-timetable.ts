@@ -95,10 +95,3 @@ export function getApprovedElectiveGroups(profile:ProfileLike):{slot:string;pape
  return [];
 }
 
-/** Elective alternatives are exposed separately so the planner never schedules both as compulsory. */
-export function getApprovedElectiveAlternatives(profile:ProfileLike):ApprovedPaper[] {
- const semester=Number(String(profile.semester).match(/\d+/)?.[0]);
- const scheme=Number(String(profile.scheme).match(/\d{4}/)?.[0]);
- if(semester!==3 || scheme!==2024) return [];
- return papers.filter(p=>p.semester===semester && p.scheme===scheme && electiveAlternatives.has(p.code));
-}
