@@ -27,13 +27,14 @@ export default function TimetablePage(){
   useEffect(()=>{
     try {
       const p=JSON.parse(localStorage.getItem("exampilot-profile-draft")||"null") as Profile|null;
-      if(p){setProfile(p);const s=String(p.semester).match(/\\d+/)?.[0];if(s&&sources[s])setSemester(s);}
+      if(p){setProfile(p);const s=String(p.semester).match(/\d+/)?.[0];if(s&&sources[s])setSemester(s);}
       else setError("Complete your academic profile to see your branch-specific timetable.");
     } catch {setError("Could not read your saved academic profile.");}
   },[]);
 
   useEffect(()=>{
     if(!profile)return;
+    const currentProfile=profile;
     let active=true;
     async function load(){
       setLoading(true);setError("");setEvents([]);setBranchSubjects([]);
@@ -43,12 +44,12 @@ export default function TimetablePage(){
         const sem=Number(semester);
         const [{data:schemes,error:se},{data:programmes,error:pe}]=await Promise.all([
           db.from("academic_schemes").select("id").eq("scheme_year",year).eq("is_active",true),
-          db.from("programmes").select("id").eq("short_name",profile.programme)
+          db.from("programmes").select("id").eq("short_name",currentProfile.programme)
         ]);
         if(se)throw se;if(pe)throw pe;
         const schemeId=schemes?.[0]?.id, programmeId=programmes?.[0]?.id;
         if(!schemeId||!programmeId)throw new Error("The selected scheme or programme is not in the academic catalogue yet.");
-        const {data:branches,error:be}=await db.from("branches").select("id").eq("programme_id",programmeId).eq("name",profile.branch);
+        const {data:branches,error:be}=await db.from("branches").select("id").eq("programme_id",programmeId).eq("name",currentProfile.branch);
         if(be)throw be;
         const branchId=branches?.[0]?.id;
         if(!branchId)throw new Error("This branch has not yet been added to the verified curriculum catalogue.");
