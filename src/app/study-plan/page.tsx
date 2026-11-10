@@ -3,12 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, CalendarDays, Clock3, Coffee, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
 import { buildStudyPlan, localDateISO, type Difficulty, type StudySubject } from "@/lib/planner";
 import { getApprovedPapers } from "@/lib/approved-timetable";
 
 type Profile = { name:string; university:string; programme:string; scheme:string; branch:string; semester:string };
-type ExamRow = { id:string; subject_code:string; subject_title:string; starts_at:string; exam_timetables?:{version_label:string|null; timetable_sources?:{source_title:string|null;source_url:string}|null} };
 type PlannerSubject = StudySubject & { code:string; verified:boolean; startsAt:string; sourceTitle?:string; sourceUrl?:string };
 
 function remainingLabel(value:string) {
@@ -62,51 +60,6 @@ export default function StudyPlanPage() {
       setLastChecked(new Date().toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}));
       localStorage.setItem("exampilot-official-exams",JSON.stringify(fromPdf));
       return;
-      const db=createClient();
-      const year=Number(p.scheme);
-      const semester=Number(p.semester.replace(/\D/g,""));
-      const [{data:schemes,error:schemeError},{data:programmes,error:programmeError}]=await Promise.all([
-        db.from("academic_schemes").select("id").eq("scheme_year",year).eq("is_active",true),
-        db.from("programmes").select("id").eq("short_name",p.programme),
-      ]);
-      if(schemeError)throw schemeError;
-      if(programmeError)throw programmeError;
-      const schemeId=schemes?.[0]?.id;
-      const programmeId=programmes?.[0]?.id;
-      if(!schemeId||!programmeId) {setSubjects(localFallback);setError(localFallback.length?"No verified catalogue is available. Showing your student-entered subjects and dates; check them against your timetable.":"No matching verified curriculum catalogue is available for this profile yet.");return;}
-      const {data:branches,error:branchError}=await db.from("branches").select("id").eq("programme_id",programmeId).eq("name",p.branch);
-      if(branchError)throw branchError;
-      const branchId=branches?.[0]?.id;
-      if(!branchId){setSubjects(localFallback);setError(localFallback.length?"This branch is not in the verified catalogue yet. Showing your student-entered subjects and dates; check them against your timetable.":"The verified curriculum for this branch has not been published in ExamPilot yet.");return;}
-
-      const [{data:catalogue,error:catalogueError},{data:events,error:eventsError}]=await Promise.all([
-        db.from("subjects").select("id,subject_code,title,subject_modules(id,module_number,title)").eq("scheme_id",schemeId).eq("branch_id",branchId).eq("semester",semester).eq("verification_status","verified"),
-        db.from("exam_events").select("id,subject_code,subject_title,starts_at,exam_timetables!inner(version_label,scheme_id,programme_id,semester,status,timetable_sources!inner(source_title,source_url,verification_status))").eq("exam_timetables.status","verified").eq("exam_timetables.scheme_id",schemeId).eq("exam_timetables.programme_id",programmeId).eq("exam_timetables.semester",semester).eq("exam_timetables.timetable_sources.verification_status","verified").order("starts_at"),
-      ]);
-      if(catalogueError)throw catalogueError;
-      if(eventsError)throw eventsError;
-      const today=localDateISO(new Date());
-      const official=(events||[] as ExamRow[]).filter((e:ExamRow)=>e.starts_at.slice(0,10)>=today);
-      const branchEvents=official.filter((e:ExamRow)=>catalogue?.some((s:{subject_code:string})=>s.subject_code===e.subject_code));
-      const next=branchEvents.map((e:ExamRow)=>{
-        const match=(catalogue||[]).find((s:{subject_code:string})=>s.subject_code===e.subject_code);
-        const id=match!.id;
-        return {
-          id,title:e.subject_title,code:e.subject_code,examDate:e.starts_at.slice(0,10),startsAt:e.starts_at,
-          difficulty:saved[id]||"medium",modules:Math.max(1,match?.subject_modules?.length||5),
-          completedModules:0,verified:true,
-          sourceTitle:e.exam_timetables?.timetable_sources?.source_title||"Verified timetable source",
-          sourceUrl:e.exam_timetables?.timetable_sources?.source_url||undefined,
-        } as PlannerSubject;
-      });
-      const typedNext: PlannerSubject[] = next;
-      const unique: PlannerSubject[] = typedNext.filter((subject: PlannerSubject, index: number, all: PlannerSubject[]) => all.findIndex((item: PlannerSubject) => item.code === subject.code) === index);
-      const combined=[...unique,...localFallback.filter(local=>!unique.some(official=>official.code===local.code))];
-      setSubjects(combined);
-      if(!unique.length&&localFallback.length)setError("No verified timetable entries were found. Showing your student-entered exam dates; verify them before relying on the plan.");
-      else if(localFallback.length)setError("Student-entered subjects are also included. Those dates are not independently verified.");
-      setLastChecked(new Date().toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}));
-      localStorage.setItem("exampilot-official-exams",JSON.stringify(unique));
     } catch(e) {
       setSubjects(localFallback);
       setError(localFallback.length?"The verified timetable service is unavailable. Showing your student-entered exam dates; verify them before relying on the plan.":(e instanceof Error?e.message:"Could not retrieve the verified university timetable. Please try again."));
