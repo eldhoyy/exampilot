@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";\nimport {motion} from "motion/react";
+import Link from "next/link";
+import {motion} from "motion/react";
 import { usePathname } from "next/navigation";
 import { BookOpen, CalendarDays, GraduationCap, Home, Library, Target, UserRound } from "lucide-react";
 
