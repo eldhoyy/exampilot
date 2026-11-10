@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BookOpen, CalendarDays, Check, Circle, Clock3, Flame, Plus, Target, Timer, Trash2 } from "lucide-react";
 import topicData from "@/data/important-topics.json";
-import { useStudyData } from "@/lib/use-study-data";\nimport CountUp from "@/components/count-up";
+import { useStudyData } from "@/lib/use-study-data";
+import CountUp from "@/components/count-up";
 
 type Topic={module:number;name:string;priority:string;evidence:string};
 type TopicEntry={subject:string;evidence:string;papers:number;topics:Topic[]};
