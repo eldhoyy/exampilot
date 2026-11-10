@@ -235,5 +235,133 @@
         "evidence": "Five Vs is a direct 3-mark question in November 2025; May 2026 asks the significance of statistics for data science."
       }
     ]
+  },
+  "GYMAT301": {
+    "subject": "Mathematics for Electrical Science and Physical Science – 3",
+    "papers": 0,
+    "sourceType": "syllabus",
+    "evidence": "Syllabus-based study checklist for KTU 2024 Scheme. No previous-paper frequency or predicted priority is claimed; every module is represented.",
+    "topics": [
+      {
+        "module": 1,
+        "name": "Fourier integral; Fourier sine and cosine integrals and transforms; Fourier transform and inverse; transforms of derivatives",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 2,
+        "name": "Complex functions; limits, continuity and differentiability; analytic functions; Cauchy–Riemann equations; harmonic functions and conjugates; conformal mappings",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 3,
+        "name": "Complex line integrals; evaluation methods; Cauchy integral theorem; path independence; Cauchy integral formula",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 4,
+        "name": "Taylor and Maclaurin series; Laurent series; singularities and zeros; poles; residues; residue theorem; real integrals using residues",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      }
+    ]
+  },
+  "PCMET303": {
+    "subject": "Fluid Mechanics and Machinery",
+    "papers": 0,
+    "sourceType": "syllabus",
+    "evidence": "Syllabus-based study checklist for KTU 2024 Scheme. No previous-paper frequency or predicted priority is claimed; every module is represented.",
+    "topics": [
+      {
+        "module": 1,
+        "name": "Fluid properties; Newton’s law of viscosity; pressure measurement; manometers; hydrostatic forces on plane and inclined surfaces; centre of pressure; buoyancy and metacentre; stability of floating bodies",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 2,
+        "name": "Fluid kinematics; types of flow; material derivative; streamlines, pathlines and streaklines; stream function and velocity potential; continuity equation; Euler and Bernoulli equations; Pitot tube, orificemeter, venturimeter and notches",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 3,
+        "name": "Laminar and turbulent pipe flow; Reynolds number; Hagen–Poiseuille and Darcy–Weisbach equations; friction and minor losses; Moody chart; hydraulic and energy grade lines; Navier–Stokes equation; Buckingham π theorem; boundary layer and separation",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 4,
+        "name": "Impact of jets on plates and vanes; velocity triangles; Pelton, Francis and Kaplan turbines; centrifugal pumps, priming and cavitation; reciprocating pumps, slip and efficiency",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      }
+    ]
+  },
+  "UCHUT347": {
+    "subject": "Engineering Ethics and Sustainable Development",
+    "papers": 0,
+    "sourceType": "syllabus",
+    "evidence": "Syllabus-based study checklist for KTU 2024 Scheme. No previous-paper frequency or predicted priority is claimed; every module is represented.",
+    "topics": [
+      {
+        "module": 1,
+        "name": "Personal and professional ethics; professionalism; integrity; plagiarism; codes of ethics; confidentiality; cybersecurity; gender identity, gender equity, discrimination and empowerment",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 2,
+        "name": "Environmental ethics; anthropocentrism, biocentrism and ecocentrism; sustainable engineering; triple bottom line; life-cycle analysis; ecosystems, biodiversity and urban ecology",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 3,
+        "name": "Hydrology and water management; water scarcity and pollution; zero-waste principles; reduce, reuse and recycle; circular economy and degrowth; sustainable mobility and e-mobility",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 4,
+        "name": "Renewable energy; sustainable technologies; climate change and engineering resilience; environmental policies and regulations; engineering case studies for sustainability",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      }
+    ]
+  },
+  "UCHUT346": {
+    "subject": "Economics for Engineers",
+    "papers": 0,
+    "sourceType": "syllabus",
+    "evidence": "Syllabus-based study checklist for KTU 2024 Scheme. No previous-paper frequency or predicted priority is claimed; every module is represented.",
+    "topics": [
+      {
+        "module": 1,
+        "name": "Basic economic problems; production possibility curve; utility; demand and supply; elasticity; equilibrium; production function; law of variable proportions; economies of scale",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 2,
+        "name": "Cost and revenue concepts; explicit, implicit, sunk and opportunity costs; short-run cost curves; firm objectives; market structures and equilibrium",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 3,
+        "name": "Money and banking; inflation and control measures; monetary and fiscal policy; taxation and GST; national income; circular flow; stock markets, Sensex and Nifty",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      },
+      {
+        "module": 4,
+        "name": "Value analysis and value engineering; value types; break-even analysis; cost-benefit analysis; capital budgeting; process planning",
+        "priority": "Syllabus focus",
+        "evidence": "Included from the published 2024 Scheme module syllabus; revise the complete module."
+      }
+    ]
   }
 }
