@@ -52,7 +52,7 @@ export function useStudyData(){
  const today=localDateISO(new Date());
  const todayTasks=plan.map((task,index)=>({...task,key:taskKey(task,index),done:completed.includes(taskKey(task,index))})).filter(task=>task.date===today);
  const weekSeconds=sessions.filter(s=>{const day=new Date(s.date+"T00:00:00");const start=new Date();start.setDate(start.getDate()-6);start.setHours(0,0,0,0);return day>=start&&day<=new Date();}).reduce((sum,s)=>sum+s.seconds,0);
- const streak=useMemo(()=>{const days=new Set(sessions.filter(s=>s.seconds>=60).map(s=>s.date));let cursor=new Date();if(!days.has(localDateISO(cursor)))cursor.setDate(cursor.getDate()-1);let n=0;while(days.has(localDateISO(cursor))){n++;cursor.setDate(cursor.getDate()-1)}return n},[sessions]);
+ const streak=useMemo(()=>{const days=new Set(sessions.filter(s=>s.seconds>=60).map(s=>s.date));const cursor=new Date();if(!days.has(localDateISO(cursor)))cursor.setDate(cursor.getDate()-1);let n=0;while(days.has(localDateISO(cursor))){n++;cursor.setDate(cursor.getDate()-1)}return n},[sessions]);
  function toggleTask(key:string){const next=completed.includes(key)?completed.filter(item=>item!==key):[...completed,key];setCompleted(next);localStorage.setItem(DONE_KEY,JSON.stringify(next))}
  function loadDemo(){
   const rows:SavedSubject[]=[
