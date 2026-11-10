@@ -5564,6 +5564,16 @@
       "end": "12:30",
       "code": "SBT435",
       "title": "MARINE MATERIALS AND CORROSION"
+    },
+    {
+      "semester": 7,
+      "scheme": 2019,
+      "slot": "D",
+      "date": "2026-12-02",
+      "start": "09:30",
+      "end": "12:30",
+      "code": "MCN401",
+      "title": "INDUSTRIAL SAFETY ENGINEERING"
     }
   ]
 }
