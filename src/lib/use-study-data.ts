@@ -22,10 +22,11 @@ export function useStudyData(){
  const [excludedCodes,setExcludedCodes]=useState<string[]>([]);
  const [difficultyMap,setDifficultyMap]=useState<Record<string,"easy"|"medium"|"hard">>({});
  useEffect(()=>{
+  const parse=<T,>(key:string,fallback:T):T=>{try{const value=localStorage.getItem(key);return value?JSON.parse(value) as T:fallback}catch{return fallback}};
+  const refreshSessions=()=>setSessions(parse<SavedSession[]>(SESSION_KEY,[]));
   try{
-   const parse=<T,>(key:string,fallback:T):T=>{try{const value=localStorage.getItem(key);return value?JSON.parse(value) as T:fallback}catch{return fallback}};
    setSubjects(parse<SavedSubject[]>("exampilot-subjects",[]));
-   setSessions(parse<SavedSession[]>(SESSION_KEY,[]));
+   refreshSessions();
    setProfile(parse<StudentProfile|null>("exampilot-profile-draft",null));
    setCompleted(parse<string[]>(DONE_KEY,[]));
    setDemo(localStorage.getItem("exampilot-demo-data")==="yes");
@@ -33,6 +34,9 @@ export function useStudyData(){
    setExcludedCodes(parse<string[]>("exampilot-excluded-subjects",[]));
    setDifficultyMap(parse<Record<string,"easy"|"medium"|"hard">>("exampilot-difficulty",{}));
   }finally{setReady(true)}
+  window.addEventListener("exampilot:study-sessions-updated",refreshSessions);
+  window.addEventListener("storage",refreshSessions);
+  return ()=>{window.removeEventListener("exampilot:study-sessions-updated",refreshSessions);window.removeEventListener("storage",refreshSessions)};
  },[]);
  const allSubjects=useMemo(()=>{
   const localCodes=new Set(subjects.map(s=>s.code).filter(Boolean));
