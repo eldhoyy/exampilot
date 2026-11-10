@@ -4,10 +4,13 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, CalendarDays, ExternalLink, ShieldCheck, AlertTriangle } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
+import timetableData from "@/data/november-2026-timetables.json";
 
 type Profile = { university:string; programme:string; scheme:string; branch:string; semester:string };
 type ExamEvent = { id:string; subject_id:string|null; subject_code:string; subject_title:string; starts_at:string; ends_at:string|null; exam_timetables?: { version_label:string|null; exam_session:string; timetable_sources?: { source_title:string|null; source_url:string }|null } };
 type Subject = { id:string; subject_code:string; title:string };
+type PublishedPaper = { semester:number; scheme:number; slot:string; date:string; start:string; end:string; code:string; title:string };
+const publishedPapers = timetableData.exams as PublishedPaper[];
 
 const sources:Record<string,{scheme:string;url:string;label:string}> = {
   "3":{scheme:"2024",url:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s3-r-s-examinations-november-20-1794048058.pdf",label:"KTU Notes · S3 November 2026"},
@@ -21,6 +24,7 @@ export default function TimetablePage(){
   const [events,setEvents]=useState<ExamEvent[]>([]);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState("");
+  const [paperSearch,setPaperSearch]=useState("");
   const [branchSubjects,setBranchSubjects]=useState<Subject[]>([]);
   const selected=sources[semester];
 
@@ -70,6 +74,7 @@ export default function TimetablePage(){
   },[profile,semester,selected.scheme]);
 
   const source=selected;
+  const extractedPapers=publishedPapers.filter(p=>p.semester===Number(semester) && p.scheme===Number(selected.scheme) && (paperSearch.trim()==="" || (p.code+" "+p.title).toLowerCase().includes(paperSearch.trim().toLowerCase())));
   const subjectMap=useMemo(()=>new Map(branchSubjects.map(s=>[s.id,s])),[branchSubjects]);
   return <main className="min-h-screen px-4 py-7 sm:px-8"><div className="mx-auto max-w-4xl">
     <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link>
@@ -85,7 +90,15 @@ export default function TimetablePage(){
       {error&&<p role="status" className="mt-4 flex gap-2 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900"><AlertTriangle size={16} className="mt-0.5 shrink-0"/>{error}</p>}
       <a href={source.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-700">Open source timetable PDF <ExternalLink size={15}/></a>
     </section>
-    <p className="mt-4 text-xs leading-5 text-slate-500">Source document: {source.label}. Exam dates are shown only when verified database records match the selected branch and scheme. Check for later revisions.</p>
+    <section className="panel mt-5 p-5">
+      <div className="flex flex-wrap items-center justify-between gap-2"><div><p className="eyebrow">EXTRACTED PDF DATA</p><h2 className="mt-1 text-xl font-extrabold">Published S{semester} course timetable</h2></div><span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">{extractedPapers.length} papers</span></div>
+      <p className="mt-2 text-sm leading-6 text-slate-500">Course codes and titles are transcribed from the uploaded KTU-issued PDF. This consolidated list is not yet matched to your branch curriculum.</p>
+      <input value={paperSearch} onChange={e=>setPaperSearch(e.target.value)} placeholder="Search course code or title…" className="mt-4 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500"/>
+      <div className="mt-4 divide-y divide-slate-100">{extractedPapers.map(p=><div key={p.code} className="flex flex-wrap items-center gap-3 py-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{p.code} · {p.title}</p><p className="mt-1 text-xs text-slate-500">Slot {p.slot} · {new Date(p.date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"})}</p></div><span className="whitespace-nowrap text-xs font-semibold text-slate-600">{p.start}–{p.end}</span></div>)}</div>
+      {!extractedPapers.length&&<p className="py-6 text-center text-sm text-slate-500">No course matches that search.</p>}
+      <p className="mt-3 text-xs text-slate-400">Notification dated 7 November 2026 · Source: KTU Notes-hosted KTU notification PDF. Confirm later revisions before relying on dates.</p>
+    </section>
+    <p className="mt-4 text-xs leading-5 text-slate-500">Source document: {source.label}. The verified branch-specific list above still depends on matching these papers to the verified curriculum catalogue.</p>
     <Link href="/study-plan" className="mt-5 inline-flex rounded-xl bg-[#14213d] px-4 py-3 text-sm font-bold text-white">Open my connected study plan →</Link>
   </div></main>;
 }
