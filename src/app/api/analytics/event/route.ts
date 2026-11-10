@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
 export const runtime = "nodejs";
-const allowedFeatures = new Set(["home","study_plan","timetable","study_materials","ai_tutor","subjects","onboarding"]);
+const allowedFeatures = new Set(["home","study_plan","timetable","study_materials","ai_tutor","subjects","onboarding","profile","progress"]);
 const RATE_WINDOW=60_000;const RATE_MAX=30;
 const requests=new Map<string,{count:number;start:number}>();
 function clientIp(request:Request){return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()||request.headers.get("x-real-ip")||"unknown"}
