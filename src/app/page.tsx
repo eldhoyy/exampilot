@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import {
@@ -16,6 +19,21 @@ const navItems = [
 ];
 
 export default function Home() {
+  const [greeting,setGreeting] = useState("Hello");
+  const [quote,setQuote] = useState("Small progress is still progress.");
+  useEffect(() => {
+    const hour = new Date().getHours();
+    setGreeting(hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : hour < 21 ? "Good evening" : "Good night");
+    const quotes = [
+      "You do not have to be perfect. You just have to begin.",
+      "One focused hour today can make tomorrow easier.",
+      "Small progress, repeated daily, becomes remarkable progress.",
+      "Your future self is built by what you do today.",
+      "Consistency beats last-minute intensity."
+    ];
+    const day = Math.floor(Date.now() / 86400000);
+    setQuote(quotes[day % quotes.length]);
+  }, []);
   return (
     <div className="app-shell flex">
       <aside className="sidebar hidden min-h-screen shrink-0 flex-col px-5 py-6 md:flex">
@@ -51,7 +69,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-[1440px] px-5 py-7 sm:px-8 sm:py-9">
           <section className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-            <div><p className="mb-2 text-sm font-semibold text-[#315efb]">YOUR EXAM PREPARATION, IN ONE PLACE</p><h1 className="text-3xl font-extrabold tracking-tight text-[#14213d] sm:text-[38px]">Good evening<span className="text-[#315efb]">.</span></h1><p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">Build a study routine that fits your exams, your subjects and your pace.</p></div>
+            <div><p className="mb-2 text-sm font-semibold text-[#315efb]">YOUR EXAM PREPARATION, IN ONE PLACE</p><h1 className="text-3xl font-extrabold tracking-tight text-[#14213d] sm:text-[38px]">{greeting}<span className="text-[#315efb]">.</span></h1><p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">Build a study routine that fits your exams, your subjects and your pace.</p><p className="mt-4 max-w-xl border-l-2 border-[#315efb] pl-3 text-sm font-semibold italic leading-6 text-[#52617b]">“{quote}”</p></div>
             <Link href="/onboarding" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#315efb] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-[#244fe8]"><Plus size={17}/> Set up my study plan</Link>
           </section>
 
