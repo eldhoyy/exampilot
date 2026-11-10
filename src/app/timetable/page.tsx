@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, CalendarDays, ExternalLink, Search } from "lucide-react";
-import { getApprovedPapers } from "@/lib/approved-timetable";
+import { getApprovedPapers, getApprovedElectiveAlternatives } from "@/lib/approved-timetable";
 
 type Profile = { university:string; programme:string; scheme:string; branch:string; semester:string };
 const sources:Record<string,{scheme:string;url:string;label:string}> = {
@@ -19,6 +19,8 @@ export default function TimetablePage(){
  const activeProfile=profile?{...profile,semester,scheme:sources[semester]?.scheme||profile.scheme}:null;
  const papers=useMemo(()=>activeProfile?getApprovedPapers(activeProfile):[],[activeProfile]);
  const visible=papers.filter(p=>(p.code+" "+p.title).toLowerCase().includes(query.toLowerCase()));
+ const electiveAlternatives=useMemo(()=>activeProfile?getApprovedElectiveAlternatives(activeProfile):[],[activeProfile]);
+ const visibleElectives=electiveAlternatives.filter(p=>(p.code+" "+p.title).toLowerCase().includes(query.toLowerCase()));
  const source=sources[semester];
  return <main className="min-h-screen px-4 py-7 sm:px-8"><div className="mx-auto max-w-4xl">
   <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm font-semibold text-slate-500"><ArrowLeft size={16}/> Dashboard</Link>
@@ -33,6 +35,7 @@ export default function TimetablePage(){
    {!visible.length&&<p className="py-6 text-sm text-amber-800">{profile?"No paper matched this branch name. You can still open the complete PDF below.":"Complete your academic profile to filter the timetable."}</p>}
    <a href={source.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-700">Open original {source.label} <ExternalLink size={15}/></a>
   </section>
+  {visibleElectives.length>0&&<section className="panel mt-5 p-5"><div className="flex items-center gap-2"><CalendarDays className="text-amber-600" size={18}/><h2 className="font-bold">Elective choice — one paper only</h2></div><p className="mt-2 text-sm leading-6 text-slate-500">The S3 timetable lists Economics for Engineers and Engineering Ethics and Sustainable Development in the same slot. They are alternatives, not two compulsory papers. Choose the one registered by your college.</p><div className="mt-3 divide-y divide-slate-100">{visibleElectives.map(p=><div key={p.code} className="py-3"><p className="text-sm font-bold">{p.code} · {p.title}</p><p className="mt-1 text-xs text-slate-500">Slot {p.slot} · {new Date(p.date+"T00:00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short",year:"numeric"})} · {p.start}–{p.end}</p></div>)}</div></section>}
   <Link href="/study-plan" className="mt-5 inline-flex rounded-xl bg-[#14213d] px-4 py-3 text-sm font-bold text-white">Open my connected study plan →</Link>
  </div></main>;
 }
