@@ -48,7 +48,9 @@ export function useStudyData(){
  const plan=useMemo(()=>{
   const valid=allSubjects.filter(s=>s.title&&s.examDate);
   const planner:StudySubject[]=valid.map(s=>({id:s.id,title:s.title,examDate:s.examDate,difficulty:s.difficulty||"medium",modules:Math.max(1,s.modules||5),completedModules:0}));
-  return buildStudyPlan(planner,240,new Date(planStartDate+"T00:00:00"),50,10) as PlannedTask[];
+  const today=localDateISO(new Date());
+  const effectiveStart=planStartDate<today?today:planStartDate;
+  return buildStudyPlan(planner,240,new Date(effectiveStart+"T00:00:00"),50,10) as PlannedTask[];
  },[allSubjects,planStartDate]);
  const upcoming=useMemo(()=>allSubjects.filter(s=>s.examDate>=localDateISO(new Date())).sort((a,b)=>a.examDate.localeCompare(b.examDate))[0]||null,[allSubjects]);
  const completedCount=completed.filter(id=>plan.some((task,i)=>taskKey(task,i)===id)).length;
