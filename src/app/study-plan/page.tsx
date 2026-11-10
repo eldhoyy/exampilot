@@ -44,7 +44,10 @@ export default function StudyPlanPage() {
       setProfile(p);
       const saved=JSON.parse(localStorage.getItem("exampilot-difficulty")||"{}") as Record<string,Difficulty>;
       setDifficulty(saved);
-      setExcludedCodes(JSON.parse(localStorage.getItem("exampilot-excluded-subjects")||"[]") as string[]);
+      const savedExclusions=JSON.parse(localStorage.getItem("exampilot-excluded-subjects")||"[]") as string[];
+      const syllabusExclusions=savedExclusions.filter(code=>code==="UCHUT346"||code==="UCHUT347");
+      setExcludedCodes(syllabusExclusions);
+      localStorage.setItem("exampilot-excluded-subjects",JSON.stringify(syllabusExclusions));
       void loadOfficial(p,saved);
     } catch {setError("Could not read your saved academic profile.");setLoading(false);}
   },[]);
@@ -54,7 +57,7 @@ export default function StudyPlanPage() {
     setError("");
     const localFallback=localSubjectsFromStorage(saved);
     try {
-      const excluded=JSON.parse(localStorage.getItem("exampilot-excluded-subjects")||"[]") as string[];
+      const excluded=(JSON.parse(localStorage.getItem("exampilot-excluded-subjects")||"[]") as string[]).filter(code=>code==="UCHUT346"||code==="UCHUT347");
       const approved=getApprovedPapers(p).filter(paper=>!excluded.includes(paper.code));
       const pdfUrls:Record<number,string>={3:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s3-r-s-examinations-november-20-1794048058.pdf",5:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-time-table-of-b-tech-s5-r-exam-november-2026-includ-1794048414.pdf",7:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s7-r-s-examinations-november-20-1794048779.pdf"};
       const fromPdf:PlannerSubject[]=approved.map(paper=>({id:paper.code,code:paper.code,title:paper.title,examDate:paper.date,startsAt:paper.date+"T"+paper.start+":00+05:30",difficulty:saved[paper.code]||"medium",modules:5,completedModules:0,verified:false,sourceTitle:"User-approved timetable PDF",sourceUrl:pdfUrls[Number(p.semester.replace(/\\D/g,""))]}));
