@@ -31,6 +31,7 @@ export default function StudyPlanPage() {
   const [profile,setProfile]=useState<Profile|null>(null);
   const [subjects,setSubjects]=useState<PlannerSubject[]>([]);
   const [difficulty,setDifficulty]=useState<Record<string,Difficulty>>({});
+  const [excludedCodes,setExcludedCodes]=useState<string[]>([]);
    const [loading,setLoading]=useState(true);
   const [refreshing,setRefreshing]=useState(false);
   const [error,setError]=useState("");
@@ -43,6 +44,7 @@ export default function StudyPlanPage() {
       setProfile(p);
       const saved=JSON.parse(localStorage.getItem("exampilot-difficulty")||"{}") as Record<string,Difficulty>;
       setDifficulty(saved);
+      setExcludedCodes(JSON.parse(localStorage.getItem("exampilot-excluded-subjects")||"[]") as string[]);
       void loadOfficial(p,saved);
     } catch {setError("Could not read your saved academic profile.");setLoading(false);}
   },[]);
@@ -52,7 +54,8 @@ export default function StudyPlanPage() {
     setError("");
     const localFallback=localSubjectsFromStorage(saved);
     try {
-      const approved=getApprovedPapers(p);
+      const excluded=JSON.parse(localStorage.getItem("exampilot-excluded-subjects")||"[]") as string[];
+      const approved=getApprovedPapers(p).filter(paper=>!excluded.includes(paper.code));
       const pdfUrls:Record<number,string>={3:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s3-r-s-examinations-november-20-1794048058.pdf",5:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-time-table-of-b-tech-s5-r-exam-november-2026-includ-1794048414.pdf",7:"https://objectstorage.ap-hyderabad-1.oraclecloud.com/n/axpwhs6wi8wr/b/ktunotes-files/o/notifications/2026/11/detailed-timetable-of-b-tech-s7-r-s-examinations-november-20-1794048779.pdf"};
       const fromPdf:PlannerSubject[]=approved.map(paper=>({id:paper.code,code:paper.code,title:paper.title,examDate:paper.date,startsAt:paper.date+"T"+paper.start+":00+05:30",difficulty:saved[paper.code]||"medium",modules:5,completedModules:0,verified:false,sourceTitle:"User-approved timetable PDF",sourceUrl:pdfUrls[Number(p.semester.replace(/\\D/g,""))]}));
       const combined=[...fromPdf,...localFallback.filter(local=>!fromPdf.some(item=>item.code===local.code))];
@@ -65,6 +68,13 @@ export default function StudyPlanPage() {
       setSubjects(localFallback);
       setError(localFallback.length?"The timetable could not be loaded. Showing your student-entered exam dates.":(e instanceof Error?e.message:"Could not retrieve the verified university timetable. Please try again."));
     } finally {setLoading(false);setRefreshing(false);}
+  }
+
+  function toggleSubjectIncluded(code:string){
+    const next=excludedCodes.includes(code)?excludedCodes.filter(item=>item!==code):[...excludedCodes,code];
+    setExcludedCodes(next);
+    localStorage.setItem("exampilot-excluded-subjects",JSON.stringify(next));
+    if(profile) void loadOfficial(profile,difficulty,true);
   }
 
   function setSubjectDifficulty(id:string,value:Difficulty) {
@@ -88,6 +98,7 @@ export default function StudyPlanPage() {
       {error&&<p role="status" className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{error} ExamPilot will not invent exam dates or substitute an unverified timetable.</p>}
       {!loading&&!error&&subjects.length===0&&<p className="mt-3 text-sm leading-6 text-slate-600">No upcoming examination dates were found for this profile.</p>}
       {lastChecked&&<p className="mt-2 text-xs text-slate-400">Loaded {lastChecked} · User-approved PDF timetable and labelled student-entered dates</p>}
+      {getApprovedPapers(profile||{branch:"",semester:"",scheme:""}).map(paper=><div key={"include-"+paper.code} className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-semibold">{paper.code} · {paper.title}</p><p className="text-xs text-slate-500">Slot {paper.slot} · {paper.date}</p></div><button type="button" onClick={()=>toggleSubjectIncluded(paper.code)} className={"rounded-lg px-3 py-2 text-xs font-bold "+(excludedCodes.includes(paper.code)?"bg-slate-100 text-slate-600":"bg-emerald-50 text-emerald-700")}>{excludedCodes.includes(paper.code)?"Not needed · Add back":"Included · Mark not needed"}</button></div>)}
       {upcoming.map(s=><div key={s.id} className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-100 p-3"><div className="min-w-0 flex-1"><p className="text-sm font-bold">{s.code} · {s.title}</p><p className="text-xs text-slate-500">Exam: {new Date(s.examDate+"T00:00:00").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})} · {s.modules} study blocks</p><p className="mt-1 text-xs font-semibold text-blue-700">{remainingLabel(s.startsAt)}</p></div>{s.sourceUrl?<a href={s.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-emerald-700">{s.sourceTitle||"Source"}</a>:<span className="text-xs font-semibold text-amber-700">{s.sourceTitle||"Student-entered date"}</span>}</div>)}
     </section>
     {subjects.length>0&&<section className="panel mb-5 space-y-4 p-5"><div className="flex items-center gap-2"><BookOpen size={18} className="text-blue-600"/><h2 className="font-bold">Choose difficulty for each subject</h2></div><p className="text-sm text-slate-500">Choose how difficult each subject feels. PDF timetable papers are used directly; any manually entered dates remain clearly marked as student-entered.</p>
