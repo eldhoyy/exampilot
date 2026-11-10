@@ -11,7 +11,7 @@ const branches = [
   "Electrical and Electronics Engineering", "Electronics and Communication Engineering",
   "Artificial Intelligence and Data Science", "Artificial Intelligence and Machine Learning",
   "Automobile Engineering", "Chemical Engineering", "Biomedical Engineering",
-  "Information Technology", "Other",
+  "Information Technology", "Electronics and Instrumentation Engineering", "Aerospace Engineering", "Agricultural Engineering", "Biotechnology", "Food Technology", "Naval Architecture and Ship Building", "Polymer Engineering", "Fire and Safety Engineering", "Robotics and Automation", "Mechatronics Engineering", "Production Engineering", "Other",
 ];
 
 export default function OnboardingPage() {
