@@ -56,10 +56,9 @@ export function useStudyData(){
  function toggleTask(key:string){const next=completed.includes(key)?completed.filter(item=>item!==key):[...completed,key];setCompleted(next);localStorage.setItem(DONE_KEY,JSON.stringify(next))}
  function loadDemo(){
   const rows:SavedSubject[]=[
-   {id:"demo-pcmet501",code:"PCMET501",title:"Dynamics of Machinery",difficulty:"hard",examDate:"2026-11-23",modules:5,verified:true,sourceTitle:"Demo · November 2026 KTU timetable"},
+   {id:"demo-pcmet501",code:"PCMET501",title:"Dynamics of Machinery",difficulty:"hard",examDate:"2026-11-23",modules:5,verified:false,sourceTitle:"Demo · supplied timetable data"},
    {id:"demo-pcmet502",code:"PCMET502",title:"Advanced Manufacturing Engineering",difficulty:"medium",examDate:"2026-11-27",modules:5,verified:true,sourceTitle:"Demo · November 2026 KTU timetable"},
-   {id:"demo-pcmet503",code:"PCMET503",title:"Mechanical Measurements and Quality Control",difficulty:"medium",examDate:"2026-12-01",modules:5,verified:true,sourceTitle:"Demo · November 2026 KTU timetable"},
-   {id:"demo-pcmet504",code:"PCMET504",title:"Computer Aided Design and Manufacturing",difficulty:"easy",examDate:"2026-12-03",modules:5,verified:true,sourceTitle:"Demo · November 2026 KTU timetable"}
+   {id:"demo-pcmet503",code:"PCMET503",title:"Heat and Mass Transfer",difficulty:"medium",examDate:"2026-12-01",modules:5,verified:false,sourceTitle:"Demo · supplied timetable data"},
   ];
   localStorage.setItem("exampilot-subjects",JSON.stringify(rows));
   localStorage.setItem("exampilot-demo-data","yes");
